@@ -6,7 +6,7 @@ import { JavaFiles } from "@atomist/automation-client/operations/generate/java/j
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
 import { TreeVisitor, visit } from "@atomist/automation-client/tree/TreeNode";
-import { JavaFileParser } from "../../../../src/tree/ast/antlr/java/JavaFileParser";
+import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
 
 describe("java grammar", () => {
 
