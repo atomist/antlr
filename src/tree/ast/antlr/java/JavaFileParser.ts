@@ -3,6 +3,7 @@ import { File } from "@atomist/automation-client/project/File";
 import { logger } from "@atomist/automation-client/internal/util/logger";
 
 import { FileParser } from "@atomist/automation-client/tree/ast/FileParser";
+import { fillInEmptyNonTerminalValues } from "@atomist/automation-client/tree/enrichment";
 import { TreeNode } from "@atomist/automation-client/tree/TreeNode";
 import { ANTLRInputStream, CommonTokenStream } from "antlr4ts";
 import { TreeBuildingListener } from "../TreeBuildingListener";
@@ -30,7 +31,9 @@ export const JavaFileParser: FileParser = {
                     i => JavaParser.ruleNames[i],
                     i => (JavaLexer as any)._SYMBOLIC_NAMES[i]);
                 parser.addParseListener(mbl);
-                parser.compilationUnit();
+                const cu = parser.compilationUnit();
+                // logger.debug(cu.toStringTree());
+                fillInEmptyNonTerminalValues(mbl.root, content);
                 return mbl.root;
             });
     },

@@ -14,7 +14,7 @@ describe("java grammar", () => {
         const f = new InMemoryFile("src/main/java/Foo.java", "import foo.bar.Baz;\npublic class Foo { int i = 5;}");
         JavaFileParser.toAst(f)
             .then(root => {
-                console.log(JSON.stringify(root, null, 2));
+                // console.log(JSON.stringify(root, null, 2));
                 done();
             }).catch(done);
     });
@@ -27,13 +27,11 @@ describe("java grammar", () => {
             .then(root => {
                 let minOffset = -1;
                 const v: TreeVisitor = tn => {
-                    console.log(tn.$name + "=" + tn.$value + ",offset=" + tn.$offset);
                     assert(tn.$offset !== undefined);
                     assert(tn.$offset >= minOffset, `Must have position for ${JSON.stringify(tn)}`);
                     if (!!tn.$value) {
                         ++terminalCount;
                         // It's a terminal
-                        console.log("Validating terminal");
                         assert(content.substr(tn.$offset, tn.$value.length) === tn.$value);
                     }
                     minOffset = tn.$offset;
@@ -102,6 +100,29 @@ describe("java grammar", () => {
                     assert(f.getContentSync() === content
                         .replace("int i", "int xi")
                         .replace("float x", "float flibbertygibbit"),
+                        `Erroneous content: [${f.getContentSync()}]`);
+                    done();
+                });
+            }).catch(done);
+    });
+
+    it("should get into AST and update single non-terminal", done => {
+        const path = "src/main/java/Foo.java";
+        const variableDeclaration = "int i = 5";
+        const content = `import foo.bar.Baz;\npublic class Foo { ${variableDeclaration};}`;
+        const p = InMemoryProject.of(
+            {path, content});
+        findFileMatches(p, JavaFiles, JavaFileParser, "//fieldDeclaration")
+            .then(fm => {
+                assert(fm.length === 1);
+                const varDecl = fm[0].matches[0];
+                assert(varDecl.$offset === content.indexOf(variableDeclaration));
+                assert(varDecl.$value === variableDeclaration);
+                const newVariableDeclaration = 'String thing = "that"';
+                varDecl.$value = newVariableDeclaration;
+                p.flush().then(_ => {
+                    const f = p.findFileSync(path);
+                    assert(f.getContentSync() === content.replace(variableDeclaration, newVariableDeclaration),
                         `Erroneous content: [${f.getContentSync()}]`);
                     done();
                 });

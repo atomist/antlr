@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Atomist client integration with ANTLR for TS",
   "dependencies": {
-    "@atomist/automation-client": "^0.1.39",
+    "@atomist/automation-client": "^0.1.40",
     "antlr4ts": "^0.4.1-alpha.0"
   },
   "devDependencies": {
@@ -27,16 +27,15 @@
   "scripts": {
     "autotest": "supervisor -q -n exit -e ts -x npm -- run test",
     "clean": "rm -f *-v8.log; rm -f profile.txt; rm -rf build; rm -rf target",
-    "compile": "npm run gql:gen && tsc -p .",
+    "compile": "npm run tsc -p .",
     "fmt": "tsfmt --replace",
-    "lint": "tslint '**/*.ts' --exclude 'node_modules/**' --exclude 'build/**' -t verbose",
-    "lint-fix": "tslint --fix '**/*.ts' --exclude 'node_modules/**' --exclude 'build/**' --exclude src/**/antlr-gen/** -t verbose",
+    "lint": "tslint '**/*.ts' --exclude 'node_modules/**' --exclude 'build/**' --exclude 'src/**/antlr-gen/**' -t verbose",
+    "lint-fix": "tslint --fix '**/*.ts' --exclude 'node_modules/**' --exclude 'build/**' --exclude 'src/**/antlr-gen/**' -t verbose",
     "testone": "mocha --compilers ts:espower-typescript/guess \"test/**/${TEST:-*.ts}\"",
     "test": "mocha --compilers ts:espower-typescript/guess \"test/**/*.ts\"",
     "start": "npm run compile && $(npm bin)/atomist-client --open=true",
     "autostart": "npm-run-all --parallel watch:build watch:server --print-label",
     "watch:build": "tsc --watch",
-    "watch:server": "nodemon node_modules/@atomist/automation-client/start.client.js --watch './build'",
     "antlr4ts": "antlr4ts -visitor grammars/antlr/Java.g4"
   },
   "author": "Atomist, Inc.",
