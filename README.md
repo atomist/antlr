@@ -2,9 +2,10 @@
 
 Integration with [ANTLR for TypeScript](https://github.com/tunnelvisionlabs/antlr4ts) for Atomist automation [clients](https://github.com/atomist/automation-client-ts).
 
-Includes Java support, in the `JavaFileParser` implementation of `FileParser`.
-This enables running path expressions against Java files in
-a consistent manner to other grammars.
+This enables running path expressions against ANTLR ASTs in
+a consistent manner to ASTs produced by other grammars.
+
+Includes Java support, in the `JavaFileParser` implementation of `FileParser`, as an example, test and for actual Java support. However, most ANTLR grammars can be integrated with Atomist using this project, including offering a simple update model with clean diffs.
 
 See [overall path expression documentation](https://github.com/atomist/automation-client-ts/blob/master/docs/PathExpressions.md).
 
@@ -33,10 +34,12 @@ findMatches(project, JavaFiles, JavaFileParser,
 ```
 Returned matches are updatable after project flushing.
 
-## SPI: Integrating with other ANTLR grammars
-This project includes support for Java using the [Java ANTLR grammar](../src/tree/ast/antlr/java/Java.g4).
+## SPI: Supporting other ANTLR grammars
+This project includes support for parsing Java using the [Java ANTLR grammar](../src/tree/ast/antlr/java/Java.g4). 
 
-To add support for other grammars, perform the following steps:
+There are [many available ANTLR grammars](https://github.com/antlr/grammars-v4), and the same approach can be used with most of them, making it possible to work with their ASTs in a consistent manner with Atomist.
+
+To add support for another grammar, perform the following steps:
 
 - Use the ANTLR CLI to generate the necessary files from the grammar. Modify the `antlr4ts` script in `package.json` to work with your grammar, then put the generated files in the appropriate directory. (You may need to reorder some of the generated code to eliminate forward references to ensure compilatation. If you are using `tslint` you may need to disable it for the generated sources.)
 - Create an instance of `FileParser` to work with your grammar. Use `TreeBuildingListener` to do the work of building an Atomist `TreeNode` from the ANTLR parse tree.
@@ -75,7 +78,7 @@ export const JavaFileParser: FileParser = {
 };
 ```
 
-If your grammar requires Java or other code you may need to port that code to TypeScript. Please refer to ANTLR documentation in this case.
+If your grammar requires Java or other code you may need to port that code to JavaScript or TypeScript. Please refer to ANTLR documentation in this case.
 
 ## Support
 
