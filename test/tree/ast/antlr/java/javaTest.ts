@@ -46,7 +46,7 @@ describe("java grammar", () => {
     it("should get into AST", done => {
         const p = InMemoryProject.of(
             {path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}"});
-        findMatches(p, JavaFiles, JavaFileParser, "//variableDeclaratorId/Identifier")
+        findMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId/Identifier")
             .then(matches => {
                 assert(matches.length === 1);
                 assert(matches[0].$value === "i");
@@ -57,7 +57,7 @@ describe("java grammar", () => {
     it("should get into AST and allow scalar navigation via properties", done => {
         const p = InMemoryProject.of(
             {path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}"});
-        findMatches(p, JavaFiles, JavaFileParser, "//variableDeclaratorId")
+        findMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId")
             .then(matches => {
                 assert(matches.length === 1);
                 assert((matches[0] as any).Identifier === "i");
@@ -70,7 +70,7 @@ describe("java grammar", () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5;}";
         const p = InMemoryProject.of(
             {path, content});
-        findFileMatches(p, JavaFiles, JavaFileParser, "//variableDeclaratorId/Identifier")
+        findFileMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -89,7 +89,7 @@ describe("java grammar", () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5; float x = 8.0; }";
         const p = InMemoryProject.of(
             {path, content});
-        findFileMatches(p, JavaFiles, JavaFileParser, "//variableDeclaratorId/Identifier")
+        findFileMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -112,7 +112,7 @@ describe("java grammar", () => {
         const content = `import foo.bar.Baz;\npublic class Foo { ${variableDeclaration};}`;
         const p = InMemoryProject.of(
             {path, content});
-        findFileMatches(p, JavaFiles, JavaFileParser, "//fieldDeclaration")
+        findFileMatches(p, JavaFileParser, JavaFiles, "//fieldDeclaration")
             .then(fm => {
                 assert(fm.length === 1);
                 const varDecl = fm[0].matches[0];
