@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 
 import { logger } from "@atomist/automation-client/internal/util/logger";
-import { TreeNode } from "@atomist/automation-client/tree/TreeNode";
+import { TreeNode } from "@atomist/tree-path/TreeNode";
 import { ParserRuleContext } from "antlr4ts";
 import { ErrorNode, ParseTreeListener, TerminalNode } from "antlr4ts/tree";
 

@@ -5,8 +5,9 @@ import * as assert from "power-assert";
 import { JavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
-import { TreeVisitor, visit } from "@atomist/automation-client/tree/TreeNode";
 import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
+
+import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
 
 describe("java grammar", () => {
 

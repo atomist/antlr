@@ -1,4 +1,4 @@
-# @atomist/antlr-ts
+# @atomist/antlr
 
 Integration with [ANTLR for TypeScript](https://github.com/tunnelvisionlabs/antlr4ts) for Atomist automation [clients](https://github.com/atomist/automation-client-ts).
 

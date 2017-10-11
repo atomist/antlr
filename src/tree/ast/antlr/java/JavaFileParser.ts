@@ -3,8 +3,8 @@ import { File } from "@atomist/automation-client/project/File";
 import { logger } from "@atomist/automation-client/internal/util/logger";
 
 import { FileParser } from "@atomist/automation-client/tree/ast/FileParser";
-import { fillInEmptyNonTerminalValues } from "@atomist/automation-client/tree/enrichment";
-import { TreeNode } from "@atomist/automation-client/tree/TreeNode";
+import { fillInEmptyNonTerminalValues } from "@atomist/tree-path/manipulation/enrichment";
+import { TreeNode } from "@atomist/tree-path/TreeNode";
 import { ANTLRInputStream, CommonTokenStream } from "antlr4ts";
 import { TreeBuildingListener } from "../TreeBuildingListener";
 import { JavaLexer } from "./antlr-gen/JavaLexer";
