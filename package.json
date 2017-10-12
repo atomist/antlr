@@ -1,21 +1,36 @@
 {
   "name": "@atomist/antlr",
   "version": "0.1.0",
-  "description": "Atomist client integration with ANTLR for TS",
+  "description": "Atomist client integration with ANTLR for TypeScript",
+  "author": "Atomist, Inc.",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/atomist/antlr-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atomist/antlr-ts.git"
+  },
+  "keywords": [
+    "antlr",
+    "atomist",
+    "microgrammar"
+  ],
+  "bugs": {
+    "url": "https://github.com/atomist/antlr-ts/issues"
+  },
   "dependencies": {
     "@atomist/automation-client": "^0.1.43",
-    "antlr4ts": "^0.4.1-alpha.0"
+    "@atomist/tree-path": "^0.1.1",
+    "antlr4ts": "^0.4.1-alpha.0",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.77",
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.33",
     "@types/power-assert": "^1.4.29",
-    "antlr4ts-cli": "0.4.0-alpha.4",
     "espower-typescript": "^8.0.2",
     "mocha": "^3.5.3",
-    "npm-run-all": "^4.1.1",
     "power-assert": "^1.4.4",
-    "ts-node": "^3.3.0",
     "tslint": "^5.4.3",
     "typedoc": "^0.8.0",
     "typescript": "2.5.2",
@@ -26,22 +41,17 @@
   },
   "scripts": {
     "autotest": "supervisor -q -n exit -e ts -x npm -- run test",
-    "clean": "rm -f *-v8.log; rm -f profile.txt; rm -rf build; rm -rf target",
-    "compile": "npm run tsc -p .",
+    "build": "npm run lint && npm run compile && npm test",
+    "clean": "npm run clean-js ; rm -rf *-v8.log profile.txt build",
+    "clean-js": "find src test -type f -name '*.js' -print0 | xargs -0 rm -f",
+    "compile": "tsc -p .",
+    "distclean": "npm run clean ; rm -rf node_modules",
     "fmt": "tsfmt --replace",
-    "lint": "tslint '**/*.ts' --exclude 'node_modules/**' --exclude 'build/**' --exclude 'src/**/antlr-gen/**' -t verbose",
-    "lint-fix": "tslint --fix '**/*.ts' --exclude 'node_modules/**' --exclude 'build/**' --exclude 'src/**/antlr-gen/**' -t verbose",
+    "lint": "tslint --format verbose --project . --exclude '{build,node_modules}/**' --exclude 'src/**/antlr-gen/**' '**/*.ts'",
+    "lint-fix": "npm run lint -- --fix",
+    "test": "mocha --compilers ts:espower-typescript/guess 'test/**/*.ts'",
     "testone": "mocha --compilers ts:espower-typescript/guess \"test/**/${TEST:-*.ts}\"",
-    "test": "mocha --compilers ts:espower-typescript/guess \"test/**/*.ts\"",
-    "start": "npm run compile && $(npm bin)/atomist-client --open=true",
-    "autostart": "npm-run-all --parallel watch:build watch:server --print-label",
-    "watch:build": "tsc --watch",
-    "antlr4ts": "antlr4ts -visitor grammars/antlr/Java.g4"
-  },
-  "author": "Atomist, Inc.",
-  "license": "GPL-3.0",
-  "engines": {
-    "node": "8.5.x",
-    "npm": "5.3.x"
+    "typedoc": "typedoc --mode modules --excludeExternals",
+    "watch:build": "tsc --watch"
   }
 }
