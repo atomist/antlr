@@ -10,6 +10,7 @@ Includes Java support, in the `JavaFileParser` implementation of `FileParser`, a
 See [overall path expression documentation](https://github.com/atomist/automation-client-ts/blob/master/docs/PathExpressions.md).
 
 ## Usage
+
 First, create an instance of a `FileParser` or `FileParserRegistry`.
 
 A `FileParser` knows how to parse files using a single grammar: for example, `MicrogrammarBasedFileParser` (from automation client) that uses a single microgrammar, or `JavaFileParser` from this project. A `FileParserRegistry` can accommodate multiple `FileParser` instances, determining whichever is appropriate to execute a given path expression.
@@ -26,7 +27,7 @@ export function findMatches(p: ProjectNonBlocking,
 The following example looks in all Java files in a project for a given path expression:
 
 ```typescript
-findMatches(project, JavaFiles, JavaFileParser, 
+findMatches(project, JavaFiles, JavaFileParser,
     "//variableDeclaratorId/Identifier")
     .then(matches => {
         ...
@@ -35,7 +36,8 @@ findMatches(project, JavaFiles, JavaFileParser,
 Returned matches are updatable after project flushing.
 
 ## SPI: Supporting other ANTLR grammars
-This project includes support for parsing Java using the [Java ANTLR grammar](../src/tree/ast/antlr/java/Java.g4). 
+
+This project includes support for parsing Java using the [Java ANTLR grammar](../src/tree/ast/antlr/java/Java.g4).
 
 There are [many available ANTLR grammars](https://github.com/antlr/grammars-v4), and the same approach can be used with most of them, making it possible to work with their ASTs in a consistent manner with Atomist.
 
@@ -48,7 +50,7 @@ Model your `FileParser` implementation on `JavaFileParser` in this project.
 
 ```typescript
 export const JavaFileParser: FileParser = {
-	
+
 	// Return the name of the top level production
     rootName: "compilationUnit",
 
@@ -60,16 +62,16 @@ export const JavaFileParser: FileParser = {
                 const lexer = new JavaLexer(inputStream);
                 const tokenStream = new CommonTokenStream(lexer);
                 const parser = new JavaParser(tokenStream);
-                
+
                 // Construct TreeBuildingListener with lookup functions to resolve production names
                 const mbl = new TreeBuildingListener(
                     i => JavaParser.ruleNames[i],
                     i => (JavaLexer as any)._SYMBOLIC_NAMES[i]);
                 parser.addParseListener(mbl);
-                
+
                 // Retrieve root production
                 const cu = parser.compilationUnit();
-                
+
                 // Ensure non-terminals have values set
                 fillInEmptyNonTerminalValues(mbl.root, content);
                 return mbl.root;
