@@ -4,16 +4,16 @@
   "description": "Atomist client integration with ANTLR for TypeScript",
   "author": "Atomist, Inc.",
   "license": "GPL-3.0",
-  "homepage": "https://github.com/atomist/antlr-ts#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/atomist/antlr-ts.git"
-  },
   "keywords": [
     "antlr",
     "atomist",
     "microgrammar"
   ],
+  "homepage": "https://github.com/atomist/antlr-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atomist/antlr-ts.git"
+  },
   "bugs": {
     "url": "https://github.com/atomist/antlr-ts/issues"
   },

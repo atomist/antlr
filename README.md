@@ -1,5 +1,7 @@
 # @atomist/antlr
 
+[![Build Status](https://travis-ci.org/atomist/antlr-ts.svg?branch=master)](https://travis-ci.org/atomist/antlr-ts)
+
 Integration with [ANTLR for TypeScript](https://github.com/tunnelvisionlabs/antlr4ts) for Atomist automation [clients](https://github.com/atomist/automation-client-ts).
 
 This enables running path expressions against ANTLR ASTs in
