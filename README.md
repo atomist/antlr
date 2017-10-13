@@ -4,6 +4,8 @@
 
 Integration with [ANTLR for TypeScript](https://github.com/tunnelvisionlabs/antlr4ts) for Atomist automation [clients](https://github.com/atomist/automation-client-ts).
 
+ANTLR is a powerful parser generator, for which many grammars are available.
+
 This enables running path expressions against ANTLR ASTs in
 a consistent manner to ASTs produced by other grammars.
 
@@ -45,8 +47,37 @@ There are [many available ANTLR grammars](https://github.com/antlr/grammars-v4),
 
 To add support for another grammar, perform the following steps:
 
-- Use the ANTLR CLI to generate the necessary files from the grammar. Modify the `antlr4ts` script in `package.json` to work with your grammar, then put the generated files in the appropriate directory. (You may need to reorder some of the generated code to eliminate forward references to ensure compilatation. If you are using `tslint` you may need to disable it for the generated sources.)
-- Create an instance of `FileParser` to work with your grammar. Use `TreeBuildingListener` to do the work of building an Atomist `TreeNode` from the ANTLR parse tree.
+### Generate TypeScript
+Use the ANTLR CLI to generate the necessary files from the grammar. 
+
+Install the ANTLR CLI wrapper in `package.json` as follows:
+
+```
+ "antlr4ts-cli": "^0.4.0-alpha.4",
+
+```
+
+Create an `antlr4ts` script in `package.json` to work with your grammar.
+
+```bash
+    "antlr4ts": "antlr4ts -visitor src/tree/ast/antlr/scala/Scala.g4 && mv src/tree/ast/antlr/scala/*.ts src/tree/ast/antlr/scala/antlr-gen && mv src/tree/ast/antlr/scala/*.tokens src/tree/ast/antlr/scala/antlr-gen",
+
+```
+
+You may need to reorder some of the generated code to eliminate forward references to ensure compilation. 
+In your `antlr-gen/XXXXParser` file, reorder to put all classes _before_ the `XXXXParser` class.
+
+If you are using `tslint` you may need to disable it for the generated sources as
+in this project.
+
+Note that antlr4ts is written in Java, and `npm` only wraps it, so
+you'll need a recent JVM. A JVM is _not_ needed to execute the resulting
+grammar, which is pure TypeScript. Documentation for the ANTLR CLI is
+[here](https://github.com/antlr/antlr4/blob/master/doc/tool-options.md).
+
+### Create a FileParser Implementation to Integrate your Grammar with your Atomist Automation Client
+
+Create an instance of `FileParser` to work with your grammar. Use `TreeBuildingListener` to do the work of building an Atomist `TreeNode` from the ANTLR parse tree.
 
 Model your `FileParser` implementation on `JavaFileParser` in this project.
 
@@ -82,7 +113,10 @@ export const JavaFileParser: FileParser = {
 };
 ```
 
-If your grammar requires Java or other code you may need to port that code to JavaScript or TypeScript. Please refer to ANTLR documentation in this case.
+If your grammar uses Java or other code you may need to port that code to JavaScript or TypeScript. 
+Please refer to ANTLR documentation in this case.
+Please validate your grammar with an IDE plugin or other tool before generating code and attempting
+integration.
 
 ## Support
 
