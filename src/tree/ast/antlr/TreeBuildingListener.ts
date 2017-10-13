@@ -10,7 +10,7 @@ import { ErrorNode, ParseTreeListener, TerminalNode } from "antlr4ts/tree";
  */
 export class TreeBuildingListener implements ParseTreeListener {
 
-    private nodeStack: BuildingTreeNode[] = [];
+    private nodeStack: MutableTreeNode[] = [];
 
     /**
      *
@@ -31,9 +31,8 @@ export class TreeBuildingListener implements ParseTreeListener {
     public visitTerminal(node: TerminalNode) {
         const name = this.lookupToken(node.symbol.type);
         // console.log("visitTerminal: %s:[%s]", lookupToken(node.symbol.tokenIndex), node.symbol.text);
-        // console.log("visitTerminal: %s:[%s]", name, node.text);
         if (!!name && name.toUpperCase() !== name) {
-            // Skip the keywords
+            // Skip keywords
             this.currentNode.addChild({
                 $name: name,
                 $value: node.text,
@@ -49,7 +48,7 @@ export class TreeBuildingListener implements ParseTreeListener {
     public enterEveryRule(ctx: ParserRuleContext) {
         const name = this.lookupRule(ctx.ruleContext.ruleIndex);
 
-        const thisRule = new BuildingTreeNode(name, ctx.start.startIndex);
+        const thisRule = new MutableTreeNode(name, ctx.start.startIndex);
         if (!!this.currentNode) {
             this.currentNode.addChild(thisRule);
         }
@@ -57,6 +56,8 @@ export class TreeBuildingListener implements ParseTreeListener {
     }
 
     public exitEveryRule(ctx: ParserRuleContext) {
+        // Pop the stack unless we're already at the root,
+        // so we can add any further siblings
         if (this.nodeStack.length > 1) {
             this.nodeStack.pop();
         }
@@ -68,9 +69,9 @@ export class TreeBuildingListener implements ParseTreeListener {
 
 }
 
-class BuildingTreeNode implements TreeNode {
+class MutableTreeNode implements TreeNode {
 
-    public $children: TreeNode[] = undefined;
+    public $children: TreeNode[];
 
     constructor(public $name: string, public $offset: number) {
     }

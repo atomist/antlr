@@ -79,38 +79,11 @@ grammar, which is pure TypeScript. Documentation for the ANTLR CLI is
 
 Create an instance of `FileParser` to work with your grammar. Use `TreeBuildingListener` to do the work of building an Atomist `TreeNode` from the ANTLR parse tree.
 
-Model your `FileParser` implementation on `JavaFileParser` in this project.
+Create your `FileParser` in the style of `JavaFileParser` in this project,
+passing the top level production name and the lexer and parser classes.
 
 ```typescript
-export const JavaFileParser: FileParser = {
-
-	// Return the name of the top level production
-    rootName: "compilationUnit",
-
-    toAst(f: File): Promise<TreeNode> {
-        return f.getContent()
-            .then(content => {
-                logger.debug("Parsing file [%s] using ANTLR grammar", f.path);
-                const inputStream = new ANTLRInputStream(content);
-                const lexer = new JavaLexer(inputStream);
-                const tokenStream = new CommonTokenStream(lexer);
-                const parser = new JavaParser(tokenStream);
-
-                // Construct TreeBuildingListener with lookup functions to resolve production names
-                const mbl = new TreeBuildingListener(
-                    i => JavaParser.ruleNames[i],
-                    i => (JavaLexer as any)._SYMBOLIC_NAMES[i]);
-                parser.addParseListener(mbl);
-
-                // Retrieve root production
-                const cu = parser.compilationUnit();
-
-                // Ensure non-terminals have values set
-                fillInEmptyNonTerminalValues(mbl.root, content);
-                return mbl.root;
-            });
-    },
-};
+const JavaFileParser = new AntlrFileParser("compilationUnit", JavaLexer, JavaParser);
 ```
 
 If your grammar uses Java or other code you may need to port that code to JavaScript or TypeScript. 
