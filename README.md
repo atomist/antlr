@@ -9,7 +9,11 @@ ANTLR is a powerful parser generator, for which many grammars are available.
 This enables running path expressions against ANTLR ASTs in
 a consistent manner to ASTs produced by other grammars.
 
-Includes Java support, in the `JavaFileParser` implementation of `FileParser`, as an example, test and for actual Java support. However, most ANTLR grammars can be integrated with Atomist using this project, including offering a simple update model with clean diffs.
+Includes Java support, in the `JavaFileParser` implementation of `FileParser`, 
+as an example, test and for actual Java support, as well as Kotlin support,
+to show how to handle a grammar with a distinct lexer and parser.
+Other ANTLR grammars can be integrated with Atomist 
+using this project as library, including offering an update model producing clean diffs.
 
 See [overall path expression documentation](https://github.com/atomist/automation-client-ts/blob/master/docs/PathExpressions.md).
 

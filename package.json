@@ -23,6 +23,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "antlr4ts-cli": "^0.4.0-alpha.4",
     "@types/lodash": "^4.14.77",
     "@types/mocha": "^2.2.41",
     "@types/power-assert": "^1.4.29",
@@ -39,6 +40,8 @@
     "test": "test"
   },
   "scripts": {
+    "antlr4ts-l": "antlr4ts -visitor src/tree/ast/antlr/kotlin/KotlinLexer.g4",
+    "antlr4ts-p": "antlr4ts -lib src/tree/ast/antlr/kotlin -visitor src/tree/ast/antlr/kotlin/KotlinParser.g4 && mv src/tree/ast/antlr/kotlin/*.ts src/tree/ast/antlr/kotlin/antlr-gen && mv src/tree/ast/antlr/kotlin/*.tokens src/tree/ast/antlr/kotlin/antlr-gen",
     "autotest": "supervisor -q -n exit -e ts -x npm -- run test",
     "build": "npm run lint && npm run compile && npm test",
     "clean": "npm run clean-js ; rm -rf *-v8.log profile.txt build",

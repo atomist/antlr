@@ -31,7 +31,7 @@ export class TreeBuildingListener implements ParseTreeListener {
     public visitTerminal(node: TerminalNode) {
         const name = this.lookupToken(node.symbol.type);
         // console.log("visitTerminal: %s:[%s]", lookupToken(node.symbol.tokenIndex), node.symbol.text);
-        if (!!name && name.toUpperCase() !== name) {
+        if (!!name) {
             // Skip keywords
             this.currentNode.addChild({
                 $name: name,
