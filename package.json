@@ -1,6 +1,6 @@
 {
   "name": "@atomist/antlr",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Atomist client integration with ANTLR for TypeScript",
   "author": "Atomist, Inc.",
   "license": "GPL-3.0",
