@@ -2,11 +2,11 @@ import { InMemoryFile } from "@atomist/automation-client/project/mem/InMemoryFil
 import "mocha";
 import * as assert from "power-assert";
 
-import { JavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
 import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
 
+import { AllJavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
 import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
 
 describe("java grammar", () => {
@@ -46,7 +46,7 @@ describe("java grammar", () => {
     it("should get into AST", done => {
         const p = InMemoryProject.of(
             {path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}"});
-        findMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId/Identifier")
+        findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(matches => {
                 assert(matches.length === 1);
                 assert(matches[0].$value === "i");
@@ -57,7 +57,7 @@ describe("java grammar", () => {
     it("should get into AST and allow scalar navigation via properties", done => {
         const p = InMemoryProject.of(
             {path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}"});
-        findMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId")
+        findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId")
             .then(matches => {
                 assert(matches.length === 1);
                 assert((matches[0] as any).Identifier === "i");
@@ -70,7 +70,7 @@ describe("java grammar", () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5;}";
         const p = InMemoryProject.of(
             {path, content});
-        findFileMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId/Identifier")
+        findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -89,7 +89,7 @@ describe("java grammar", () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5; float x = 8.0; }";
         const p = InMemoryProject.of(
             {path, content});
-        findFileMatches(p, JavaFileParser, JavaFiles, "//variableDeclaratorId/Identifier")
+        findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -112,7 +112,7 @@ describe("java grammar", () => {
         const content = `import foo.bar.Baz;\npublic class Foo { ${variableDeclaration}}`;
         const p = InMemoryProject.of(
             {path, content});
-        findFileMatches(p, JavaFileParser, JavaFiles, "//fieldDeclaration")
+        findFileMatches(p, JavaFileParser, AllJavaFiles, "//fieldDeclaration")
             .then(fm => {
                 assert(fm.length === 1);
                 const varDecl = fm[0].matches[0];

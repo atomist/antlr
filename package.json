@@ -1,6 +1,6 @@
 {
   "name": "@atomist/antlr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Atomist client integration with ANTLR for TypeScript",
   "author": "Atomist, Inc.",
   "license": "GPL-3.0",
@@ -18,7 +18,7 @@
     "url": "https://github.com/atomist/antlr-ts/issues"
   },
   "dependencies": {
-    "@atomist/automation-client": "^0.1.43",
+    "@atomist/automation-client": "^0.2.3",
     "antlr4ts": "^0.4.1-alpha.0",
     "lodash": "^4.17.4"
   },
@@ -50,7 +50,7 @@
     "distclean": "npm run clean ; rm -rf node_modules",
     "fmt": "tsfmt --replace",
     "lint": "tslint --format verbose --project . --exclude '{build,node_modules}/**' --exclude 'src/**/antlr-gen/**' '**/*.ts'",
-    "lint-fix": "npm run lint -- --fix",
+    "lint:fix": "npm run lint -- --fix",
     "test": "mocha --compilers ts:espower-typescript/guess 'test/**/*.ts'",
     "testone": "mocha --compilers ts:espower-typescript/guess \"test/**/${TEST:-*.ts}\"",
     "typedoc": "typedoc --mode modules --excludeExternals",

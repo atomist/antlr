@@ -2,16 +2,11 @@ import { InMemoryFile } from "@atomist/automation-client/project/mem/InMemoryFil
 import "mocha";
 import * as assert from "power-assert";
 
-import { JavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
-import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
 
 import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
-import {
-    KotlinFileParser, KotlinFiles,
-    KotlinScriptParser,
-} from "../../../../../src/tree/ast/antlr/kotlin/KotlinFileParser";
+import { KotlinFileParser, KotlinFiles } from "../../../../../src/tree/ast/antlr/kotlin/KotlinFileParser";
 
 describe("kotlin grammar", () => {
 
