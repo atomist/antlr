@@ -1,9 +1,10 @@
-import { TokenStream, Token } from "antlr4ts";
+import { TokenStream, Token, Parser } from "antlr4ts";
+import { JavaScriptParser } from "./JavaScriptParser"
 
-class Parser {
-    public constructor(public input: TokenStream) {
-    }
-}
+// class Parser {
+//     public constructor(public input: TokenStream) {
+//     }
+// }
 
 /**
  * All parser methods that used in grammar (p, prev, notLineTerminator, etc.)
