@@ -18,23 +18,23 @@
     "url": "https://github.com/atomist/antlr-ts/issues"
   },
   "dependencies": {
-    "@atomist/automation-client": "^0.2.3",
+    "@atomist/automation-client": "^0.3.2",
     "antlr4ts": "^0.4.1-alpha.0",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "antlr4ts-cli": "^0.4.0-alpha.4",
-    "@types/lodash": "^4.14.77",
-    "@types/mocha": "^2.2.41",
+    "@types/lodash": "^4.14.85",
+    "@types/mocha": "^2.2.44",
     "@types/power-assert": "^1.4.29",
-    "espower-typescript": "^8.0.2",
+    "antlr4ts-cli": "^0.4.0-alpha.4",
+    "espower-typescript": "^8.1.2",
     "mocha": "^3.5.3",
     "power-assert": "^1.4.4",
-    "tslint": "^5.4.3",
     "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
     "typedoc": "^0.8.0",
     "typescript": "2.5.2",
-    "typescript-formatter": "^6.0.0"
+    "typescript-formatter": "^6.1.0"
   },
   "directories": {
     "test": "test"
