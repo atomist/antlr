@@ -3,13 +3,11 @@ import "mocha";
 import * as assert from "power-assert";
 
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
-import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
-import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
+import { findMatches } from "@atomist/automation-client/tree/ast/astUtils";
+import { DefaultTreeNodeReplacer } from "@atomist/tree-path/TreeNode";
 
-import { AllJavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
 import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
-import { Python2Parser } from "../../../../../src/tree/ast/antlr/python2/antlr-gen/Python2Parser";
-import { Python2FileParser } from "../../../../../src/tree/ast/antlr/python2/Python2FileParser";
+import { Python2FileParser, PythonFiles } from "../../../../../src/tree/ast/antlr/python2/Python2FileParser";
 
 describe("python 2 grammar", () => {
 
@@ -47,11 +45,13 @@ describe("python 2 grammar", () => {
 
     it("should get into AST", done => {
         const p = InMemoryProject.of(
-            {path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}"});
-        findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
+            {path: "src/Foo.py", content: "name = raw_input('What is your name?\\n')\n" +
+            "print 'Hi, %s.' % name"});
+        findMatches(p, Python2FileParser, PythonFiles, "//file_input")
             .then(matches => {
                 assert(matches.length === 1);
-                assert(matches[0].$value === "i");
+                console.log(JSON.stringify(matches[0], DefaultTreeNodeReplacer, 2));
+                assert(matches[0].$value === "name");
                 done();
             }).catch(done);
     });
