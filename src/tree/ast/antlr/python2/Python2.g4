@@ -15,78 +15,97 @@
  tokens { INDENT, DEDENT, NEWLINE, ENDMARKER }
 
 @lexer::header {
-from Python2Parser import Python2Parser
-from antlr4.Token  import CommonToken
 
-class IndentStack:
-    def __init__(self)    : self._s = []
-    def empty(self)       : return len(self._s) == 0
-    def push(self, wsval) : self._s.append(wsval)
-    def pop(self)         : self._s.pop()
-    def wsval(self)       : return self._s[-1] if len(self._s) > 0 else 0
+import { Python2Parser } from "./Python2Parser";
+import { Token } from "antlr4ts/Token";
+import { CommonToken } from "antlr4ts";
 
-class TokenQueue:
-    def __init__(self)  : self._q = []
-    def empty(self)     : return len(self._q) == 0
-    def enq(self, t)    : self._q.append(t)
-    def deq(self)       : return self._q.pop(0)
+
+class IndentStack {
+    _s: number[] = [];
+    empty() { return this._s.length === 0; }
+    push(wsval) { this._s.push(wsval); }
+    pop() { this._s.pop(); }
+    wsval() { return (!this.empty()) ? this._s[this._s.length - 1] : 0; }
+}
+
+class TokenQueue {
+    _q: any[] = [];
+    empty()  { return this._q.length === 0; }
+    enq(t) { this._q.push(t); }
+    deq(){ return this._q.shift(); }
+}
 }
 
 @lexer::members {
-    # Indented to append code to the constructor.
-    self._openBRCount       = 0
-    self._suppressNewlines  = False
-    self._lineContinuation  = False
-    self._tokens            = TokenQueue()
-    self._indents           = IndentStack()
+    // Indented to append code to the constructor.
+    openBRCount: number       = 0;
+    suppressNewlines: boolean  = false;
+    lineContinuation: boolean  = false;
+    private _tokens            = new TokenQueue();
+    private _indents           = new IndentStack();
 
-def nextToken(self):
-    if not self._tokens.empty():
-        return self._tokens.deq()
-    else:
-        t = super(Python2Lexer, self).nextToken()
-        if t.type != Token.EOF:
-            return t
-        else:
-            if not self._suppressNewlines:
-                self.emitNewline()
-            self.emitFullDedent()
-            self.emitEndmarker()
-            self.emitEndToken(t)
-            return self._tokens.deq()
+    private _tokenStartColumn: number;
+
+ nextToken() {
+    if (!this._tokens.empty())
+        return this._tokens.deq();
+    else {
+        const t = super.nextToken();
+        if (t.type !== Token.EOF)
+            return t;
+        else {
+            if (!this.suppressNewlines)
+                this.emitNewline();
+            this.emitFullDedent();
+            this.emitEndmarker();
+            this.emitEndToken(t);
+            return this._tokens.deq();
+            }
+       }
+     }
             
-def emitEndToken(self, token):
-    self._tokens.enq(token)
+ emitEndToken(token) {
+    this._tokens.enq(token);
+    }
 
-def emitIndent(self, length=0, text='INDENT'):
-    t = self.createToken(Python2Parser.INDENT, text, length)
-    self._tokens.enq(t)
+ emitIndent(length=0, text='INDENT') {
+    const t = this.createToken(Python2Parser.INDENT, text, length);
+    this._tokens.enq(t);
+    }
 
-def emitDedent(self):
-    t = self.createToken(Python2Parser.DEDENT, 'DEDENT')
-    self._tokens.enq(t)
+ emitDedent() {
+    const t = this.createToken(Python2Parser.DEDENT, 'DEDENT');
+    this._tokens.enq(t);
+    }
 
-def emitFullDedent(self):
-    while not self._indents.empty():
-        self._indents.pop()
-        self.emitDedent()
+ emitFullDedent() {
+    while (!this._indents.empty()) {
+        this._indents.pop();
+        this.emitDedent();
+      }
+   }
 
-def emitEndmarker(self):
-    t = self.createToken(Python2Parser.ENDMARKER, 'ENDMARKER')
-    self._tokens.enq(t)
+ emitEndmarker() {
+    const t = this.createToken(Python2Parser.ENDMARKER, 'ENDMARKER');
+    this._tokens.enq(t);
+    }
 
-def emitNewline(self):
-    t = self.createToken(Python2Parser.NEWLINE, 'NEWLINE')
-    self._tokens.enq(t)
+ emitNewline() {
+    const t = this.createToken(Python2Parser.NEWLINE, 'NEWLINE');
+    this._tokens.enq(t);
+    }
 
-def createToken(self, type_, text="", length=0):
-    start = self._tokenStartCharIndex
-    stop = start + length
-    t = CommonToken(self._tokenFactorySourcePair,
-                    type_, self.DEFAULT_TOKEN_CHANNEL,
-                    start, stop)
+ createToken(type_, text="", length=0) {
+    const start = this._tokenStartCharIndex
+    const stop = start + length
+    const t = new CommonToken(type_, text, this._tokenFactorySourcePair,
+    	                    Python2Lexer.DEFAULT_TOKEN_CHANNEL,
+    	                    start, stop);
     t.text = text
-    return t
+    return t;
+   }
+
 }
 
 // Header included from Python site:
@@ -155,7 +174,7 @@ augassign: ('+=' | '-=' | '*=' | '/=' | '%=' | '&=' | '|=' | '^=' |
 //print_stmt: 'print' ( ( test (',' test)* (',')? )? |
 //                      '>>' test ( (',' test)+ (',')? )? )
 //    ;
-print_stmt: {self._input.LT(1).text=='print'}? 
+print_stmt: {this._input.LT(1).text==='print'}?
             // tt: this change allows print to be treated as a NAME
             //     while preserving the print statement syntax.
             NAME ( ( test (',' test)* (',')? )? |
@@ -359,52 +378,62 @@ STRING
     )
     ;
 
-LINENDING:             (('\r'? '\n')+ {self._lineContinuation=False}
-    |      '\\'  [ \t]* ('\r'? '\n')  {self._lineContinuation=True})
+LINENDING:             (('\r'? '\n')+ {this.lineContinuation=false}
+    |      '\\'  [ \t]* ('\r'? '\n')  {this.lineContinuation=false})
 {
-if self._openBRCount == 0 and not self._lineContinuation:
-    if not self._suppressNewlines:
-        self.emitNewline()
-        self._suppressNewlines = True
-    la = self._input.LA(1)
-    if la not in [ord(' '), ord('\t'), ord('#')]:
-        self._suppressNewlines = False
-        self.emitFullDedent()
+if (this.openBRCount === 0 && !this.lineContinuation) {
+    if (!this.suppressNewlines) {
+        this.emitNewline()
+        this.suppressNewlines = true;
+    const la = this._input.LA(1)
+    if (![' ', '\t','#'].map(c => c.charCodeAt(0)).concat(-1).includes(la)) {
+        this.suppressNewlines = false
+        this.emitFullDedent()
+        }
+        }
+        }
 } -> channel(HIDDEN)
    ;
 
 WHITESPACE: ('\t' | ' ')+
 {
-if (self._tokenStartColumn == 0 and self._openBRCount == 0
-    and not self._lineContinuation):
+if (this._tokenStartColumn == 0 && this.openBRCount == 0
+    && !this.lineContinuation) {
 
-    la = self._input.LA(1)
-    if la not in [ord('\r'), ord('\n'), ord('#'), -1]:
-        self._suppressNewlines = False
-        wsCount = 0
-        for ch in self.text:
-            if   ch == ' ' : wsCount += 1
-            elif ch == '\t': wsCount += 8
+    const la = this._input.LA(1)
+    if (!['\r', '\n','#'].map(c => c.charCodeAt(0)).includes(la)) {
+        this.suppressNewlines = false
+        let wsCount = 0;
+        for (let ch of this.text) {
+            if  ( ch === ' ') wsCount += 1
+            else if( ch === '\t') wsCount += 8;
+            }
 
-        if wsCount > self._indents.wsval():
-            self.emitIndent(len(self.text))
-            self._indents.push(wsCount)
-        else:
-            while wsCount < self._indents.wsval():
-                self.emitDedent()
-                self._indents.pop()
-            if wsCount != self._indents.wsval():
-                raise Exception()
+        if (wsCount > this._indents.wsval() ){
+            this.emitIndent(this.text.length);
+            this._indents.push(wsCount);
+            }
+        else {
+            while (wsCount < this._indents.wsval()) {
+                this.emitDedent();
+                this._indents.pop();
+            if (wsCount !== this._indents.wsval()) {
+                throw new Error();
+                }
+                }
+                }
+                }
+                }
 }  -> channel(HIDDEN)
     ;
 
 COMMENT:        '#' ~[\r\n]* -> skip;
 
-OPEN_PAREN:     '(' {self._openBRCount  += 1};
-CLOSE_PAREN:    ')' {self._openBRCount  -= 1};
-OPEN_BRACE:     '{' {self._openBRCount  += 1};
-CLOSE_BRACE:    '}' {self._openBRCount  -= 1};
-OPEN_BRACKET:   '[' {self._openBRCount  += 1};
-CLOSE_BRACKET:  ']' {self._openBRCount  -= 1};
+OPEN_PAREN:     '(' {this.openBRCount  += 1};
+CLOSE_PAREN:    ')' {this.openBRCount  -= 1};
+OPEN_BRACE:     '{' {this.openBRCount  += 1};
+CLOSE_BRACE:    '}' {this.openBRCount  -= 1};
+OPEN_BRACKET:   '[' {this.openBRCount  += 1};
+CLOSE_BRACKET:  ']' {this.openBRCount  -= 1};
 
 UNKNOWN: . -> skip;
