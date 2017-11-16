@@ -41,7 +41,7 @@
   },
   "scripts": {
     "antlr4ts-l": "antlr4ts -visitor src/tree/ast/antlr/kotlin/KotlinLexer.g4",
-    "antlr4ts-p": "antlr4ts -lib src/tree/ast/antlr/kotlin -visitor src/tree/ast/antlr/kotlin/KotlinParser.g4 && mv src/tree/ast/antlr/kotlin/*.ts src/tree/ast/antlr/kotlin/antlr-gen && mv src/tree/ast/antlr/kotlin/*.tokens src/tree/ast/antlr/kotlin/antlr-gen",
+    "antlr4ts-p": "antlr4ts -lib src/tree/ast/antlr/python2 -visitor src/tree/ast/antlr/python2/Python2.g4 && mv src/tree/ast/antlr/python2/*.ts src/tree/ast/antlr/python2/antlr-gen && mv src/tree/ast/antlr/python2/*.tokens src/tree/ast/antlr/python2/antlr-gen",
     "autotest": "supervisor -q -n exit -e ts -x npm -- run test",
     "build": "npm run lint && npm run compile && npm test",
     "clean": "npm run clean-js ; rm -rf *-v8.log profile.txt build",
