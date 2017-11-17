@@ -40,8 +40,12 @@
     "test": "test"
   },
   "scripts": {
-    "antlr4ts-l": "antlr4ts -visitor src/tree/ast/antlr/kotlin/KotlinLexer.g4",
-    "antlr4ts-p": "antlr4ts -lib src/tree/ast/antlr/kotlin -visitor src/tree/ast/antlr/kotlin/KotlinParser.g4 && mv src/tree/ast/antlr/kotlin/*.ts src/tree/ast/antlr/kotlin/antlr-gen && mv src/tree/ast/antlr/kotlin/*.tokens src/tree/ast/antlr/kotlin/antlr-gen",
+    "antlr4ts:js:lexer": "antlr4ts -visitor src/tree/ast/antlr/javascript/JavaScriptLexer.g4",
+    "antlr4ts:js:parser": "antlr4ts -visitor src/tree/ast/antlr/javascript/JavaScriptParser.g4 && mv src/tree/ast/antlr/javascript/*.ts src/tree/ast/antlr/javascript/antlr-gen && mv src/tree/ast/antlr/javascript/*.tokens src/tree/ast/antlr/javascript/antlr-gen",
+    "antlr4ts:js": "npm run antlr4ts:js:lexer && npm run antlr4ts:js:parser",
+    "antlr4ts:kotlin:lexer": "antlr4ts -visitor src/tree/ast/antlr/kotlin/KotlinLexer.g4",
+    "antlr4ts:kotlin:parser": "antlr4ts -lib src/tree/ast/antlr/kotlin -visitor src/tree/ast/antlr/kotlin/KotlinParser.g4 && mv src/tree/ast/antlr/kotlin/*.ts src/tree/ast/antlr/kotlin/antlr-gen && mv src/tree/ast/antlr/kotlin/*.tokens src/tree/ast/antlr/kotlin/antlr-gen",
+    "antlr4ts:kotlin": "npm run antlr4ts:kotlin:lexer && npm run antlr4ts:kotlin:parser",
     "autotest": "supervisor -q -n exit -e ts -x npm -- run test",
     "build": "npm run lint && npm run compile && npm test",
     "clean": "npm run clean-js ; rm -rf *-v8.log profile.txt build",
