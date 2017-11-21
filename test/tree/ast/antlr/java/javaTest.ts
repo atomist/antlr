@@ -8,6 +8,7 @@ import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileP
 
 import { AllJavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
 import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
+import { fail } from "power-assert";
 
 describe("java grammar", () => {
 
@@ -41,6 +42,13 @@ describe("java grammar", () => {
                 assert(terminalCount > 0);
                 done();
             }).catch(done);
+    });
+
+    it("should reject invalid path expression", () => {
+        const p = InMemoryProject.of(
+            {path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}"});
+        assert.throws(() => findMatches(p, JavaFileParser, AllJavaFiles, "//thisDoesntExist/Identifier"),
+            (err: any) => err.message.includes("thisDoesntExist"));
     });
 
     it("should get into AST", done => {
