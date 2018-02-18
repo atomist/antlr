@@ -6,9 +6,10 @@ import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemory
 import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
 import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
 
-import { AllJavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
 import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
 import { fail } from "power-assert";
+
+const AllJavaFiles = "**/*.java";
 
 describe("java grammar", () => {
 

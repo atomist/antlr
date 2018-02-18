@@ -5,7 +5,7 @@ import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemory
 import { findFileMatches } from "@atomist/automation-client/tree/ast/astUtils";
 import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
 
-import { AllJavaFiles } from "@atomist/automation-client/operations/generate/java/javaProjectUtils";
+const AllJavaFiles = "**/*.java";
 
 describe("java review/edit", () => {
 
