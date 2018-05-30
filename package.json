@@ -6,8 +6,7 @@
   "license": "GPL-3.0",
   "keywords": [
     "antlr",
-    "atomist",
-    "microgrammar"
+    "atomist"
   ],
   "homepage": "https://github.com/atomist/antlr-ts#readme",
   "repository": {
@@ -18,7 +17,7 @@
     "url": "https://github.com/atomist/antlr-ts/issues"
   },
   "dependencies": {
-    "@atomist/automation-client": "^0.6.6",
+    "@atomist/automation-client": "https://r.atomist.com/B1VAINe3jG",
     "antlr4ts": "^0.4.1-alpha.0",
     "lodash": "^4.17.4"
   },
