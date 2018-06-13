@@ -17,7 +17,7 @@
     "url": "https://github.com/atomist/antlr-ts/issues"
   },
   "dependencies": {
-    "@atomist/automation-client": "https://r.atomist.com/B1VAINe3jG",
+    "@atomist/automation-client": "^0.17.2-20180613153815",
     "antlr4ts": "^0.4.1-alpha.0",
     "lodash": "^4.17.4"
   },
