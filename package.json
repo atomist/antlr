@@ -1,6 +1,6 @@
 {
   "name": "@atomist/antlr",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Atomist client integration with ANTLR for TypeScript",
   "author": "Atomist, Inc.",
   "license": "GPL-3.0",
@@ -17,15 +17,15 @@
     "url": "https://github.com/atomist/antlr-ts/issues"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.85",
     "antlr4ts": "^0.4.1-alpha.0",
     "lodash": "^4.17.4"
   },
   "peerDependencies": {
-    "@atomist/automation-client": "^0.17.1"
+    "@atomist/automation-client": "*"
   },
   "devDependencies": {
     "@atomist/automation-client": "^0.17.2-20180613153815",
-    "@types/lodash": "^4.14.85",
     "@types/mocha": "^2.2.44",
     "@types/power-assert": "^1.4.29",
     "antlr4ts-cli": "^0.4.0-alpha.4",
