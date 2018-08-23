@@ -3,7 +3,7 @@ import * as assert from "power-assert";
 
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches } from "@atomist/automation-client/tree/ast/astUtils";
-import { JavaFileParser } from "../../../../../src/tree/ast/antlr/java/JavaFileParser";
+import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 
 const AllJavaFiles = "**/*.java";
 

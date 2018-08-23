@@ -1,6 +1,6 @@
 # @atomist/antlr
 
-[![Build Status](https://travis-ci.org/atomist/antlr-ts.svg?branch=master)](https://travis-ci.org/atomist/antlr-ts)
+[![npm version](https://img.shields.io/npm/v/@atomist/antlr.svg)](https://www.npmjs.com/package/@atomist/antlr)
 
 Integration with [ANTLR for TypeScript](https://github.com/tunnelvisionlabs/antlr4ts) for Atomist automation [clients](https://github.com/atomist/automation-client-ts).
 
@@ -9,10 +9,10 @@ ANTLR is a powerful parser generator, for which many grammars are available.
 This enables running path expressions against ANTLR ASTs in
 a consistent manner to ASTs produced by other grammars.
 
-Includes Java support, in the `JavaFileParser` implementation of `FileParser`, 
+Includes Java support, in the `JavaFileParser` implementation of `FileParser`,
 as an example, test and for actual Java support, as well as Kotlin support,
 to show how to handle a grammar with a distinct lexer and parser.
-Other ANTLR grammars can be integrated with Atomist 
+Other ANTLR grammars can be integrated with Atomist
 using this project as library, including offering an update model producing clean diffs.
 
 See [overall path expression documentation](https://github.com/atomist/automation-client-ts/blob/master/docs/PathExpressions.md).
@@ -52,23 +52,24 @@ There are [many available ANTLR grammars](https://github.com/antlr/grammars-v4),
 To add support for another grammar, perform the following steps:
 
 ### Generate TypeScript
-Use the ANTLR CLI to generate the necessary files from the grammar. 
 
-Install the ANTLR CLI wrapper in `package.json` as follows:
+Use the ANTLR CLI to generate the necessary files from the grammar.
+It is installed as a development dependency of this project.
 
-```
- "antlr4ts-cli": "^0.4.0-alpha.4",
-
-```
-
-Create an `antlr4ts` script in `package.json` to work with your grammar.
-
-```bash
-    "antlr4ts": "antlr4ts -visitor src/tree/ast/antlr/scala/Scala.g4 && mv src/tree/ast/antlr/scala/*.ts src/tree/ast/antlr/scala/antlr-gen && mv src/tree/ast/antlr/scala/*.tokens src/tree/ast/antlr/scala/antlr-gen",
+If your grammar has a separate lexer, first generate the TypeScript
+for that.  In this example, we'll use the Kotlin grammar.
 
 ```
+$ ./node_modules/.bin/antlr4ts -visitor lib/tree/ast/antlr/kotlin/KotlinLexer.g4
+```
 
-You may need to reorder some of the generated code to eliminate forward references to ensure compilation. 
+Then generate the TypeScript for the parser.
+
+```
+$ ./node_modules/.bin/antlr4ts -lib lib/tree/ast/antlr/kotlin -visitor lib/tree/ast/antlr/kotlin/KotlinParser.g4
+```
+
+You may need to reorder some of the generated code to eliminate forward references to ensure compilation.
 In your `antlr-gen/XXXXParser` file, reorder to put all classes _before_ the `XXXXParser` class.
 
 If you are using `tslint` you may need to disable it for the generated sources as
@@ -90,7 +91,7 @@ passing the top level production name and the lexer and parser classes.
 const JavaFileParser = new AntlrFileParser("compilationUnit", JavaLexer, JavaParser);
 ```
 
-If your grammar uses Java or other code you may need to port that code to JavaScript or TypeScript. 
+If your grammar uses Java or other code you may need to port that code to JavaScript or TypeScript.
 Please refer to ANTLR documentation in this case.
 Please validate your grammar with an IDE plugin or other tool before generating code and attempting
 integration.
@@ -98,8 +99,7 @@ integration.
 ## Support
 
 General support questions should be discussed in the `#support`
-channel in our community Slack team
-at [atomist-community.slack.com][slack].
+channel in the [Atomist community Slack workspace][slack].
 
 If you find a problem, please create an [issue][].
 
@@ -107,44 +107,37 @@ If you find a problem, please create an [issue][].
 
 ## Development
 
-You will need to install [node][] to build and test this project.
+You will need to install [Node.js][node] to build and test this
+project.
 
-### Build and Test
+[node]: https://nodejs.org/ (Node.js)
 
-Command | Reason
-------- | ------
-`npm install` | to install all the required packages
-`npm run start` | to start the Atomist automation client
-`npm run lint` | to run tslint against the TypeScript
-`npm run compile` | to compile all TypeScript into JavaScript
-`npm test` | to run tests and ensure everything is working
-`npm run autotest` | run tests continuously (you may also need to run `tsc -w`)
-`npm run clean` | remove stray compiled JavaScript files and build directory
+### Build and test
+
+Install dependencies.
+
+```
+$ npm install
+```
+
+Use the `build` package script to compile, test, lint, and build the
+documentation.
+
+```
+$ npm run build
+```
 
 ### Release
 
-To create a new release of the project, simply push a tag of the form
-`M.N.P` where `M`, `N`, and `P` are integers that form the next
-appropriate [semantic version][semver] for release.  The version in
-the package.json is replaced by the build and is totally ignored!  For
-example:
+Releases are handled via the [Atomist SDM][atomist-sdm].  Just press
+the 'Approve' button in the Atomist dashboard or Slack.
 
-[semver]: http://semver.org
-
-```
-$ git tag -a 1.2.3
-$ git push --tags
-```
-
-The Travis CI build (see badge at the top of this page) will publish
-the NPM module and automatically create a GitHub release using the tag
-name for the release and the comment provided on the annotated tag as
-the contents of the release notes.
+[atomist-sdm]: https://github.com/atomist/atomist-sdm (Atomist Software Delivery Machine)
 
 ---
 
 Created by [Atomist][atomist].
-Need Help?  [Join our Slack team][slack].
+Need Help?  [Join our Slack workspace][slack].
 
-[atomist]: https://www.atomist.com/
-[slack]: https://join.atomist.com
+[atomist]: https://atomist.com/ (Atomist - How Teams Deliver Software)
+[slack]: https://join.atomist.com/ (Atomist Community Slack)
