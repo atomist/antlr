@@ -40,11 +40,13 @@ describe("java grammar", () => {
             }).then(() => done(), done);
     });
 
-    it.skip("should reject invalid path expression", () => {
+    it("should reject invalid path expression", done => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
-        assert.throws(() => findMatches(p, JavaFileParser, AllJavaFiles, "//thisDoesntExist/Identifier"),
-            (err: any) => err.message.includes("thisDoesntExist"));
+        findMatches(p, JavaFileParser, AllJavaFiles, "//thisDoesntExist/Identifier")
+            .then(() => assert.fail("should have thrown an error"), err => {
+                assert(err.message.includes("thisDoesntExist"));
+            }).then(() => done(), done);
     });
 
     it("should get into AST", done => {
