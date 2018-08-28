@@ -3,10 +3,16 @@ import * as _ from "lodash";
 import { logger } from "@atomist/automation-client/internal/util/logger";
 import { File } from "@atomist/automation-client/project/File";
 import { FileParser } from "@atomist/automation-client/tree/ast/FileParser";
-import { fillInEmptyNonTerminalValues } from "@atomist/tree-path/manipulation/enrichment";
-import { isNamedNodeTest, NamedNodeTest } from "@atomist/tree-path/path/nodeTests";
-import { isUnionPathExpression, NodeTest, PathExpression, stringify } from "@atomist/tree-path/path/pathExpression";
-import { TreeNode } from "@atomist/tree-path/TreeNode";
+import {
+    fillInEmptyNonTerminalValues,
+    isNamedNodeTest,
+    isUnionPathExpression,
+    NamedNodeTest,
+    NodeTest,
+    PathExpression,
+    stringify,
+    TreeNode,
+} from "@atomist/tree-path";
 import { ANTLRInputStream, CommonTokenStream, Lexer, Parser, TokenStream } from "antlr4ts";
 import { TreeBuildingListener } from "./TreeBuildingListener";
 
@@ -49,8 +55,8 @@ export class AntlrFileParser implements FileParser {
      * @param parserClass parser class
      */
     constructor(public rootName: string,
-                private lexerClass: LexerClass,
-                private parserClass: ParserClass) {
+                private readonly lexerClass: LexerClass,
+                private readonly parserClass: ParserClass) {
     }
 
     public toAst(f: File): Promise<TreeNode> {

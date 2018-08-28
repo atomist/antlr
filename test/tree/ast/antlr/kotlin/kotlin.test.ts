@@ -1,11 +1,10 @@
 import { InMemoryFile } from "@atomist/automation-client/project/mem/InMemoryFile";
-import "mocha";
 import * as assert from "power-assert";
 
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
 
-import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
+import { TreeVisitor, visit } from "@atomist/tree-path";
 import { KotlinFileParser, KotlinFiles } from "../../../../../lib/tree/ast/antlr/kotlin/KotlinFileParser";
 
 describe("kotlin grammar", () => {
@@ -17,9 +16,7 @@ fun main(args: Array<String>) {
     println("Hello, world!")
 }`);
         KotlinFileParser.toAst(f)
-            .then(root => {
-                done();
-            }).catch(done);
+            .then(() => done(), done);
     });
 
     it("should parse a file and keep positions", done => {
@@ -43,8 +40,7 @@ fun main(args: Array<String>) {
                 };
                 visit(root, v);
                 assert(terminalCount > 0);
-                done();
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST", done => {
@@ -58,8 +54,7 @@ fun main(args: Array<String>) {
             .then(matches => {
                 assert(matches.length === 1);
                 assert(matches[0].$value === "i");
-                done();
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and allow scalar navigation via properties", done => {
@@ -73,35 +68,33 @@ fun main(args: Array<String>) {
             .then(matches => {
                 assert(matches.length === 1);
                 assert((matches[0] as any).$value === "i");
-                done();
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and update single terminal", done => {
         const path = "src/main/kotlin/Foo.kt";
         const content = "import foo.bar.Baz;\npublic class Foo { val i = 5;}";
         const p = InMemoryProject.of(
-            {path, content});
+            { path, content });
         findFileMatches(p, KotlinFileParser, KotlinFiles,
             "//variableDeclaration//Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
                 target.matches[0].$value = "xi";
-                p.flush().then(_ => {
+                return p.flush().then(_ => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace("val i", "val xi"),
                         `Erroneous content after change: [${f.getContentSync()}]`);
-                    done();
                 });
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and update two terminals", done => {
         const path = "src/main/kotlin/Foo.kt";
         const content = "import foo.bar.Baz;\npublic class Foo { val i = 5; val x = 8.0; }";
         const p = InMemoryProject.of(
-            {path, content});
+            { path, content });
         findFileMatches(p, KotlinFileParser, KotlinFiles,
             "//variableDeclaration//Identifier")
             .then(fm => {
@@ -109,16 +102,15 @@ fun main(args: Array<String>) {
                 const target = fm[0];
                 target.matches[1].$value = "flibbertygibbit";
                 target.matches[0].$value = "xi";
-                p.flush().then(_ => {
+                return p.flush().then(_ => {
                     const f = p.findFileSync(path);
                     const expected = content
                         .replace("val i", "val xi")
                         .replace("val x ", "val flibbertygibbit ");
                     assert(f.getContentSync() === expected,
                         `Erroneous content: [${f.getContentSync()}]\nvs\n[${expected}]`);
-                    done();
                 });
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and update single non-terminal", done => {
@@ -126,7 +118,7 @@ fun main(args: Array<String>) {
         const propertyDeclaration = "val i = 5;";
         const content = `import foo.bar.Baz;\npublic class Foo { ${propertyDeclaration}}`;
         const p = InMemoryProject.of(
-            {path, content});
+            { path, content });
         findFileMatches(p, KotlinFileParser, KotlinFiles,
             "//propertyDeclaration")
             .then(fm => {
@@ -136,13 +128,12 @@ fun main(args: Array<String>) {
                 assert(propDecl.$value === propertyDeclaration);
                 const newVariableDeclaration = 'val thing = "that"';
                 propDecl.$value = newVariableDeclaration;
-                p.flush().then(_ => {
+                return p.flush().then(_ => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace(propertyDeclaration, newVariableDeclaration),
                         `Erroneous content after update: [${f.getContentSync()}]`);
-                    done();
                 });
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
 });

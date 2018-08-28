@@ -1,24 +1,25 @@
 import * as _ from "lodash";
 
 import { logger } from "@atomist/automation-client/internal/util/logger";
-import { TreeNode } from "@atomist/tree-path/TreeNode";
+import { TreeNode } from "@atomist/tree-path";
 import { ParserRuleContext } from "antlr4ts";
 import { ErrorNode, ParseTreeListener, TerminalNode } from "antlr4ts/tree";
+
+/* tslint:disable:max-classes-per-file */
 
 /**
  * Build Atomist automation-client-ts TreeNode from an ANTLR parse
  */
 export class TreeBuildingListener implements ParseTreeListener {
 
-    private nodeStack: MutableTreeNode[] = [];
+    private readonly nodeStack: MutableTreeNode[] = [];
 
     /**
      *
      * @param {(i: number) => string} lookupRule lookup rule. grammar-specific
      * @param {(i: number) => string} lookupToken lookup token. lexer[specific
      */
-    constructor(private lookupRule: (i: number) => string, private lookupToken: (i: number) => string) {
-    }
+    constructor(private readonly lookupRule: (i: number) => string, private readonly lookupToken: (i: number) => string) { }
 
     /**
      * Make the root node (from top level production) available after parsing

@@ -1,13 +1,11 @@
 import { InMemoryFile } from "@atomist/automation-client/project/mem/InMemoryFile";
-import "mocha";
 import * as assert from "power-assert";
 
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
 import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 
-import { TreeVisitor, visit } from "@atomist/tree-path/visitor";
-import { fail } from "power-assert";
+import { TreeVisitor, visit } from "@atomist/tree-path";
 
 const AllJavaFiles = "**/*.java";
 
@@ -16,9 +14,7 @@ describe("java grammar", () => {
     it("should parse a file", done => {
         const f = new InMemoryFile("src/main/java/Foo.java", "import foo.bar.Baz;\npublic class Foo { int i = 5;}");
         JavaFileParser.toAst(f)
-            .then(root => {
-                done();
-            }).catch(done);
+            .then(() => done(), done);
     });
 
     it("should parse a file and keep positions", done => {
@@ -41,8 +37,7 @@ describe("java grammar", () => {
                 };
                 visit(root, v);
                 assert(terminalCount > 0);
-                done();
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it.skip("should reject invalid path expression", () => {
@@ -59,8 +54,7 @@ describe("java grammar", () => {
             .then(matches => {
                 assert(matches.length === 1);
                 assert(matches[0].$value === "i");
-                done();
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and allow scalar navigation via properties", done => {
@@ -70,8 +64,7 @@ describe("java grammar", () => {
             .then(matches => {
                 assert(matches.length === 1);
                 assert((matches[0] as any).Identifier === "i");
-                done();
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and update single terminal", done => {
@@ -84,13 +77,12 @@ describe("java grammar", () => {
                 assert(fm.length === 1);
                 const target = fm[0];
                 target.matches[0].$value = "xi";
-                p.flush().then(_ => {
+                return p.flush().then(_ => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace("int i", "int xi"),
                         `Erroneous content: [${f.getContentSync()}]`);
-                    done();
                 });
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and update two terminals", done => {
@@ -104,15 +96,14 @@ describe("java grammar", () => {
                 const target = fm[0];
                 target.matches[1].$value = "flibbertygibbit";
                 target.matches[0].$value = "xi";
-                p.flush().then(_ => {
+                return p.flush().then(_ => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content
                         .replace("int i", "int xi")
                         .replace("float x", "float flibbertygibbit"),
                         `Erroneous content: [${f.getContentSync()}]`);
-                    done();
                 });
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
     it("should get into AST and update single non-terminal", done => {
@@ -129,13 +120,12 @@ describe("java grammar", () => {
                 assert(varDecl.$value === variableDeclaration);
                 const newVariableDeclaration = 'String thing = "that"';
                 varDecl.$value = newVariableDeclaration;
-                p.flush().then(_ => {
+                return p.flush().then(_ => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace(variableDeclaration, newVariableDeclaration),
                         `Erroneous content: [${f.getContentSync()}]`);
-                    done();
                 });
-            }).catch(done);
+            }).then(() => done(), done);
     });
 
 });

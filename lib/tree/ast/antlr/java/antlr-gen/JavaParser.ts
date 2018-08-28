@@ -3493,7 +3493,7 @@ export class JavaParser extends Parser {
         super(input);
         this._interp = new ParserATNSimulator(JavaParser._ATN, this);
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public compilationUnit() {
         const _localctx: CompilationUnitContext = new CompilationUnitContext(this._ctx, this.state);
         this.enterRule(_localctx, 0, JavaParser.RULE_compilationUnit);
@@ -3557,7 +3557,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public packageDeclaration() {
         const _localctx: PackageDeclarationContext = new PackageDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 2, JavaParser.RULE_packageDeclaration);
@@ -3601,7 +3601,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public importDeclaration() {
         const _localctx = new ImportDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 4, JavaParser.RULE_importDeclaration);
@@ -3653,7 +3653,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeDeclaration() {
         const _localctx = new TypeDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 6, JavaParser.RULE_typeDeclaration);
@@ -3776,7 +3776,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public modifier() {
         const _localctx = new ModifierContext(this._ctx, this.state);
         this.enterRule(_localctx, 8, JavaParser.RULE_modifier);
@@ -3837,7 +3837,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public classOrInterfaceModifier() {
         const _localctx = new ClassOrInterfaceModifierContext(this._ctx, this.state);
         this.enterRule(_localctx, 10, JavaParser.RULE_classOrInterfaceModifier);
@@ -3894,7 +3894,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public variableModifier() {
         const _localctx: VariableModifierContext = new VariableModifierContext(this._ctx, this.state);
         this.enterRule(_localctx, 12, JavaParser.RULE_variableModifier);
@@ -3934,7 +3934,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public classDeclaration() {
         const _localctx: ClassDeclarationContext = new ClassDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 14, JavaParser.RULE_classDeclaration);
@@ -3998,7 +3998,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeParameters() {
         const _localctx: TypeParametersContext = new TypeParametersContext(this._ctx, this.state);
         this.enterRule(_localctx, 16, JavaParser.RULE_typeParameters);
@@ -4044,7 +4044,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeParameter() {
         const _localctx: TypeParameterContext = new TypeParameterContext(this._ctx, this.state);
         this.enterRule(_localctx, 18, JavaParser.RULE_typeParameter);
@@ -4082,7 +4082,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeBound() {
         const _localctx: TypeBoundContext = new TypeBoundContext(this._ctx, this.state);
         this.enterRule(_localctx, 20, JavaParser.RULE_typeBound);
@@ -4124,7 +4124,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public enumDeclaration() {
         const _localctx: EnumDeclarationContext = new EnumDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 22, JavaParser.RULE_enumDeclaration);
@@ -4198,7 +4198,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public enumConstants() {
         const _localctx: EnumConstantsContext = new EnumConstantsContext(this._ctx, this.state);
         this.enterRule(_localctx, 24, JavaParser.RULE_enumConstants);
@@ -4242,7 +4242,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public enumConstant() {
         const _localctx: EnumConstantContext = new EnumConstantContext(this._ctx, this.state);
         this.enterRule(_localctx, 26, JavaParser.RULE_enumConstant);
@@ -4302,7 +4302,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public enumBodyDeclarations() {
         const _localctx: EnumBodyDeclarationsContext = new EnumBodyDeclarationsContext(this._ctx, this.state);
         this.enterRule(_localctx, 28, JavaParser.RULE_enumBodyDeclarations);
@@ -4342,7 +4342,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public interfaceDeclaration() {
         const _localctx: InterfaceDeclarationContext = new InterfaceDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 30, JavaParser.RULE_interfaceDeclaration);
@@ -4394,7 +4394,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeList() {
         const _localctx: TypeListContext = new TypeListContext(this._ctx, this.state);
         this.enterRule(_localctx, 32, JavaParser.RULE_typeList);
@@ -4436,7 +4436,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public classBody() {
         const _localctx: ClassBodyContext = new ClassBodyContext(this._ctx, this.state);
         this.enterRule(_localctx, 34, JavaParser.RULE_classBody);
@@ -4478,7 +4478,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public interfaceBody() {
         const _localctx: InterfaceBodyContext = new InterfaceBodyContext(this._ctx, this.state);
         this.enterRule(_localctx, 36, JavaParser.RULE_interfaceBody);
@@ -4520,7 +4520,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public classBodyDeclaration() {
         const _localctx: ClassBodyDeclarationContext = new ClassBodyDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 38, JavaParser.RULE_classBodyDeclaration);
@@ -4595,7 +4595,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public memberDeclaration() {
         const _localctx: MemberDeclarationContext = new MemberDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 40, JavaParser.RULE_memberDeclaration);
@@ -4690,7 +4690,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public methodDeclaration() {
         const _localctx: MethodDeclarationContext = new MethodDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 42, JavaParser.RULE_methodDeclaration);
@@ -4790,7 +4790,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public genericMethodDeclaration() {
         const _localctx: GenericMethodDeclarationContext = new GenericMethodDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 44, JavaParser.RULE_genericMethodDeclaration);
@@ -4817,7 +4817,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public constructorDeclaration() {
         const _localctx: ConstructorDeclarationContext = new ConstructorDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 46, JavaParser.RULE_constructorDeclaration);
@@ -4859,7 +4859,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public genericConstructorDeclaration() {
         const _localctx: GenericConstructorDeclarationContext = new GenericConstructorDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 48, JavaParser.RULE_genericConstructorDeclaration);
@@ -4886,7 +4886,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public fieldDeclaration() {
         const _localctx: FieldDeclarationContext = new FieldDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 50, JavaParser.RULE_fieldDeclaration);
@@ -4915,7 +4915,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public interfaceBodyDeclaration() {
         const _localctx: InterfaceBodyDeclarationContext = new InterfaceBodyDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 52, JavaParser.RULE_interfaceBodyDeclaration);
@@ -4997,7 +4997,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public interfaceMemberDeclaration() {
         const _localctx: InterfaceMemberDeclarationContext = new InterfaceMemberDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 54, JavaParser.RULE_interfaceMemberDeclaration);
@@ -5076,7 +5076,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public constDeclaration() {
         const _localctx: ConstDeclarationContext = new ConstDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 56, JavaParser.RULE_constDeclaration);
@@ -5122,7 +5122,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public constantDeclarator() {
         const _localctx: ConstantDeclaratorContext = new ConstantDeclaratorContext(this._ctx, this.state);
         this.enterRule(_localctx, 58, JavaParser.RULE_constantDeclarator);
@@ -5168,7 +5168,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public interfaceMethodDeclaration() {
         const _localctx: InterfaceMethodDeclarationContext = new InterfaceMethodDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 60, JavaParser.RULE_interfaceMethodDeclaration);
@@ -5252,7 +5252,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public genericInterfaceMethodDeclaration() {
         const _localctx: GenericInterfaceMethodDeclarationContext = new GenericInterfaceMethodDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 62, JavaParser.RULE_genericInterfaceMethodDeclaration);
@@ -5279,7 +5279,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public variableDeclarators() {
         const _localctx: VariableDeclaratorsContext = new VariableDeclaratorsContext(this._ctx, this.state);
         this.enterRule(_localctx, 64, JavaParser.RULE_variableDeclarators);
@@ -5321,7 +5321,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public variableDeclarator() {
         const _localctx: VariableDeclaratorContext = new VariableDeclaratorContext(this._ctx, this.state);
         this.enterRule(_localctx, 66, JavaParser.RULE_variableDeclarator);
@@ -5359,7 +5359,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public variableDeclaratorId() {
         const _localctx: VariableDeclaratorIdContext = new VariableDeclaratorIdContext(this._ctx, this.state);
         this.enterRule(_localctx, 68, JavaParser.RULE_variableDeclaratorId);
@@ -5401,7 +5401,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public variableInitializer() {
         const _localctx: VariableInitializerContext = new VariableInitializerContext(this._ctx, this.state);
         this.enterRule(_localctx, 70, JavaParser.RULE_variableInitializer);
@@ -5467,7 +5467,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public arrayInitializer() {
         const _localctx: ArrayInitializerContext = new ArrayInitializerContext(this._ctx, this.state);
         this.enterRule(_localctx, 72, JavaParser.RULE_arrayInitializer);
@@ -5534,7 +5534,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public enumConstantName(): EnumConstantNameContext {
         const _localctx: EnumConstantNameContext = new EnumConstantNameContext(this._ctx, this.state);
         this.enterRule(_localctx, 74, JavaParser.RULE_enumConstantName);
@@ -5559,7 +5559,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeType(): TypeTypeContext {
         const _localctx: TypeTypeContext = new TypeTypeContext(this._ctx, this.state);
         this.enterRule(_localctx, 76, JavaParser.RULE_typeType);
@@ -5643,7 +5643,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public classOrInterfaceType(): ClassOrInterfaceTypeContext {
         const _localctx: ClassOrInterfaceTypeContext = new ClassOrInterfaceTypeContext(this._ctx, this.state);
         this.enterRule(_localctx, 78, JavaParser.RULE_classOrInterfaceType);
@@ -5707,7 +5707,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public primitiveType(): PrimitiveTypeContext {
         const _localctx: PrimitiveTypeContext = new PrimitiveTypeContext(this._ctx, this.state);
         this.enterRule(_localctx, 80, JavaParser.RULE_primitiveType);
@@ -5743,7 +5743,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeArguments(): TypeArgumentsContext {
         const _localctx: TypeArgumentsContext = new TypeArgumentsContext(this._ctx, this.state);
         this.enterRule(_localctx, 82, JavaParser.RULE_typeArguments);
@@ -5789,7 +5789,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeArgument(): TypeArgumentContext {
         const _localctx: TypeArgumentContext = new TypeArgumentContext(this._ctx, this.state);
         this.enterRule(_localctx, 84, JavaParser.RULE_typeArgument);
@@ -5860,7 +5860,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public qualifiedNameList(): QualifiedNameListContext {
         const _localctx: QualifiedNameListContext = new QualifiedNameListContext(this._ctx, this.state);
         this.enterRule(_localctx, 86, JavaParser.RULE_qualifiedNameList);
@@ -5902,7 +5902,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public formalParameters(): FormalParametersContext {
         const _localctx: FormalParametersContext = new FormalParametersContext(this._ctx, this.state);
         this.enterRule(_localctx, 88, JavaParser.RULE_formalParameters);
@@ -5940,7 +5940,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public formalParameterList(): FormalParameterListContext {
         const _localctx: FormalParameterListContext = new FormalParameterListContext(this._ctx, this.state);
         this.enterRule(_localctx, 90, JavaParser.RULE_formalParameterList);
@@ -6011,7 +6011,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public formalParameter(): FormalParameterContext {
         const _localctx: FormalParameterContext = new FormalParameterContext(this._ctx, this.state);
         this.enterRule(_localctx, 92, JavaParser.RULE_formalParameter);
@@ -6053,7 +6053,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public lastFormalParameter(): LastFormalParameterContext {
         const _localctx: LastFormalParameterContext = new LastFormalParameterContext(this._ctx, this.state);
         this.enterRule(_localctx, 94, JavaParser.RULE_lastFormalParameter);
@@ -6097,7 +6097,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public methodBody(): MethodBodyContext {
         const _localctx: MethodBodyContext = new MethodBodyContext(this._ctx, this.state);
         this.enterRule(_localctx, 96, JavaParser.RULE_methodBody);
@@ -6122,7 +6122,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public constructorBody(): ConstructorBodyContext {
         const _localctx: ConstructorBodyContext = new ConstructorBodyContext(this._ctx, this.state);
         this.enterRule(_localctx, 98, JavaParser.RULE_constructorBody);
@@ -6147,7 +6147,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public qualifiedName(): QualifiedNameContext {
         const _localctx: QualifiedNameContext = new QualifiedNameContext(this._ctx, this.state);
         this.enterRule(_localctx, 100, JavaParser.RULE_qualifiedName);
@@ -6191,7 +6191,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public literal(): LiteralContext {
         const _localctx: LiteralContext = new LiteralContext(this._ctx, this.state);
         this.enterRule(_localctx, 102, JavaParser.RULE_literal);
@@ -6227,7 +6227,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotation(): AnnotationContext {
         const _localctx: AnnotationContext = new AnnotationContext(this._ctx, this.state);
         this.enterRule(_localctx, 104, JavaParser.RULE_annotation);
@@ -6284,7 +6284,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationName(): AnnotationNameContext {
         const _localctx: AnnotationNameContext = new AnnotationNameContext(this._ctx, this.state);
         this.enterRule(_localctx, 106, JavaParser.RULE_annotationName);
@@ -6309,7 +6309,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public elementValuePairs(): ElementValuePairsContext {
         const _localctx: ElementValuePairsContext = new ElementValuePairsContext(this._ctx, this.state);
         this.enterRule(_localctx, 108, JavaParser.RULE_elementValuePairs);
@@ -6351,7 +6351,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public elementValuePair(): ElementValuePairContext {
         const _localctx: ElementValuePairContext = new ElementValuePairContext(this._ctx, this.state);
         this.enterRule(_localctx, 110, JavaParser.RULE_elementValuePair);
@@ -6380,7 +6380,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public elementValue(): ElementValueContext {
         const _localctx: ElementValueContext = new ElementValueContext(this._ctx, this.state);
         this.enterRule(_localctx, 112, JavaParser.RULE_elementValue);
@@ -6453,7 +6453,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public elementValueArrayInitializer(): ElementValueArrayInitializerContext {
         const _localctx: ElementValueArrayInitializerContext = new ElementValueArrayInitializerContext(this._ctx, this.state);
         this.enterRule(_localctx, 114, JavaParser.RULE_elementValueArrayInitializer);
@@ -6520,7 +6520,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationTypeDeclaration(): AnnotationTypeDeclarationContext {
         const _localctx: AnnotationTypeDeclarationContext = new AnnotationTypeDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 116, JavaParser.RULE_annotationTypeDeclaration);
@@ -6551,7 +6551,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationTypeBody(): AnnotationTypeBodyContext {
         const _localctx: AnnotationTypeBodyContext = new AnnotationTypeBodyContext(this._ctx, this.state);
         this.enterRule(_localctx, 118, JavaParser.RULE_annotationTypeBody);
@@ -6593,7 +6593,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationTypeElementDeclaration(): AnnotationTypeElementDeclarationContext {
         const _localctx: AnnotationTypeElementDeclarationContext = new AnnotationTypeElementDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 120, JavaParser.RULE_annotationTypeElementDeclaration);
@@ -6673,7 +6673,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationTypeElementRest(): AnnotationTypeElementRestContext {
         const _localctx: AnnotationTypeElementRestContext = new AnnotationTypeElementRestContext(this._ctx, this.state);
         this.enterRule(_localctx, 122, JavaParser.RULE_annotationTypeElementRest);
@@ -6786,7 +6786,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationMethodOrConstantRest(): AnnotationMethodOrConstantRestContext {
         const _localctx: AnnotationMethodOrConstantRestContext = new AnnotationMethodOrConstantRestContext(this._ctx, this.state);
         this.enterRule(_localctx, 124, JavaParser.RULE_annotationMethodOrConstantRest);
@@ -6825,7 +6825,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationMethodRest(): AnnotationMethodRestContext {
         const _localctx: AnnotationMethodRestContext = new AnnotationMethodRestContext(this._ctx, this.state);
         this.enterRule(_localctx, 126, JavaParser.RULE_annotationMethodRest);
@@ -6865,7 +6865,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public annotationConstantRest(): AnnotationConstantRestContext {
         const _localctx: AnnotationConstantRestContext = new AnnotationConstantRestContext(this._ctx, this.state);
         this.enterRule(_localctx, 128, JavaParser.RULE_annotationConstantRest);
@@ -6890,7 +6890,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public defaultValue(): DefaultValueContext {
         const _localctx: DefaultValueContext = new DefaultValueContext(this._ctx, this.state);
         this.enterRule(_localctx, 130, JavaParser.RULE_defaultValue);
@@ -6917,7 +6917,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public block(): BlockContext {
         const _localctx: BlockContext = new BlockContext(this._ctx, this.state);
         this.enterRule(_localctx, 132, JavaParser.RULE_block);
@@ -6959,7 +6959,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public blockStatement(): BlockStatementContext {
         const _localctx: BlockStatementContext = new BlockStatementContext(this._ctx, this.state);
         this.enterRule(_localctx, 134, JavaParser.RULE_blockStatement);
@@ -7006,7 +7006,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public localVariableDeclarationStatement(): LocalVariableDeclarationStatementContext {
         const _localctx: LocalVariableDeclarationStatementContext = new LocalVariableDeclarationStatementContext(this._ctx, this.state);
         this.enterRule(_localctx, 136, JavaParser.RULE_localVariableDeclarationStatement);
@@ -7033,7 +7033,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public localVariableDeclaration(): LocalVariableDeclarationContext {
         const _localctx: LocalVariableDeclarationContext = new LocalVariableDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 138, JavaParser.RULE_localVariableDeclaration);
@@ -7075,7 +7075,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public statement(): StatementContext {
         const _localctx: StatementContext = new StatementContext(this._ctx, this.state);
         this.enterRule(_localctx, 140, JavaParser.RULE_statement);
@@ -7444,7 +7444,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public catchClause(): CatchClauseContext {
         const _localctx: CatchClauseContext = new CatchClauseContext(this._ctx, this.state);
         this.enterRule(_localctx, 142, JavaParser.RULE_catchClause);
@@ -7494,7 +7494,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public catchType(): CatchTypeContext {
         const _localctx: CatchTypeContext = new CatchTypeContext(this._ctx, this.state);
         this.enterRule(_localctx, 144, JavaParser.RULE_catchType);
@@ -7536,7 +7536,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public finallyBlock(): FinallyBlockContext {
         const _localctx: FinallyBlockContext = new FinallyBlockContext(this._ctx, this.state);
         this.enterRule(_localctx, 146, JavaParser.RULE_finallyBlock);
@@ -7563,7 +7563,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public resourceSpecification(): ResourceSpecificationContext {
         const _localctx: ResourceSpecificationContext = new ResourceSpecificationContext(this._ctx, this.state);
         this.enterRule(_localctx, 148, JavaParser.RULE_resourceSpecification);
@@ -7603,7 +7603,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public resources(): ResourcesContext {
         const _localctx: ResourcesContext = new ResourcesContext(this._ctx, this.state);
         this.enterRule(_localctx, 150, JavaParser.RULE_resources);
@@ -7647,7 +7647,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public resource(): ResourceContext {
         const _localctx: ResourceContext = new ResourceContext(this._ctx, this.state);
         this.enterRule(_localctx, 152, JavaParser.RULE_resource);
@@ -7693,7 +7693,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public switchBlockStatementGroup(): SwitchBlockStatementGroupContext {
         const _localctx: SwitchBlockStatementGroupContext = new SwitchBlockStatementGroupContext(this._ctx, this.state);
         this.enterRule(_localctx, 154, JavaParser.RULE_switchBlockStatementGroup);
@@ -7745,7 +7745,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public switchLabel(): SwitchLabelContext {
         const _localctx: SwitchLabelContext = new SwitchLabelContext(this._ctx, this.state);
         this.enterRule(_localctx, 156, JavaParser.RULE_switchLabel);
@@ -7802,7 +7802,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public forControl(): ForControlContext {
         const _localctx: ForControlContext = new ForControlContext(this._ctx, this.state);
         this.enterRule(_localctx, 158, JavaParser.RULE_forControl);
@@ -7874,7 +7874,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public forInit(): ForInitContext {
         const _localctx: ForInitContext = new ForInitContext(this._ctx, this.state);
         this.enterRule(_localctx, 160, JavaParser.RULE_forInit);
@@ -7913,7 +7913,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public enhancedForControl(): EnhancedForControlContext {
         const _localctx: EnhancedForControlContext = new EnhancedForControlContext(this._ctx, this.state);
         this.enterRule(_localctx, 162, JavaParser.RULE_enhancedForControl);
@@ -7959,7 +7959,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public forUpdate(): ForUpdateContext {
         const _localctx: ForUpdateContext = new ForUpdateContext(this._ctx, this.state);
         this.enterRule(_localctx, 164, JavaParser.RULE_forUpdate);
@@ -7984,7 +7984,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public parExpression(): ParExpressionContext {
         const _localctx: ParExpressionContext = new ParExpressionContext(this._ctx, this.state);
         this.enterRule(_localctx, 166, JavaParser.RULE_parExpression);
@@ -8013,7 +8013,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public expressionList(): ExpressionListContext {
         const _localctx: ExpressionListContext = new ExpressionListContext(this._ctx, this.state);
         this.enterRule(_localctx, 168, JavaParser.RULE_expressionList);
@@ -8055,7 +8055,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public statementExpression(): StatementExpressionContext {
         const _localctx: StatementExpressionContext = new StatementExpressionContext(this._ctx, this.state);
         this.enterRule(_localctx, 170, JavaParser.RULE_statementExpression);
@@ -8080,7 +8080,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public constantExpression(): ConstantExpressionContext {
         const _localctx: ConstantExpressionContext = new ConstantExpressionContext(this._ctx, this.state);
         this.enterRule(_localctx, 172, JavaParser.RULE_constantExpression);
@@ -8108,7 +8108,7 @@ export class JavaParser extends Parser {
 
     public expression(): ExpressionContext;
     public expression(_p: number): ExpressionContext;
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public expression(_p?: number): ExpressionContext {
         if (_p === undefined) {
             _p = 0;
@@ -8620,7 +8620,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public primary(): PrimaryContext {
         const _localctx: PrimaryContext = new PrimaryContext(this._ctx, this.state);
         this.enterRule(_localctx, 176, JavaParser.RULE_primary);
@@ -8740,7 +8740,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public creator(): CreatorContext {
         const _localctx: CreatorContext = new CreatorContext(this._ctx, this.state);
         this.enterRule(_localctx, 178, JavaParser.RULE_creator);
@@ -8810,7 +8810,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public createdName(): CreatedNameContext {
         const _localctx: CreatedNameContext = new CreatedNameContext(this._ctx, this.state);
         this.enterRule(_localctx, 180, JavaParser.RULE_createdName);
@@ -8894,7 +8894,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public innerCreator(): InnerCreatorContext {
         const _localctx: InnerCreatorContext = new InnerCreatorContext(this._ctx, this.state);
         this.enterRule(_localctx, 182, JavaParser.RULE_innerCreator);
@@ -8932,7 +8932,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public arrayCreatorRest(): ArrayCreatorRestContext {
         const _localctx: ArrayCreatorRestContext = new ArrayCreatorRestContext(this._ctx, this.state);
         this.enterRule(_localctx, 184, JavaParser.RULE_arrayCreatorRest);
@@ -9061,7 +9061,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public classCreatorRest(): ClassCreatorRestContext {
         const _localctx: ClassCreatorRestContext = new ClassCreatorRestContext(this._ctx, this.state);
         this.enterRule(_localctx, 186, JavaParser.RULE_classCreatorRest);
@@ -9096,7 +9096,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public explicitGenericInvocation(): ExplicitGenericInvocationContext {
         const _localctx: ExplicitGenericInvocationContext = new ExplicitGenericInvocationContext(this._ctx, this.state);
         this.enterRule(_localctx, 188, JavaParser.RULE_explicitGenericInvocation);
@@ -9123,7 +9123,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public nonWildcardTypeArguments(): NonWildcardTypeArgumentsContext {
         const _localctx: NonWildcardTypeArgumentsContext = new NonWildcardTypeArgumentsContext(this._ctx, this.state);
         this.enterRule(_localctx, 190, JavaParser.RULE_nonWildcardTypeArguments);
@@ -9152,7 +9152,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public typeArgumentsOrDiamond(): TypeArgumentsOrDiamondContext {
         const _localctx: TypeArgumentsOrDiamondContext = new TypeArgumentsOrDiamondContext(this._ctx, this.state);
         this.enterRule(_localctx, 192, JavaParser.RULE_typeArgumentsOrDiamond);
@@ -9193,7 +9193,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public nonWildcardTypeArgumentsOrDiamond(): NonWildcardTypeArgumentsOrDiamondContext {
         const _localctx: NonWildcardTypeArgumentsOrDiamondContext = new NonWildcardTypeArgumentsOrDiamondContext(this._ctx, this.state);
         this.enterRule(_localctx, 194, JavaParser.RULE_nonWildcardTypeArgumentsOrDiamond);
@@ -9234,7 +9234,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public superSuffix(): SuperSuffixContext {
         const _localctx: SuperSuffixContext = new SuperSuffixContext(this._ctx, this.state);
         this.enterRule(_localctx, 196, JavaParser.RULE_superSuffix);
@@ -9286,7 +9286,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public explicitGenericInvocationSuffix(): ExplicitGenericInvocationSuffixContext {
         const _localctx: ExplicitGenericInvocationSuffixContext = new ExplicitGenericInvocationSuffixContext(this._ctx, this.state);
         this.enterRule(_localctx, 198, JavaParser.RULE_explicitGenericInvocationSuffix);
@@ -9330,7 +9330,7 @@ export class JavaParser extends Parser {
         }
         return _localctx;
     }
-    @RuleVersion(0)
+    // @RuleVersion(0)
     public arguments(): ArgumentsContext {
         const _localctx: ArgumentsContext = new ArgumentsContext(this._ctx, this.state);
         this.enterRule(_localctx, 200, JavaParser.RULE_arguments);

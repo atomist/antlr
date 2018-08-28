@@ -6375,94 +6375,94 @@ export class KotlinParser extends Parser {
 	public static readonly RULE_simpleIdentifier = 147;
 	public static readonly RULE_semi = 148;
 	public static readonly ruleNames: string[] = [
-		"kotlinFile", "script", "fileAnnotation", "packageHeader", "importList", 
-		"importHeader", "importAlias", "topLevelObject", "classDeclaration", "primaryConstructor", 
-		"classParameters", "classParameter", "delegationSpecifiers", "delegationSpecifier", 
-		"constructorInvocation", "explicitDelegation", "classBody", "classMemberDeclaration", 
-		"anonymousInitializer", "secondaryConstructor", "constructorDelegationCall", 
-		"enumClassBody", "enumEntries", "enumEntry", "functionDeclaration", "functionValueParameters", 
-		"functionValueParameter", "parameter", "functionBody", "objectDeclaration", 
-		"companionObject", "propertyDeclaration", "multiVariableDeclaration", 
-		"variableDeclaration", "getter", "setter", "typeAlias", "typeParameters", 
-		"typeParameter", "type", "typeModifierList", "parenthesizedType", "nullableType", 
-		"typeReference", "functionType", "functionTypeReceiver", "userType", "simpleUserType", 
-		"functionTypeParameters", "typeConstraints", "typeConstraint", "block", 
-		"statements", "statement", "declaration", "assignment", "expression", 
-		"disjunction", "conjunction", "equality", "comparison", "infixOperation", 
-		"elvisExpression", "infixFunctionCall", "rangeExpression", "additiveExpression", 
-		"multiplicativeExpression", "asExpression", "asExpressionTail", "prefixUnaryExpression", 
-		"postfixUnaryExpression", "callExpression", "labeledExpression", "dotQualifiedExpression", 
-		"assignableExpression", "indexingExpression", "callSuffix", "annotatedLambda", 
-		"arrayAccess", "valueArguments", "typeArguments", "typeProjection", "typeProjectionModifierList", 
-		"valueArgument", "primaryExpression", "parenthesizedExpression", "literalConstant", 
-		"stringLiteral", "lineStringLiteral", "multiLineStringLiteral", "lineStringContent", 
-		"lineStringExpression", "multiLineStringContent", "multiLineStringExpression", 
-		"functionLiteral", "lambdaParameters", "lambdaParameter", "objectLiteral", 
-		"collectionLiteral", "thisExpression", "superExpression", "conditionalExpression", 
-		"ifExpression", "controlStructureBody", "whenExpression", "whenEntry", 
-		"whenCondition", "rangeTest", "typeTest", "tryExpression", "catchBlock", 
-		"finallyBlock", "loopExpression", "forExpression", "whileExpression", 
-		"doWhileExpression", "jumpExpression", "callableReference", "assignmentOperator", 
-		"equalityOperator", "comparisonOperator", "inOperator", "isOperator", 
-		"additiveOperator", "multiplicativeOperator", "asOperator", "prefixUnaryOperator", 
-		"postfixUnaryOperator", "memberAccessOperator", "modifierList", "modifier", 
-		"classModifier", "memberModifier", "visibilityModifier", "varianceAnnotation", 
-		"functionModifier", "propertyModifier", "inheritanceModifier", "parameterModifier", 
-		"typeParameterModifier", "labelDefinition", "annotations", "annotation", 
-		"annotationList", "annotationUseSiteTarget", "unescapedAnnotation", "identifier", 
+		"kotlinFile", "script", "fileAnnotation", "packageHeader", "importList",
+		"importHeader", "importAlias", "topLevelObject", "classDeclaration", "primaryConstructor",
+		"classParameters", "classParameter", "delegationSpecifiers", "delegationSpecifier",
+		"constructorInvocation", "explicitDelegation", "classBody", "classMemberDeclaration",
+		"anonymousInitializer", "secondaryConstructor", "constructorDelegationCall",
+		"enumClassBody", "enumEntries", "enumEntry", "functionDeclaration", "functionValueParameters",
+		"functionValueParameter", "parameter", "functionBody", "objectDeclaration",
+		"companionObject", "propertyDeclaration", "multiVariableDeclaration",
+		"variableDeclaration", "getter", "setter", "typeAlias", "typeParameters",
+		"typeParameter", "type", "typeModifierList", "parenthesizedType", "nullableType",
+		"typeReference", "functionType", "functionTypeReceiver", "userType", "simpleUserType",
+		"functionTypeParameters", "typeConstraints", "typeConstraint", "block",
+		"statements", "statement", "declaration", "assignment", "expression",
+		"disjunction", "conjunction", "equality", "comparison", "infixOperation",
+		"elvisExpression", "infixFunctionCall", "rangeExpression", "additiveExpression",
+		"multiplicativeExpression", "asExpression", "asExpressionTail", "prefixUnaryExpression",
+		"postfixUnaryExpression", "callExpression", "labeledExpression", "dotQualifiedExpression",
+		"assignableExpression", "indexingExpression", "callSuffix", "annotatedLambda",
+		"arrayAccess", "valueArguments", "typeArguments", "typeProjection", "typeProjectionModifierList",
+		"valueArgument", "primaryExpression", "parenthesizedExpression", "literalConstant",
+		"stringLiteral", "lineStringLiteral", "multiLineStringLiteral", "lineStringContent",
+		"lineStringExpression", "multiLineStringContent", "multiLineStringExpression",
+		"functionLiteral", "lambdaParameters", "lambdaParameter", "objectLiteral",
+		"collectionLiteral", "thisExpression", "superExpression", "conditionalExpression",
+		"ifExpression", "controlStructureBody", "whenExpression", "whenEntry",
+		"whenCondition", "rangeTest", "typeTest", "tryExpression", "catchBlock",
+		"finallyBlock", "loopExpression", "forExpression", "whileExpression",
+		"doWhileExpression", "jumpExpression", "callableReference", "assignmentOperator",
+		"equalityOperator", "comparisonOperator", "inOperator", "isOperator",
+		"additiveOperator", "multiplicativeOperator", "asOperator", "prefixUnaryOperator",
+		"postfixUnaryOperator", "memberAccessOperator", "modifierList", "modifier",
+		"classModifier", "memberModifier", "visibilityModifier", "varianceAnnotation",
+		"functionModifier", "propertyModifier", "inheritanceModifier", "parameterModifier",
+		"typeParameterModifier", "labelDefinition", "annotations", "annotation",
+		"annotationList", "annotationUseSiteTarget", "unescapedAnnotation", "identifier",
 		"simpleIdentifier", "semi"
 	];
 
 	private static readonly _LITERAL_NAMES: (string | undefined)[] = [
-		undefined, undefined, undefined, undefined, undefined, undefined, "'...'", 
-		"'.'", "','", "'('", undefined, "'['", undefined, "'{'", "'}'", "'*'", 
-		"'%'", "'/'", "'+'", "'-'", "'++'", "'--'", "'&&'", "'||'", "'!'", "':'", 
-		"';'", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'->'", "'=>'", 
-		"'..'", "'::'", "'?::'", "';;'", "'#'", "'@'", "'?'", "'?:'", "'<'", "'>'", 
-		"'<='", "'>='", "'!='", "'!=='", "'as?'", "'=='", "'==='", "'''", undefined, 
-		undefined, undefined, "'@file'", "'package'", "'import'", "'class'", "'interface'", 
-		"'fun'", "'object'", "'val'", "'var'", "'typealias'", "'constructor'", 
-		"'by'", "'companion'", "'init'", "'this'", "'super'", "'typeof'", "'where'", 
-		"'if'", "'else'", "'when'", "'try'", "'catch'", "'finally'", "'for'", 
-		"'do'", "'while'", "'throw'", "'return'", "'continue'", "'break'", "'as'", 
-		"'is'", "'in'", undefined, undefined, "'out'", "'@field'", "'@property'", 
-		"'@get'", "'@set'", "'get'", "'set'", "'@receiver'", "'@param'", "'@setparam'", 
-		"'@delegate'", "'dynamic'", "'public'", "'private'", "'protected'", "'internal'", 
-		"'enum'", "'sealed'", "'annotation'", "'data'", "'inner'", "'tailrec'", 
-		"'operator'", "'inline'", "'infix'", "'external'", "'suspend'", "'override'", 
-		"'abstract'", "'final'", "'open'", "'const'", "'lateinit'", "'vararg'", 
-		"'noinline'", "'crossinline'", "'reified'", undefined, "'\"\"\"'", undefined, 
-		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
+		undefined, undefined, undefined, undefined, undefined, undefined, "'...'",
+		"'.'", "','", "'('", undefined, "'['", undefined, "'{'", "'}'", "'*'",
+		"'%'", "'/'", "'+'", "'-'", "'++'", "'--'", "'&&'", "'||'", "'!'", "':'",
+		"';'", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'->'", "'=>'",
+		"'..'", "'::'", "'?::'", "';;'", "'#'", "'@'", "'?'", "'?:'", "'<'", "'>'",
+		"'<='", "'>='", "'!='", "'!=='", "'as?'", "'=='", "'==='", "'''", undefined,
+		undefined, undefined, "'@file'", "'package'", "'import'", "'class'", "'interface'",
+		"'fun'", "'object'", "'val'", "'var'", "'typealias'", "'constructor'",
+		"'by'", "'companion'", "'init'", "'this'", "'super'", "'typeof'", "'where'",
+		"'if'", "'else'", "'when'", "'try'", "'catch'", "'finally'", "'for'",
+		"'do'", "'while'", "'throw'", "'return'", "'continue'", "'break'", "'as'",
+		"'is'", "'in'", undefined, undefined, "'out'", "'@field'", "'@property'",
+		"'@get'", "'@set'", "'get'", "'set'", "'@receiver'", "'@param'", "'@setparam'",
+		"'@delegate'", "'dynamic'", "'public'", "'private'", "'protected'", "'internal'",
+		"'enum'", "'sealed'", "'annotation'", "'data'", "'inner'", "'tailrec'",
+		"'operator'", "'inline'", "'infix'", "'external'", "'suspend'", "'override'",
+		"'abstract'", "'final'", "'open'", "'const'", "'lateinit'", "'vararg'",
+		"'noinline'", "'crossinline'", "'reified'", undefined, "'\"\"\"'", undefined,
+		undefined, undefined, undefined, undefined, undefined, undefined, undefined,
 		"'null'"
 	];
 	private static readonly _SYMBOLIC_NAMES: (string | undefined)[] = [
-		undefined, "ShebangLine", "DelimitedComment", "LineComment", "WS", "NL", 
-		"RESERVED", "DOT", "COMMA", "LPAREN", "RPAREN", "LSQUARE", "RSQUARE", 
-		"LCURL", "RCURL", "MULT", "MOD", "DIV", "ADD", "SUB", "INCR", "DECR", 
-		"CONJ", "DISJ", "EXCL", "COLON", "SEMICOLON", "ASSIGNMENT", "ADD_ASSIGNMENT", 
-		"SUB_ASSIGNMENT", "MULT_ASSIGNMENT", "DIV_ASSIGNMENT", "MOD_ASSIGNMENT", 
-		"ARROW", "DOUBLE_ARROW", "RANGE", "COLONCOLON", "Q_COLONCOLON", "DOUBLE_SEMICOLON", 
-		"HASH", "AT", "QUEST", "ELVIS", "LANGLE", "RANGLE", "LE", "GE", "EXCL_EQ", 
-		"EXCL_EQEQ", "AS_SAFE", "EQEQ", "EQEQEQ", "SINGLE_QUOTE", "RETURN_AT", 
-		"CONTINUE_AT", "BREAK_AT", "FILE", "PACKAGE", "IMPORT", "CLASS", "INTERFACE", 
-		"FUN", "OBJECT", "VAL", "VAR", "TYPE_ALIAS", "CONSTRUCTOR", "BY", "COMPANION", 
-		"INIT", "THIS", "SUPER", "TYPEOF", "WHERE", "IF", "ELSE", "WHEN", "TRY", 
-		"CATCH", "FINALLY", "FOR", "DO", "WHILE", "THROW", "RETURN", "CONTINUE", 
-		"BREAK", "AS", "IS", "IN", "NOT_IS", "NOT_IN", "OUT", "FIELD", "PROPERTY", 
-		"GET", "SET", "GETTER", "SETTER", "RECEIVER", "PARAM", "SETPARAM", "DELEGATE", 
-		"DYNAMIC", "PUBLIC", "PRIVATE", "PROTECTED", "INTERNAL", "ENUM", "SEALED", 
-		"ANNOTATION", "DATA", "INNER", "TAILREC", "OPERATOR", "INLINE", "INFIX", 
-		"EXTERNAL", "SUSPEND", "OVERRIDE", "ABSTRACT", "FINAL", "OPEN", "CONST", 
-		"LATEINIT", "VARARG", "NOINLINE", "CROSSINLINE", "REIFIED", "QUOTE_OPEN", 
-		"TRIPLE_QUOTE_OPEN", "RealLiteral", "FloatLiteral", "DoubleLiteral", "LongLiteral", 
-		"IntegerLiteral", "HexLiteral", "BinLiteral", "BooleanLiteral", "NullLiteral", 
-		"Identifier", "LabelReference", "LabelDefinition", "FieldIdentifier", 
-		"CharacterLiteral", "UNICODE_CLASS_LL", "UNICODE_CLASS_LM", "UNICODE_CLASS_LO", 
-		"UNICODE_CLASS_LT", "UNICODE_CLASS_LU", "UNICODE_CLASS_ND", "UNICODE_CLASS_NL", 
-		"Inside_Comment", "Inside_WS", "Inside_NL", "QUOTE_CLOSE", "LineStrRef", 
-		"LineStrText", "LineStrEscapedChar", "LineStrExprStart", "TRIPLE_QUOTE_CLOSE", 
-		"MultiLineStringQuote", "MultiLineStrRef", "MultiLineStrText", "MultiLineStrEscapedChar", 
-		"MultiLineStrExprStart", "MultiLineNL", "StrExpr_IN", "StrExpr_Comment", 
+		undefined, "ShebangLine", "DelimitedComment", "LineComment", "WS", "NL",
+		"RESERVED", "DOT", "COMMA", "LPAREN", "RPAREN", "LSQUARE", "RSQUARE",
+		"LCURL", "RCURL", "MULT", "MOD", "DIV", "ADD", "SUB", "INCR", "DECR",
+		"CONJ", "DISJ", "EXCL", "COLON", "SEMICOLON", "ASSIGNMENT", "ADD_ASSIGNMENT",
+		"SUB_ASSIGNMENT", "MULT_ASSIGNMENT", "DIV_ASSIGNMENT", "MOD_ASSIGNMENT",
+		"ARROW", "DOUBLE_ARROW", "RANGE", "COLONCOLON", "Q_COLONCOLON", "DOUBLE_SEMICOLON",
+		"HASH", "AT", "QUEST", "ELVIS", "LANGLE", "RANGLE", "LE", "GE", "EXCL_EQ",
+		"EXCL_EQEQ", "AS_SAFE", "EQEQ", "EQEQEQ", "SINGLE_QUOTE", "RETURN_AT",
+		"CONTINUE_AT", "BREAK_AT", "FILE", "PACKAGE", "IMPORT", "CLASS", "INTERFACE",
+		"FUN", "OBJECT", "VAL", "VAR", "TYPE_ALIAS", "CONSTRUCTOR", "BY", "COMPANION",
+		"INIT", "THIS", "SUPER", "TYPEOF", "WHERE", "IF", "ELSE", "WHEN", "TRY",
+		"CATCH", "FINALLY", "FOR", "DO", "WHILE", "THROW", "RETURN", "CONTINUE",
+		"BREAK", "AS", "IS", "IN", "NOT_IS", "NOT_IN", "OUT", "FIELD", "PROPERTY",
+		"GET", "SET", "GETTER", "SETTER", "RECEIVER", "PARAM", "SETPARAM", "DELEGATE",
+		"DYNAMIC", "PUBLIC", "PRIVATE", "PROTECTED", "INTERNAL", "ENUM", "SEALED",
+		"ANNOTATION", "DATA", "INNER", "TAILREC", "OPERATOR", "INLINE", "INFIX",
+		"EXTERNAL", "SUSPEND", "OVERRIDE", "ABSTRACT", "FINAL", "OPEN", "CONST",
+		"LATEINIT", "VARARG", "NOINLINE", "CROSSINLINE", "REIFIED", "QUOTE_OPEN",
+		"TRIPLE_QUOTE_OPEN", "RealLiteral", "FloatLiteral", "DoubleLiteral", "LongLiteral",
+		"IntegerLiteral", "HexLiteral", "BinLiteral", "BooleanLiteral", "NullLiteral",
+		"Identifier", "LabelReference", "LabelDefinition", "FieldIdentifier",
+		"CharacterLiteral", "UNICODE_CLASS_LL", "UNICODE_CLASS_LM", "UNICODE_CLASS_LO",
+		"UNICODE_CLASS_LT", "UNICODE_CLASS_LU", "UNICODE_CLASS_ND", "UNICODE_CLASS_NL",
+		"Inside_Comment", "Inside_WS", "Inside_NL", "QUOTE_CLOSE", "LineStrRef",
+		"LineStrText", "LineStrEscapedChar", "LineStrExprStart", "TRIPLE_QUOTE_CLOSE",
+		"MultiLineStringQuote", "MultiLineStrRef", "MultiLineStrText", "MultiLineStrEscapedChar",
+		"MultiLineStrExprStart", "MultiLineNL", "StrExpr_IN", "StrExpr_Comment",
 		"StrExpr_WS", "StrExpr_NL"
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(KotlinParser._LITERAL_NAMES, KotlinParser._SYMBOLIC_NAMES, []);
@@ -6486,7 +6486,7 @@ export class KotlinParser extends Parser {
 		super(input);
 		this._interp = new ParserATNSimulator(KotlinParser._ATN, this);
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public kotlinFile(): KotlinFileContext {
 		let _localctx: KotlinFileContext = new KotlinFileContext(this._ctx, this.state);
 		this.enterRule(_localctx, 0, KotlinParser.RULE_kotlinFile);
@@ -6505,7 +6505,7 @@ export class KotlinParser extends Parser {
 					this.state = 298;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 303;
 				this._errHandler.sync(this);
@@ -6557,7 +6557,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public script(): ScriptContext {
 		let _localctx: ScriptContext = new ScriptContext(this._ctx, this.state);
 		this.enterRule(_localctx, 2, KotlinParser.RULE_script);
@@ -6576,7 +6576,7 @@ export class KotlinParser extends Parser {
 					this.state = 317;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 322;
 				this._errHandler.sync(this);
@@ -6638,7 +6638,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public fileAnnotation(): FileAnnotationContext {
 		let _localctx: FileAnnotationContext = new FileAnnotationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 4, KotlinParser.RULE_fileAnnotation);
@@ -6647,7 +6647,7 @@ export class KotlinParser extends Parser {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 355; 
+			this.state = 355;
 			this._errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -6666,7 +6666,7 @@ export class KotlinParser extends Parser {
 						{
 						this.state = 341;
 						this.match(KotlinParser.LSQUARE);
-						this.state = 343; 
+						this.state = 343;
 						this._errHandler.sync(this);
 						_la = this._input.LA(1);
 						do {
@@ -6676,7 +6676,7 @@ export class KotlinParser extends Parser {
 							this.unescapedAnnotation();
 							}
 							}
-							this.state = 345; 
+							this.state = 345;
 							this._errHandler.sync(this);
 							_la = this._input.LA(1);
 						} while ( ((((_la - 58)) & ~0x1F) === 0 && ((1 << (_la - 58)) & ((1 << (KotlinParser.IMPORT - 58)) | (1 << (KotlinParser.CONSTRUCTOR - 58)) | (1 << (KotlinParser.BY - 58)) | (1 << (KotlinParser.COMPANION - 58)) | (1 << (KotlinParser.INIT - 58)) | (1 << (KotlinParser.WHERE - 58)) | (1 << (KotlinParser.CATCH - 58)) | (1 << (KotlinParser.FINALLY - 58)))) !== 0) || ((((_la - 92)) & ~0x1F) === 0 && ((1 << (_la - 92)) & ((1 << (KotlinParser.OUT - 92)) | (1 << (KotlinParser.GETTER - 92)) | (1 << (KotlinParser.SETTER - 92)) | (1 << (KotlinParser.DYNAMIC - 92)) | (1 << (KotlinParser.PUBLIC - 92)) | (1 << (KotlinParser.PRIVATE - 92)) | (1 << (KotlinParser.PROTECTED - 92)) | (1 << (KotlinParser.INTERNAL - 92)) | (1 << (KotlinParser.ENUM - 92)) | (1 << (KotlinParser.SEALED - 92)) | (1 << (KotlinParser.ANNOTATION - 92)) | (1 << (KotlinParser.DATA - 92)) | (1 << (KotlinParser.INNER - 92)) | (1 << (KotlinParser.TAILREC - 92)) | (1 << (KotlinParser.OPERATOR - 92)) | (1 << (KotlinParser.INLINE - 92)) | (1 << (KotlinParser.INFIX - 92)) | (1 << (KotlinParser.EXTERNAL - 92)) | (1 << (KotlinParser.SUSPEND - 92)) | (1 << (KotlinParser.OVERRIDE - 92)) | (1 << (KotlinParser.ABSTRACT - 92)) | (1 << (KotlinParser.FINAL - 92)) | (1 << (KotlinParser.OPEN - 92)) | (1 << (KotlinParser.CONST - 92)))) !== 0) || ((((_la - 124)) & ~0x1F) === 0 && ((1 << (_la - 124)) & ((1 << (KotlinParser.LATEINIT - 124)) | (1 << (KotlinParser.VARARG - 124)) | (1 << (KotlinParser.NOINLINE - 124)) | (1 << (KotlinParser.CROSSINLINE - 124)) | (1 << (KotlinParser.REIFIED - 124)) | (1 << (KotlinParser.Identifier - 124)))) !== 0) );
@@ -6746,7 +6746,7 @@ export class KotlinParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 357; 
+				this.state = 357;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input,10,this._ctx);
 			} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -6766,7 +6766,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public packageHeader(): PackageHeaderContext {
 		let _localctx: PackageHeaderContext = new PackageHeaderContext(this._ctx, this.state);
 		this.enterRule(_localctx, 6, KotlinParser.RULE_packageHeader);
@@ -6812,7 +6812,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public importList(): ImportListContext {
 		let _localctx: ImportListContext = new ImportListContext(this._ctx, this.state);
 		this.enterRule(_localctx, 8, KotlinParser.RULE_importList);
@@ -6830,7 +6830,7 @@ export class KotlinParser extends Parser {
 					this.state = 366;
 					this.importHeader();
 					}
-					} 
+					}
 				}
 				this.state = 371;
 				this._errHandler.sync(this);
@@ -6852,7 +6852,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public importHeader(): ImportHeaderContext {
 		let _localctx: ImportHeaderContext = new ImportHeaderContext(this._ctx, this.state);
 		this.enterRule(_localctx, 10, KotlinParser.RULE_importHeader);
@@ -7006,7 +7006,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public importAlias(): ImportAliasContext {
 		let _localctx: ImportAliasContext = new ImportAliasContext(this._ctx, this.state);
 		this.enterRule(_localctx, 12, KotlinParser.RULE_importAlias);
@@ -7033,7 +7033,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public topLevelObject(): TopLevelObjectContext {
 		let _localctx: TopLevelObjectContext = new TopLevelObjectContext(this._ctx, this.state);
 		this.enterRule(_localctx, 14, KotlinParser.RULE_topLevelObject);
@@ -7105,7 +7105,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public classDeclaration(): ClassDeclarationContext {
 		let _localctx: ClassDeclarationContext = new ClassDeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 16, KotlinParser.RULE_classDeclaration);
@@ -7324,7 +7324,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public primaryConstructor(): PrimaryConstructorContext {
 		let _localctx: PrimaryConstructorContext = new PrimaryConstructorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 18, KotlinParser.RULE_primaryConstructor);
@@ -7384,7 +7384,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public classParameters(): ClassParametersContext {
 		let _localctx: ClassParametersContext = new ClassParametersContext(this._ctx, this.state);
 		this.enterRule(_localctx, 20, KotlinParser.RULE_classParameters);
@@ -7438,7 +7438,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public classParameter(): ClassParameterContext {
 		let _localctx: ClassParameterContext = new ClassParameterContext(this._ctx, this.state);
 		this.enterRule(_localctx, 22, KotlinParser.RULE_classParameter);
@@ -7510,7 +7510,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public delegationSpecifiers(): DelegationSpecifiersContext {
 		let _localctx: DelegationSpecifiersContext = new DelegationSpecifiersContext(this._ctx, this.state);
 		this.enterRule(_localctx, 24, KotlinParser.RULE_delegationSpecifiers);
@@ -7575,7 +7575,7 @@ export class KotlinParser extends Parser {
 					this.state = 525;
 					this.delegationSpecifier();
 					}
-					} 
+					}
 				}
 				this.state = 530;
 				this._errHandler.sync(this);
@@ -7597,7 +7597,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public delegationSpecifier(): DelegationSpecifierContext {
 		let _localctx: DelegationSpecifierContext = new DelegationSpecifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 26, KotlinParser.RULE_delegationSpecifier);
@@ -7644,7 +7644,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public constructorInvocation(): ConstructorInvocationContext {
 		let _localctx: ConstructorInvocationContext = new ConstructorInvocationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 28, KotlinParser.RULE_constructorInvocation);
@@ -7671,7 +7671,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public explicitDelegation(): ExplicitDelegationContext {
 		let _localctx: ExplicitDelegationContext = new ExplicitDelegationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 30, KotlinParser.RULE_explicitDelegation);
@@ -7708,7 +7708,7 @@ export class KotlinParser extends Parser {
 					this.state = 547;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 552;
 				this._errHandler.sync(this);
@@ -7732,7 +7732,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public classBody(): ClassBodyContext {
 		let _localctx: ClassBodyContext = new ClassBodyContext(this._ctx, this.state);
 		this.enterRule(_localctx, 32, KotlinParser.RULE_classBody);
@@ -7753,7 +7753,7 @@ export class KotlinParser extends Parser {
 					this.state = 556;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 561;
 				this._errHandler.sync(this);
@@ -7805,7 +7805,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public classMemberDeclaration(): ClassMemberDeclarationContext {
 		let _localctx: ClassMemberDeclarationContext = new ClassMemberDeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 34, KotlinParser.RULE_classMemberDeclaration);
@@ -7897,7 +7897,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public anonymousInitializer(): AnonymousInitializerContext {
 		let _localctx: AnonymousInitializerContext = new AnonymousInitializerContext(this._ctx, this.state);
 		this.enterRule(_localctx, 36, KotlinParser.RULE_anonymousInitializer);
@@ -7939,7 +7939,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public secondaryConstructor(): SecondaryConstructorContext {
 		let _localctx: SecondaryConstructorContext = new SecondaryConstructorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 38, KotlinParser.RULE_secondaryConstructor);
@@ -8047,7 +8047,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public constructorDelegationCall(): ConstructorDelegationCallContext {
 		let _localctx: ConstructorDelegationCallContext = new ConstructorDelegationCallContext(this._ctx, this.state);
 		this.enterRule(_localctx, 40, KotlinParser.RULE_constructorDelegationCall);
@@ -8120,7 +8120,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public enumClassBody(): EnumClassBodyContext {
 		let _localctx: EnumClassBodyContext = new EnumClassBodyContext(this._ctx, this.state);
 		this.enterRule(_localctx, 42, KotlinParser.RULE_enumClassBody);
@@ -8141,7 +8141,7 @@ export class KotlinParser extends Parser {
 					this.state = 652;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 657;
 				this._errHandler.sync(this);
@@ -8188,7 +8188,7 @@ export class KotlinParser extends Parser {
 						this.state = 668;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 673;
 					this._errHandler.sync(this);
@@ -8243,7 +8243,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public enumEntries(): EnumEntriesContext {
 		let _localctx: EnumEntriesContext = new EnumEntriesContext(this._ctx, this.state);
 		this.enterRule(_localctx, 44, KotlinParser.RULE_enumEntries);
@@ -8252,7 +8252,7 @@ export class KotlinParser extends Parser {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 697; 
+			this.state = 697;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			do {
@@ -8270,7 +8270,7 @@ export class KotlinParser extends Parser {
 						this.state = 691;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 696;
 					this._errHandler.sync(this);
@@ -8278,7 +8278,7 @@ export class KotlinParser extends Parser {
 				}
 				}
 				}
-				this.state = 699; 
+				this.state = 699;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			} while ( ((((_la - 58)) & ~0x1F) === 0 && ((1 << (_la - 58)) & ((1 << (KotlinParser.IMPORT - 58)) | (1 << (KotlinParser.CONSTRUCTOR - 58)) | (1 << (KotlinParser.BY - 58)) | (1 << (KotlinParser.COMPANION - 58)) | (1 << (KotlinParser.INIT - 58)) | (1 << (KotlinParser.WHERE - 58)) | (1 << (KotlinParser.CATCH - 58)) | (1 << (KotlinParser.FINALLY - 58)))) !== 0) || ((((_la - 92)) & ~0x1F) === 0 && ((1 << (_la - 92)) & ((1 << (KotlinParser.OUT - 92)) | (1 << (KotlinParser.GETTER - 92)) | (1 << (KotlinParser.SETTER - 92)) | (1 << (KotlinParser.DYNAMIC - 92)) | (1 << (KotlinParser.PUBLIC - 92)) | (1 << (KotlinParser.PRIVATE - 92)) | (1 << (KotlinParser.PROTECTED - 92)) | (1 << (KotlinParser.INTERNAL - 92)) | (1 << (KotlinParser.ENUM - 92)) | (1 << (KotlinParser.SEALED - 92)) | (1 << (KotlinParser.ANNOTATION - 92)) | (1 << (KotlinParser.DATA - 92)) | (1 << (KotlinParser.INNER - 92)) | (1 << (KotlinParser.TAILREC - 92)) | (1 << (KotlinParser.OPERATOR - 92)) | (1 << (KotlinParser.INLINE - 92)) | (1 << (KotlinParser.INFIX - 92)) | (1 << (KotlinParser.EXTERNAL - 92)) | (1 << (KotlinParser.SUSPEND - 92)) | (1 << (KotlinParser.OVERRIDE - 92)) | (1 << (KotlinParser.ABSTRACT - 92)) | (1 << (KotlinParser.FINAL - 92)) | (1 << (KotlinParser.OPEN - 92)) | (1 << (KotlinParser.CONST - 92)))) !== 0) || ((((_la - 124)) & ~0x1F) === 0 && ((1 << (_la - 124)) & ((1 << (KotlinParser.LATEINIT - 124)) | (1 << (KotlinParser.VARARG - 124)) | (1 << (KotlinParser.NOINLINE - 124)) | (1 << (KotlinParser.CROSSINLINE - 124)) | (1 << (KotlinParser.REIFIED - 124)) | (1 << (KotlinParser.Identifier - 124)))) !== 0) );
@@ -8308,7 +8308,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public enumEntry(): EnumEntryContext {
 		let _localctx: EnumEntryContext = new EnumEntryContext(this._ctx, this.state);
 		this.enterRule(_localctx, 46, KotlinParser.RULE_enumEntry);
@@ -8406,7 +8406,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionDeclaration(): FunctionDeclarationContext {
 		let _localctx: FunctionDeclarationContext = new FunctionDeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 48, KotlinParser.RULE_functionDeclaration);
@@ -8634,7 +8634,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionValueParameters(): FunctionValueParametersContext {
 		let _localctx: FunctionValueParametersContext = new FunctionValueParametersContext(this._ctx, this.state);
 		this.enterRule(_localctx, 50, KotlinParser.RULE_functionValueParameters);
@@ -8688,7 +8688,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionValueParameter(): FunctionValueParameterContext {
 		let _localctx: FunctionValueParameterContext = new FunctionValueParameterContext(this._ctx, this.state);
 		this.enterRule(_localctx, 52, KotlinParser.RULE_functionValueParameter);
@@ -8736,7 +8736,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public parameter(): ParameterContext {
 		let _localctx: ParameterContext = new ParameterContext(this._ctx, this.state);
 		this.enterRule(_localctx, 54, KotlinParser.RULE_parameter);
@@ -8765,7 +8765,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionBody(): FunctionBodyContext {
 		let _localctx: FunctionBodyContext = new FunctionBodyContext(this._ctx, this.state);
 		this.enterRule(_localctx, 56, KotlinParser.RULE_functionBody);
@@ -8796,7 +8796,7 @@ export class KotlinParser extends Parser {
 						this.state = 839;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 844;
 					this._errHandler.sync(this);
@@ -8824,7 +8824,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public objectDeclaration(): ObjectDeclarationContext {
 		let _localctx: ObjectDeclarationContext = new ObjectDeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 58, KotlinParser.RULE_objectDeclaration);
@@ -8964,7 +8964,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public companionObject(): CompanionObjectContext {
 		let _localctx: CompanionObjectContext = new CompanionObjectContext(this._ctx, this.state);
 		this.enterRule(_localctx, 60, KotlinParser.RULE_companionObject);
@@ -9114,7 +9114,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public propertyDeclaration(): PropertyDeclarationContext {
 		let _localctx: PropertyDeclarationContext = new PropertyDeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 62, KotlinParser.RULE_propertyDeclaration);
@@ -9345,7 +9345,7 @@ export class KotlinParser extends Parser {
 						this.state = 997;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 1002;
 					this._errHandler.sync(this);
@@ -9463,7 +9463,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public multiVariableDeclaration(): MultiVariableDeclarationContext {
 		let _localctx: MultiVariableDeclarationContext = new MultiVariableDeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 64, KotlinParser.RULE_multiVariableDeclaration);
@@ -9509,7 +9509,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public variableDeclaration(): VariableDeclarationContext {
 		let _localctx: VariableDeclarationContext = new VariableDeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 66, KotlinParser.RULE_variableDeclaration);
@@ -9547,7 +9547,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public getter(): GetterContext {
 		let _localctx: GetterContext = new GetterContext(this._ctx, this.state);
 		this.enterRule(_localctx, 68, KotlinParser.RULE_getter);
@@ -9685,7 +9685,7 @@ export class KotlinParser extends Parser {
 							this.state = 1091;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1096;
 						this._errHandler.sync(this);
@@ -9716,7 +9716,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public setter(): SetterContext {
 		let _localctx: SetterContext = new SetterContext(this._ctx, this.state);
 		this.enterRule(_localctx, 70, KotlinParser.RULE_setter);
@@ -9811,7 +9811,7 @@ export class KotlinParser extends Parser {
 						default:
 							throw new NoViableAltException(this);
 						}
-						} 
+						}
 					}
 					this.state = 1123;
 					this._errHandler.sync(this);
@@ -9870,7 +9870,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeAlias(): TypeAliasContext {
 		let _localctx: TypeAliasContext = new TypeAliasContext(this._ctx, this.state);
 		this.enterRule(_localctx, 72, KotlinParser.RULE_typeAlias);
@@ -9978,7 +9978,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeParameters(): TypeParametersContext {
 		let _localctx: TypeParametersContext = new TypeParametersContext(this._ctx, this.state);
 		this.enterRule(_localctx, 74, KotlinParser.RULE_typeParameters);
@@ -9999,7 +9999,7 @@ export class KotlinParser extends Parser {
 					this.state = 1175;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 1180;
 				this._errHandler.sync(this);
@@ -10040,7 +10040,7 @@ export class KotlinParser extends Parser {
 							this.state = 1189;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1194;
 						this._errHandler.sync(this);
@@ -10049,7 +10049,7 @@ export class KotlinParser extends Parser {
 					this.state = 1195;
 					this.typeParameter();
 					}
-					} 
+					}
 				}
 				this.state = 1200;
 				this._errHandler.sync(this);
@@ -10087,7 +10087,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeParameter(): TypeParameterContext {
 		let _localctx: TypeParameterContext = new TypeParameterContext(this._ctx, this.state);
 		this.enterRule(_localctx, 76, KotlinParser.RULE_typeParameter);
@@ -10177,7 +10177,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public type(): TypeContext {
 		let _localctx: TypeContext = new TypeContext(this._ctx, this.state);
 		this.enterRule(_localctx, 78, KotlinParser.RULE_type);
@@ -10241,7 +10241,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeModifierList(): TypeModifierListContext {
 		let _localctx: TypeModifierListContext = new TypeModifierListContext(this._ctx, this.state);
 		this.enterRule(_localctx, 80, KotlinParser.RULE_typeModifierList);
@@ -10250,7 +10250,7 @@ export class KotlinParser extends Parser {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 1252; 
+			this.state = 1252;
 			this._errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -10304,7 +10304,7 @@ export class KotlinParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 1254; 
+				this.state = 1254;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input,180,this._ctx);
 			} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -10324,7 +10324,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public parenthesizedType(): ParenthesizedTypeContext {
 		let _localctx: ParenthesizedTypeContext = new ParenthesizedTypeContext(this._ctx, this.state);
 		this.enterRule(_localctx, 82, KotlinParser.RULE_parenthesizedType);
@@ -10353,7 +10353,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public nullableType(): NullableTypeContext {
 		let _localctx: NullableTypeContext = new NullableTypeContext(this._ctx, this.state);
 		this.enterRule(_localctx, 84, KotlinParser.RULE_nullableType);
@@ -10393,7 +10393,7 @@ export class KotlinParser extends Parser {
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
-			this.state = 1271; 
+			this.state = 1271;
 			this._errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -10409,7 +10409,7 @@ export class KotlinParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 1273; 
+				this.state = 1273;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input,183,this._ctx);
 			} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -10429,7 +10429,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeReference(): TypeReferenceContext {
 		let _localctx: TypeReferenceContext = new TypeReferenceContext(this._ctx, this.state);
 		this.enterRule(_localctx, 86, KotlinParser.RULE_typeReference);
@@ -10480,7 +10480,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionType(): FunctionTypeContext {
 		let _localctx: FunctionTypeContext = new FunctionTypeContext(this._ctx, this.state);
 		this.enterRule(_localctx, 88, KotlinParser.RULE_functionType);
@@ -10586,7 +10586,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionTypeReceiver(): FunctionTypeReceiverContext {
 		let _localctx: FunctionTypeReceiverContext = new FunctionTypeReceiverContext(this._ctx, this.state);
 		this.enterRule(_localctx, 90, KotlinParser.RULE_functionTypeReceiver);
@@ -10633,7 +10633,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public userType(): UserTypeContext {
 		let _localctx: UserTypeContext = new UserTypeContext(this._ctx, this.state);
 		this.enterRule(_localctx, 92, KotlinParser.RULE_userType);
@@ -10684,7 +10684,7 @@ export class KotlinParser extends Parser {
 					this.state = 1335;
 					this.simpleUserType();
 					}
-					} 
+					}
 				}
 				this.state = 1340;
 				this._errHandler.sync(this);
@@ -10706,7 +10706,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public simpleUserType(): SimpleUserTypeContext {
 		let _localctx: SimpleUserTypeContext = new SimpleUserTypeContext(this._ctx, this.state);
 		this.enterRule(_localctx, 94, KotlinParser.RULE_simpleUserType);
@@ -10756,7 +10756,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionTypeParameters(): FunctionTypeParametersContext {
 		let _localctx: FunctionTypeParametersContext = new FunctionTypeParametersContext(this._ctx, this.state);
 		this.enterRule(_localctx, 96, KotlinParser.RULE_functionTypeParameters);
@@ -10832,7 +10832,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeConstraints(): TypeConstraintsContext {
 		let _localctx: TypeConstraintsContext = new TypeConstraintsContext(this._ctx, this.state);
 		this.enterRule(_localctx, 98, KotlinParser.RULE_typeConstraints);
@@ -10899,7 +10899,7 @@ export class KotlinParser extends Parser {
 					this.state = 1389;
 					this.typeConstraint();
 					}
-					} 
+					}
 				}
 				this.state = 1394;
 				this._errHandler.sync(this);
@@ -10921,7 +10921,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeConstraint(): TypeConstraintContext {
 		let _localctx: TypeConstraintContext = new TypeConstraintContext(this._ctx, this.state);
 		this.enterRule(_localctx, 100, KotlinParser.RULE_typeConstraint);
@@ -10993,7 +10993,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public block(): BlockContext {
 		let _localctx: BlockContext = new BlockContext(this._ctx, this.state);
 		this.enterRule(_localctx, 102, KotlinParser.RULE_block);
@@ -11014,7 +11014,7 @@ export class KotlinParser extends Parser {
 					this.state = 1418;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 1423;
 				this._errHandler.sync(this);
@@ -11032,7 +11032,7 @@ export class KotlinParser extends Parser {
 					this.state = 1425;
 					this.semi();
 					}
-					} 
+					}
 				}
 				this.state = 1431;
 				this._errHandler.sync(this);
@@ -11090,7 +11090,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public statements(): StatementsContext {
 		let _localctx: StatementsContext = new StatementsContext(this._ctx, this.state);
 		this.enterRule(_localctx, 104, KotlinParser.RULE_statements);
@@ -11115,7 +11115,7 @@ export class KotlinParser extends Parser {
 						this.state = 1447;
 						this.semi();
 						}
-						} 
+						}
 					}
 					this.state = 1453;
 					this._errHandler.sync(this);
@@ -11152,7 +11152,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public statement(): StatementContext {
 		let _localctx: StatementContext = new StatementContext(this._ctx, this.state);
 		this.enterRule(_localctx, 106, KotlinParser.RULE_statement);
@@ -11199,7 +11199,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public declaration(): DeclarationContext {
 		let _localctx: DeclarationContext = new DeclarationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 108, KotlinParser.RULE_declaration);
@@ -11268,7 +11268,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public assignment(): AssignmentContext {
 		let _localctx: AssignmentContext = new AssignmentContext(this._ctx, this.state);
 		this.enterRule(_localctx, 110, KotlinParser.RULE_assignment);
@@ -11290,7 +11290,7 @@ export class KotlinParser extends Parser {
 					this.state = 1479;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 1484;
 				this._errHandler.sync(this);
@@ -11314,7 +11314,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public expression(): ExpressionContext {
 		let _localctx: ExpressionContext = new ExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 112, KotlinParser.RULE_expression);
@@ -11339,7 +11339,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public disjunction(): DisjunctionContext {
 		let _localctx: DisjunctionContext = new DisjunctionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 114, KotlinParser.RULE_disjunction);
@@ -11383,7 +11383,7 @@ export class KotlinParser extends Parser {
 							this.state = 1497;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1502;
 						this._errHandler.sync(this);
@@ -11392,7 +11392,7 @@ export class KotlinParser extends Parser {
 					this.state = 1503;
 					this.conjunction();
 					}
-					} 
+					}
 				}
 				this.state = 1508;
 				this._errHandler.sync(this);
@@ -11414,7 +11414,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public conjunction(): ConjunctionContext {
 		let _localctx: ConjunctionContext = new ConjunctionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 116, KotlinParser.RULE_conjunction);
@@ -11458,7 +11458,7 @@ export class KotlinParser extends Parser {
 							this.state = 1517;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1522;
 						this._errHandler.sync(this);
@@ -11467,7 +11467,7 @@ export class KotlinParser extends Parser {
 					this.state = 1523;
 					this.equality();
 					}
-					} 
+					}
 				}
 				this.state = 1528;
 				this._errHandler.sync(this);
@@ -11489,7 +11489,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public equality(): EqualityContext {
 		let _localctx: EqualityContext = new EqualityContext(this._ctx, this.state);
 		this.enterRule(_localctx, 118, KotlinParser.RULE_equality);
@@ -11518,7 +11518,7 @@ export class KotlinParser extends Parser {
 							this.state = 1531;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1536;
 						this._errHandler.sync(this);
@@ -11527,7 +11527,7 @@ export class KotlinParser extends Parser {
 					this.state = 1537;
 					this.comparison();
 					}
-					} 
+					}
 				}
 				this.state = 1543;
 				this._errHandler.sync(this);
@@ -11549,7 +11549,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public comparison(): ComparisonContext {
 		let _localctx: ComparisonContext = new ComparisonContext(this._ctx, this.state);
 		this.enterRule(_localctx, 120, KotlinParser.RULE_comparison);
@@ -11576,7 +11576,7 @@ export class KotlinParser extends Parser {
 						this.state = 1546;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 1551;
 					this._errHandler.sync(this);
@@ -11603,7 +11603,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public infixOperation(): InfixOperationContext {
 		let _localctx: InfixOperationContext = new InfixOperationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 122, KotlinParser.RULE_infixOperation);
@@ -11637,7 +11637,7 @@ export class KotlinParser extends Parser {
 								this.state = 1558;
 								this.match(KotlinParser.NL);
 								}
-								} 
+								}
 							}
 							this.state = 1563;
 							this._errHandler.sync(this);
@@ -11646,7 +11646,7 @@ export class KotlinParser extends Parser {
 						this.state = 1564;
 						this.elvisExpression();
 						}
-						} 
+						}
 					}
 					this.state = 1570;
 					this._errHandler.sync(this);
@@ -11704,7 +11704,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public elvisExpression(): ElvisExpressionContext {
 		let _localctx: ElvisExpressionContext = new ElvisExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 124, KotlinParser.RULE_elvisExpression);
@@ -11748,7 +11748,7 @@ export class KotlinParser extends Parser {
 							this.state = 1593;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1598;
 						this._errHandler.sync(this);
@@ -11757,7 +11757,7 @@ export class KotlinParser extends Parser {
 					this.state = 1599;
 					this.infixFunctionCall();
 					}
-					} 
+					}
 				}
 				this.state = 1604;
 				this._errHandler.sync(this);
@@ -11779,7 +11779,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public infixFunctionCall(): InfixFunctionCallContext {
 		let _localctx: InfixFunctionCallContext = new InfixFunctionCallContext(this._ctx, this.state);
 		this.enterRule(_localctx, 126, KotlinParser.RULE_infixFunctionCall);
@@ -11808,7 +11808,7 @@ export class KotlinParser extends Parser {
 							this.state = 1607;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1612;
 						this._errHandler.sync(this);
@@ -11817,7 +11817,7 @@ export class KotlinParser extends Parser {
 					this.state = 1613;
 					this.rangeExpression();
 					}
-					} 
+					}
 				}
 				this.state = 1619;
 				this._errHandler.sync(this);
@@ -11839,7 +11839,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public rangeExpression(): RangeExpressionContext {
 		let _localctx: RangeExpressionContext = new RangeExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 128, KotlinParser.RULE_rangeExpression);
@@ -11868,7 +11868,7 @@ export class KotlinParser extends Parser {
 							this.state = 1622;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1627;
 						this._errHandler.sync(this);
@@ -11877,7 +11877,7 @@ export class KotlinParser extends Parser {
 					this.state = 1628;
 					this.additiveExpression();
 					}
-					} 
+					}
 				}
 				this.state = 1633;
 				this._errHandler.sync(this);
@@ -11899,7 +11899,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public additiveExpression(): AdditiveExpressionContext {
 		let _localctx: AdditiveExpressionContext = new AdditiveExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 130, KotlinParser.RULE_additiveExpression);
@@ -11928,7 +11928,7 @@ export class KotlinParser extends Parser {
 							this.state = 1636;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1641;
 						this._errHandler.sync(this);
@@ -11937,7 +11937,7 @@ export class KotlinParser extends Parser {
 					this.state = 1642;
 					this.multiplicativeExpression();
 					}
-					} 
+					}
 				}
 				this.state = 1648;
 				this._errHandler.sync(this);
@@ -11959,7 +11959,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public multiplicativeExpression(): MultiplicativeExpressionContext {
 		let _localctx: MultiplicativeExpressionContext = new MultiplicativeExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 132, KotlinParser.RULE_multiplicativeExpression);
@@ -11988,7 +11988,7 @@ export class KotlinParser extends Parser {
 							this.state = 1651;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 1656;
 						this._errHandler.sync(this);
@@ -11997,7 +11997,7 @@ export class KotlinParser extends Parser {
 					this.state = 1657;
 					this.asExpression();
 					}
-					} 
+					}
 				}
 				this.state = 1663;
 				this._errHandler.sync(this);
@@ -12019,7 +12019,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public asExpression(): AsExpressionContext {
 		let _localctx: AsExpressionContext = new AsExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 134, KotlinParser.RULE_asExpression);
@@ -12054,7 +12054,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public asExpressionTail(): AsExpressionTailContext {
 		let _localctx: AsExpressionTailContext = new AsExpressionTailContext(this._ctx, this.state);
 		this.enterRule(_localctx, 136, KotlinParser.RULE_asExpressionTail);
@@ -12120,7 +12120,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public prefixUnaryExpression(): PrefixUnaryExpressionContext {
 		let _localctx: PrefixUnaryExpressionContext = new PrefixUnaryExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 138, KotlinParser.RULE_prefixUnaryExpression);
@@ -12165,7 +12165,7 @@ export class KotlinParser extends Parser {
 						this.state = 1692;
 						this.annotations();
 						}
-						} 
+						}
 					}
 					this.state = 1697;
 					this._errHandler.sync(this);
@@ -12191,7 +12191,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public postfixUnaryExpression(): PostfixUnaryExpressionContext {
 		let _localctx: PostfixUnaryExpressionContext = new PostfixUnaryExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 140, KotlinParser.RULE_postfixUnaryExpression);
@@ -12247,7 +12247,7 @@ export class KotlinParser extends Parser {
 						this.state = 1706;
 						this.postfixUnaryOperator();
 						}
-						} 
+						}
 					}
 					this.state = 1711;
 					this._errHandler.sync(this);
@@ -12265,7 +12265,7 @@ export class KotlinParser extends Parser {
 				this.callableReference();
 				this.state = 1714;
 				this.match(KotlinParser.RPAREN);
-				this.state = 1716; 
+				this.state = 1716;
 				this._errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -12281,7 +12281,7 @@ export class KotlinParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					this.state = 1718; 
+					this.state = 1718;
 					this._errHandler.sync(this);
 					_alt = this.interpreter.adaptivePredict(this._input,253,this._ctx);
 				} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -12311,7 +12311,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public callExpression(): CallExpressionContext {
 		let _localctx: CallExpressionContext = new CallExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 142, KotlinParser.RULE_callExpression);
@@ -12351,7 +12351,7 @@ export class KotlinParser extends Parser {
 					this.state = 1730;
 					this.annotatedLambda();
 					}
-					} 
+					}
 				}
 				this.state = 1735;
 				this._errHandler.sync(this);
@@ -12373,7 +12373,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public labeledExpression(): LabeledExpressionContext {
 		let _localctx: LabeledExpressionContext = new LabeledExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 144, KotlinParser.RULE_labeledExpression);
@@ -12400,7 +12400,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public dotQualifiedExpression(): DotQualifiedExpressionContext {
 		let _localctx: DotQualifiedExpressionContext = new DotQualifiedExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 146, KotlinParser.RULE_dotQualifiedExpression);
@@ -12411,7 +12411,7 @@ export class KotlinParser extends Parser {
 			{
 			this.state = 1739;
 			this.assignableExpression();
-			this.state = 1749; 
+			this.state = 1749;
 			this._errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -12443,7 +12443,7 @@ export class KotlinParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 1751; 
+				this.state = 1751;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input,259,this._ctx);
 			} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -12463,7 +12463,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public assignableExpression(): AssignableExpressionContext {
 		let _localctx: AssignableExpressionContext = new AssignableExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 148, KotlinParser.RULE_assignableExpression);
@@ -12502,7 +12502,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public indexingExpression(): IndexingExpressionContext {
 		let _localctx: IndexingExpressionContext = new IndexingExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 150, KotlinParser.RULE_indexingExpression);
@@ -12512,7 +12512,7 @@ export class KotlinParser extends Parser {
 			{
 			this.state = 1757;
 			this.identifier();
-			this.state = 1759; 
+			this.state = 1759;
 			this._errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -12528,7 +12528,7 @@ export class KotlinParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 1761; 
+				this.state = 1761;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input,261,this._ctx);
 			} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -12548,7 +12548,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public callSuffix(): CallSuffixContext {
 		let _localctx: CallSuffixContext = new CallSuffixContext(this._ctx, this.state);
 		this.enterRule(_localctx, 152, KotlinParser.RULE_callSuffix);
@@ -12583,7 +12583,7 @@ export class KotlinParser extends Parser {
 						this.state = 1767;
 						this.annotatedLambda();
 						}
-						} 
+						}
 					}
 					this.state = 1772;
 					this._errHandler.sync(this);
@@ -12607,7 +12607,7 @@ export class KotlinParser extends Parser {
 						this.state = 1774;
 						this.annotatedLambda();
 						}
-						} 
+						}
 					}
 					this.state = 1779;
 					this._errHandler.sync(this);
@@ -12631,7 +12631,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public annotatedLambda(): AnnotatedLambdaContext {
 		let _localctx: AnnotatedLambdaContext = new AnnotatedLambdaContext(this._ctx, this.state);
 		this.enterRule(_localctx, 154, KotlinParser.RULE_annotatedLambda);
@@ -12695,7 +12695,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public arrayAccess(): ArrayAccessContext {
 		let _localctx: ArrayAccessContext = new ArrayAccessContext(this._ctx, this.state);
 		this.enterRule(_localctx, 156, KotlinParser.RULE_arrayAccess);
@@ -12749,7 +12749,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public valueArguments(): ValueArgumentsContext {
 		let _localctx: ValueArgumentsContext = new ValueArgumentsContext(this._ctx, this.state);
 		this.enterRule(_localctx, 158, KotlinParser.RULE_valueArguments);
@@ -12821,7 +12821,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeArguments(): TypeArgumentsContext {
 		let _localctx: TypeArgumentsContext = new TypeArgumentsContext(this._ctx, this.state);
 		this.enterRule(_localctx, 160, KotlinParser.RULE_typeArguments);
@@ -12874,7 +12874,7 @@ export class KotlinParser extends Parser {
 					this.state = 1845;
 					this.typeProjection();
 					}
-					} 
+					}
 				}
 				this.state = 1850;
 				this._errHandler.sync(this);
@@ -12912,7 +12912,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeProjection(): TypeProjectionContext {
 		let _localctx: TypeProjectionContext = new TypeProjectionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 162, KotlinParser.RULE_typeProjection);
@@ -13012,7 +13012,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeProjectionModifierList(): TypeProjectionModifierListContext {
 		let _localctx: TypeProjectionModifierListContext = new TypeProjectionModifierListContext(this._ctx, this.state);
 		this.enterRule(_localctx, 164, KotlinParser.RULE_typeProjectionModifierList);
@@ -13020,7 +13020,7 @@ export class KotlinParser extends Parser {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 1867; 
+			this.state = 1867;
 			this._errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -13036,7 +13036,7 @@ export class KotlinParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 1869; 
+				this.state = 1869;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input,280,this._ctx);
 			} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -13056,7 +13056,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public valueArgument(): ValueArgumentContext {
 		let _localctx: ValueArgumentContext = new ValueArgumentContext(this._ctx, this.state);
 		this.enterRule(_localctx, 166, KotlinParser.RULE_valueArgument);
@@ -13098,7 +13098,7 @@ export class KotlinParser extends Parser {
 						this.state = 1879;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 1884;
 					this._errHandler.sync(this);
@@ -13127,7 +13127,7 @@ export class KotlinParser extends Parser {
 					this.state = 1890;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 1895;
 				this._errHandler.sync(this);
@@ -13151,7 +13151,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public primaryExpression(): PrimaryExpressionContext {
 		let _localctx: PrimaryExpressionContext = new PrimaryExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 168, KotlinParser.RULE_primaryExpression);
@@ -13333,7 +13333,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public parenthesizedExpression(): ParenthesizedExpressionContext {
 		let _localctx: ParenthesizedExpressionContext = new ParenthesizedExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 170, KotlinParser.RULE_parenthesizedExpression);
@@ -13362,7 +13362,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public literalConstant(): LiteralConstantContext {
 		let _localctx: LiteralConstantContext = new LiteralConstantContext(this._ctx, this.state);
 		this.enterRule(_localctx, 172, KotlinParser.RULE_literalConstant);
@@ -13398,7 +13398,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public stringLiteral(): StringLiteralContext {
 		let _localctx: StringLiteralContext = new StringLiteralContext(this._ctx, this.state);
 		this.enterRule(_localctx, 174, KotlinParser.RULE_stringLiteral);
@@ -13438,7 +13438,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public lineStringLiteral(): LineStringLiteralContext {
 		let _localctx: LineStringLiteralContext = new LineStringLiteralContext(this._ctx, this.state);
 		this.enterRule(_localctx, 176, KotlinParser.RULE_lineStringLiteral);
@@ -13496,7 +13496,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public multiLineStringLiteral(): MultiLineStringLiteralContext {
 		let _localctx: MultiLineStringLiteralContext = new MultiLineStringLiteralContext(this._ctx, this.state);
 		this.enterRule(_localctx, 178, KotlinParser.RULE_multiLineStringLiteral);
@@ -13566,7 +13566,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public lineStringContent(): LineStringContentContext {
 		let _localctx: LineStringContentContext = new LineStringContentContext(this._ctx, this.state);
 		this.enterRule(_localctx, 180, KotlinParser.RULE_lineStringContent);
@@ -13602,7 +13602,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public lineStringExpression(): LineStringExpressionContext {
 		let _localctx: LineStringExpressionContext = new LineStringExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 182, KotlinParser.RULE_lineStringExpression);
@@ -13631,7 +13631,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public multiLineStringContent(): MultiLineStringContentContext {
 		let _localctx: MultiLineStringContentContext = new MultiLineStringContentContext(this._ctx, this.state);
 		this.enterRule(_localctx, 184, KotlinParser.RULE_multiLineStringContent);
@@ -13667,7 +13667,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public multiLineStringExpression(): MultiLineStringExpressionContext {
 		let _localctx: MultiLineStringExpressionContext = new MultiLineStringExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 186, KotlinParser.RULE_multiLineStringExpression);
@@ -13696,7 +13696,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionLiteral(): FunctionLiteralContext {
 		let _localctx: FunctionLiteralContext = new FunctionLiteralContext(this._ctx, this.state);
 		this.enterRule(_localctx, 188, KotlinParser.RULE_functionLiteral);
@@ -13736,7 +13736,7 @@ export class KotlinParser extends Parser {
 						this.state = 1964;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 1969;
 					this._errHandler.sync(this);
@@ -13777,7 +13777,7 @@ export class KotlinParser extends Parser {
 						this.state = 1980;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 1985;
 					this._errHandler.sync(this);
@@ -13811,7 +13811,7 @@ export class KotlinParser extends Parser {
 						this.state = 1994;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 1999;
 					this._errHandler.sync(this);
@@ -13854,7 +13854,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public lambdaParameters(): LambdaParametersContext {
 		let _localctx: LambdaParametersContext = new LambdaParametersContext(this._ctx, this.state);
 		this.enterRule(_localctx, 190, KotlinParser.RULE_lambdaParameters);
@@ -13913,7 +13913,7 @@ export class KotlinParser extends Parser {
 					this.state = 2027;
 					this.lambdaParameter();
 					}
-					} 
+					}
 				}
 				this.state = 2032;
 				this._errHandler.sync(this);
@@ -13935,7 +13935,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public lambdaParameter(): LambdaParameterContext {
 		let _localctx: LambdaParameterContext = new LambdaParameterContext(this._ctx, this.state);
 		this.enterRule(_localctx, 192, KotlinParser.RULE_lambdaParameter);
@@ -14053,7 +14053,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public objectLiteral(): ObjectLiteralContext {
 		let _localctx: ObjectLiteralContext = new ObjectLiteralContext(this._ctx, this.state);
 		this.enterRule(_localctx, 194, KotlinParser.RULE_objectLiteral);
@@ -14135,7 +14135,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public collectionLiteral(): CollectionLiteralContext {
 		let _localctx: CollectionLiteralContext = new CollectionLiteralContext(this._ctx, this.state);
 		this.enterRule(_localctx, 196, KotlinParser.RULE_collectionLiteral);
@@ -14189,7 +14189,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public thisExpression(): ThisExpressionContext {
 		let _localctx: ThisExpressionContext = new ThisExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 198, KotlinParser.RULE_thisExpression);
@@ -14224,7 +14224,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public superExpression(): SuperExpressionContext {
 		let _localctx: SuperExpressionContext = new SuperExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 200, KotlinParser.RULE_superExpression);
@@ -14302,7 +14302,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public conditionalExpression(): ConditionalExpressionContext {
 		let _localctx: ConditionalExpressionContext = new ConditionalExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 202, KotlinParser.RULE_conditionalExpression);
@@ -14342,7 +14342,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public ifExpression(): IfExpressionContext {
 		let _localctx: IfExpressionContext = new IfExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 204, KotlinParser.RULE_ifExpression);
@@ -14383,7 +14383,7 @@ export class KotlinParser extends Parser {
 					this.state = 2131;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2136;
 				this._errHandler.sync(this);
@@ -14440,7 +14440,7 @@ export class KotlinParser extends Parser {
 						this.state = 2150;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 2155;
 					this._errHandler.sync(this);
@@ -14475,7 +14475,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public controlStructureBody(): ControlStructureBodyContext {
 		let _localctx: ControlStructureBodyContext = new ControlStructureBodyContext(this._ctx, this.state);
 		this.enterRule(_localctx, 206, KotlinParser.RULE_controlStructureBody);
@@ -14514,7 +14514,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public whenExpression(): WhenExpressionContext {
 		let _localctx: WhenExpressionContext = new WhenExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 208, KotlinParser.RULE_whenExpression);
@@ -14535,7 +14535,7 @@ export class KotlinParser extends Parser {
 					this.state = 2166;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2171;
 				this._errHandler.sync(this);
@@ -14581,7 +14581,7 @@ export class KotlinParser extends Parser {
 					this.state = 2185;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2190;
 				this._errHandler.sync(this);
@@ -14606,14 +14606,14 @@ export class KotlinParser extends Parser {
 							this.state = 2192;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 2197;
 						this._errHandler.sync(this);
 						_alt = this.interpreter.adaptivePredict(this._input,333,this._ctx);
 					}
 					}
-					} 
+					}
 				}
 				this.state = 2202;
 				this._errHandler.sync(this);
@@ -14651,7 +14651,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public whenEntry(): WhenEntryContext {
 		let _localctx: WhenEntryContext = new WhenEntryContext(this._ctx, this.state);
 		this.enterRule(_localctx, 210, KotlinParser.RULE_whenEntry);
@@ -14789,7 +14789,7 @@ export class KotlinParser extends Parser {
 								this.state = 2219;
 								this.match(KotlinParser.NL);
 								}
-								} 
+								}
 							}
 							this.state = 2224;
 							this._errHandler.sync(this);
@@ -14798,7 +14798,7 @@ export class KotlinParser extends Parser {
 						this.state = 2225;
 						this.whenCondition();
 						}
-						} 
+						}
 					}
 					this.state = 2230;
 					this._errHandler.sync(this);
@@ -14830,7 +14830,7 @@ export class KotlinParser extends Parser {
 						this.state = 2238;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 2243;
 					this._errHandler.sync(this);
@@ -14881,7 +14881,7 @@ export class KotlinParser extends Parser {
 						this.state = 2256;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 2261;
 					this._errHandler.sync(this);
@@ -14909,7 +14909,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public whenCondition(): WhenConditionContext {
 		let _localctx: WhenConditionContext = new WhenConditionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 212, KotlinParser.RULE_whenCondition);
@@ -15044,7 +15044,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public rangeTest(): RangeTestContext {
 		let _localctx: RangeTestContext = new RangeTestContext(this._ctx, this.state);
 		this.enterRule(_localctx, 214, KotlinParser.RULE_rangeTest);
@@ -15064,7 +15064,7 @@ export class KotlinParser extends Parser {
 					this.state = 2271;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2276;
 				this._errHandler.sync(this);
@@ -15088,7 +15088,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeTest(): TypeTestContext {
 		let _localctx: TypeTestContext = new TypeTestContext(this._ctx, this.state);
 		this.enterRule(_localctx, 216, KotlinParser.RULE_typeTest);
@@ -15130,7 +15130,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public tryExpression(): TryExpressionContext {
 		let _localctx: TryExpressionContext = new TryExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 218, KotlinParser.RULE_tryExpression);
@@ -15181,7 +15181,7 @@ export class KotlinParser extends Parser {
 					this.state = 2302;
 					this.catchBlock();
 					}
-					} 
+					}
 				}
 				this.state = 2307;
 				this._errHandler.sync(this);
@@ -15227,7 +15227,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public catchBlock(): CatchBlockContext {
 		let _localctx: CatchBlockContext = new CatchBlockContext(this._ctx, this.state);
 		this.enterRule(_localctx, 220, KotlinParser.RULE_catchBlock);
@@ -15307,7 +15307,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public finallyBlock(): FinallyBlockContext {
 		let _localctx: FinallyBlockContext = new FinallyBlockContext(this._ctx, this.state);
 		this.enterRule(_localctx, 222, KotlinParser.RULE_finallyBlock);
@@ -15349,7 +15349,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public loopExpression(): LoopExpressionContext {
 		let _localctx: LoopExpressionContext = new LoopExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 224, KotlinParser.RULE_loopExpression);
@@ -15396,7 +15396,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public forExpression(): ForExpressionContext {
 		let _localctx: ForExpressionContext = new ForExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 226, KotlinParser.RULE_forExpression);
@@ -15508,7 +15508,7 @@ export class KotlinParser extends Parser {
 					this.state = 2378;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2383;
 				this._errHandler.sync(this);
@@ -15540,7 +15540,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public whileExpression(): WhileExpressionContext {
 		let _localctx: WhileExpressionContext = new WhileExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 228, KotlinParser.RULE_whileExpression);
@@ -15581,7 +15581,7 @@ export class KotlinParser extends Parser {
 					this.state = 2397;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2402;
 				this._errHandler.sync(this);
@@ -15613,7 +15613,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public doWhileExpression(): DoWhileExpressionContext {
 		let _localctx: DoWhileExpressionContext = new DoWhileExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 230, KotlinParser.RULE_doWhileExpression);
@@ -15634,7 +15634,7 @@ export class KotlinParser extends Parser {
 					this.state = 2407;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2412;
 				this._errHandler.sync(this);
@@ -15702,7 +15702,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public jumpExpression(): JumpExpressionContext {
 		let _localctx: JumpExpressionContext = new JumpExpressionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 232, KotlinParser.RULE_jumpExpression);
@@ -15727,7 +15727,7 @@ export class KotlinParser extends Parser {
 						this.state = 2434;
 						this.match(KotlinParser.NL);
 						}
-						} 
+						}
 					}
 					this.state = 2439;
 					this._errHandler.sync(this);
@@ -15811,7 +15811,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public callableReference(): CallableReferenceContext {
 		let _localctx: CallableReferenceContext = new CallableReferenceContext(this._ctx, this.state);
 		this.enterRule(_localctx, 234, KotlinParser.RULE_callableReference);
@@ -15845,7 +15845,7 @@ export class KotlinParser extends Parser {
 							this.state = 2453;
 							this.match(KotlinParser.NL);
 							}
-							} 
+							}
 						}
 						this.state = 2458;
 						this._errHandler.sync(this);
@@ -15971,7 +15971,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public assignmentOperator(): AssignmentOperatorContext {
 		let _localctx: AssignmentOperatorContext = new AssignmentOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 236, KotlinParser.RULE_assignmentOperator);
@@ -16007,7 +16007,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public equalityOperator(): EqualityOperatorContext {
 		let _localctx: EqualityOperatorContext = new EqualityOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 238, KotlinParser.RULE_equalityOperator);
@@ -16043,7 +16043,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public comparisonOperator(): ComparisonOperatorContext {
 		let _localctx: ComparisonOperatorContext = new ComparisonOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 240, KotlinParser.RULE_comparisonOperator);
@@ -16079,7 +16079,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public inOperator(): InOperatorContext {
 		let _localctx: InOperatorContext = new InOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 242, KotlinParser.RULE_inOperator);
@@ -16115,7 +16115,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public isOperator(): IsOperatorContext {
 		let _localctx: IsOperatorContext = new IsOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 244, KotlinParser.RULE_isOperator);
@@ -16151,7 +16151,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public additiveOperator(): AdditiveOperatorContext {
 		let _localctx: AdditiveOperatorContext = new AdditiveOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 246, KotlinParser.RULE_additiveOperator);
@@ -16187,7 +16187,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public multiplicativeOperator(): MultiplicativeOperatorContext {
 		let _localctx: MultiplicativeOperatorContext = new MultiplicativeOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 248, KotlinParser.RULE_multiplicativeOperator);
@@ -16223,7 +16223,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public asOperator(): AsOperatorContext {
 		let _localctx: AsOperatorContext = new AsOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 250, KotlinParser.RULE_asOperator);
@@ -16259,7 +16259,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public prefixUnaryOperator(): PrefixUnaryOperatorContext {
 		let _localctx: PrefixUnaryOperatorContext = new PrefixUnaryOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 252, KotlinParser.RULE_prefixUnaryOperator);
@@ -16295,7 +16295,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public postfixUnaryOperator(): PostfixUnaryOperatorContext {
 		let _localctx: PostfixUnaryOperatorContext = new PostfixUnaryOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 254, KotlinParser.RULE_postfixUnaryOperator);
@@ -16344,7 +16344,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public memberAccessOperator(): MemberAccessOperatorContext {
 		let _localctx: MemberAccessOperatorContext = new MemberAccessOperatorContext(this._ctx, this.state);
 		this.enterRule(_localctx, 256, KotlinParser.RULE_memberAccessOperator);
@@ -16386,7 +16386,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public modifierList(): ModifierListContext {
 		let _localctx: ModifierListContext = new ModifierListContext(this._ctx, this.state);
 		this.enterRule(_localctx, 258, KotlinParser.RULE_modifierList);
@@ -16394,7 +16394,7 @@ export class KotlinParser extends Parser {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 2514; 
+			this.state = 2514;
 			this._errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -16460,7 +16460,7 @@ export class KotlinParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 2516; 
+				this.state = 2516;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input,382,this._ctx);
 			} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -16480,7 +16480,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public modifier(): ModifierContext {
 		let _localctx: ModifierContext = new ModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 260, KotlinParser.RULE_modifier);
@@ -16576,7 +16576,7 @@ export class KotlinParser extends Parser {
 					this.state = 2529;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2534;
 				this._errHandler.sync(this);
@@ -16598,7 +16598,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public classModifier(): ClassModifierContext {
 		let _localctx: ClassModifierContext = new ClassModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 262, KotlinParser.RULE_classModifier);
@@ -16634,7 +16634,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public memberModifier(): MemberModifierContext {
 		let _localctx: MemberModifierContext = new MemberModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 264, KotlinParser.RULE_memberModifier);
@@ -16670,7 +16670,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public visibilityModifier(): VisibilityModifierContext {
 		let _localctx: VisibilityModifierContext = new VisibilityModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 266, KotlinParser.RULE_visibilityModifier);
@@ -16706,7 +16706,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public varianceAnnotation(): VarianceAnnotationContext {
 		let _localctx: VarianceAnnotationContext = new VarianceAnnotationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 268, KotlinParser.RULE_varianceAnnotation);
@@ -16742,7 +16742,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public functionModifier(): FunctionModifierContext {
 		let _localctx: FunctionModifierContext = new FunctionModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 270, KotlinParser.RULE_functionModifier);
@@ -16778,7 +16778,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public propertyModifier(): PropertyModifierContext {
 		let _localctx: PropertyModifierContext = new PropertyModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 272, KotlinParser.RULE_propertyModifier);
@@ -16803,7 +16803,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public inheritanceModifier(): InheritanceModifierContext {
 		let _localctx: InheritanceModifierContext = new InheritanceModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 274, KotlinParser.RULE_inheritanceModifier);
@@ -16839,7 +16839,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public parameterModifier(): ParameterModifierContext {
 		let _localctx: ParameterModifierContext = new ParameterModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 276, KotlinParser.RULE_parameterModifier);
@@ -16875,7 +16875,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public typeParameterModifier(): TypeParameterModifierContext {
 		let _localctx: TypeParameterModifierContext = new TypeParameterModifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 278, KotlinParser.RULE_typeParameterModifier);
@@ -16900,7 +16900,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public labelDefinition(): LabelDefinitionContext {
 		let _localctx: LabelDefinitionContext = new LabelDefinitionContext(this._ctx, this.state);
 		this.enterRule(_localctx, 280, KotlinParser.RULE_labelDefinition);
@@ -16920,7 +16920,7 @@ export class KotlinParser extends Parser {
 					this.state = 2554;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2559;
 				this._errHandler.sync(this);
@@ -16942,7 +16942,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public annotations(): AnnotationsContext {
 		let _localctx: AnnotationsContext = new AnnotationsContext(this._ctx, this.state);
 		this.enterRule(_localctx, 282, KotlinParser.RULE_annotations);
@@ -16977,7 +16977,7 @@ export class KotlinParser extends Parser {
 					this.state = 2564;
 					this.match(KotlinParser.NL);
 					}
-					} 
+					}
 				}
 				this.state = 2569;
 				this._errHandler.sync(this);
@@ -16999,7 +16999,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public annotation(): AnnotationContext {
 		let _localctx: AnnotationContext = new AnnotationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 284, KotlinParser.RULE_annotation);
@@ -17128,7 +17128,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public annotationList(): AnnotationListContext {
 		let _localctx: AnnotationListContext = new AnnotationListContext(this._ctx, this.state);
 		this.enterRule(_localctx, 286, KotlinParser.RULE_annotationList);
@@ -17154,7 +17154,7 @@ export class KotlinParser extends Parser {
 				this.match(KotlinParser.COLON);
 				this.state = 2609;
 				this.match(KotlinParser.LSQUARE);
-				this.state = 2611; 
+				this.state = 2611;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				do {
@@ -17164,7 +17164,7 @@ export class KotlinParser extends Parser {
 					this.unescapedAnnotation();
 					}
 					}
-					this.state = 2613; 
+					this.state = 2613;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
 				} while ( ((((_la - 58)) & ~0x1F) === 0 && ((1 << (_la - 58)) & ((1 << (KotlinParser.IMPORT - 58)) | (1 << (KotlinParser.CONSTRUCTOR - 58)) | (1 << (KotlinParser.BY - 58)) | (1 << (KotlinParser.COMPANION - 58)) | (1 << (KotlinParser.INIT - 58)) | (1 << (KotlinParser.WHERE - 58)) | (1 << (KotlinParser.CATCH - 58)) | (1 << (KotlinParser.FINALLY - 58)))) !== 0) || ((((_la - 92)) & ~0x1F) === 0 && ((1 << (_la - 92)) & ((1 << (KotlinParser.OUT - 92)) | (1 << (KotlinParser.GETTER - 92)) | (1 << (KotlinParser.SETTER - 92)) | (1 << (KotlinParser.DYNAMIC - 92)) | (1 << (KotlinParser.PUBLIC - 92)) | (1 << (KotlinParser.PRIVATE - 92)) | (1 << (KotlinParser.PROTECTED - 92)) | (1 << (KotlinParser.INTERNAL - 92)) | (1 << (KotlinParser.ENUM - 92)) | (1 << (KotlinParser.SEALED - 92)) | (1 << (KotlinParser.ANNOTATION - 92)) | (1 << (KotlinParser.DATA - 92)) | (1 << (KotlinParser.INNER - 92)) | (1 << (KotlinParser.TAILREC - 92)) | (1 << (KotlinParser.OPERATOR - 92)) | (1 << (KotlinParser.INLINE - 92)) | (1 << (KotlinParser.INFIX - 92)) | (1 << (KotlinParser.EXTERNAL - 92)) | (1 << (KotlinParser.SUSPEND - 92)) | (1 << (KotlinParser.OVERRIDE - 92)) | (1 << (KotlinParser.ABSTRACT - 92)) | (1 << (KotlinParser.FINAL - 92)) | (1 << (KotlinParser.OPEN - 92)) | (1 << (KotlinParser.CONST - 92)))) !== 0) || ((((_la - 124)) & ~0x1F) === 0 && ((1 << (_la - 124)) & ((1 << (KotlinParser.LATEINIT - 124)) | (1 << (KotlinParser.VARARG - 124)) | (1 << (KotlinParser.NOINLINE - 124)) | (1 << (KotlinParser.CROSSINLINE - 124)) | (1 << (KotlinParser.REIFIED - 124)) | (1 << (KotlinParser.Identifier - 124)))) !== 0) );
@@ -17179,7 +17179,7 @@ export class KotlinParser extends Parser {
 				this.match(KotlinParser.AT);
 				this.state = 2618;
 				this.match(KotlinParser.LSQUARE);
-				this.state = 2620; 
+				this.state = 2620;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				do {
@@ -17189,7 +17189,7 @@ export class KotlinParser extends Parser {
 					this.unescapedAnnotation();
 					}
 					}
-					this.state = 2622; 
+					this.state = 2622;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
 				} while ( ((((_la - 58)) & ~0x1F) === 0 && ((1 << (_la - 58)) & ((1 << (KotlinParser.IMPORT - 58)) | (1 << (KotlinParser.CONSTRUCTOR - 58)) | (1 << (KotlinParser.BY - 58)) | (1 << (KotlinParser.COMPANION - 58)) | (1 << (KotlinParser.INIT - 58)) | (1 << (KotlinParser.WHERE - 58)) | (1 << (KotlinParser.CATCH - 58)) | (1 << (KotlinParser.FINALLY - 58)))) !== 0) || ((((_la - 92)) & ~0x1F) === 0 && ((1 << (_la - 92)) & ((1 << (KotlinParser.OUT - 92)) | (1 << (KotlinParser.GETTER - 92)) | (1 << (KotlinParser.SETTER - 92)) | (1 << (KotlinParser.DYNAMIC - 92)) | (1 << (KotlinParser.PUBLIC - 92)) | (1 << (KotlinParser.PRIVATE - 92)) | (1 << (KotlinParser.PROTECTED - 92)) | (1 << (KotlinParser.INTERNAL - 92)) | (1 << (KotlinParser.ENUM - 92)) | (1 << (KotlinParser.SEALED - 92)) | (1 << (KotlinParser.ANNOTATION - 92)) | (1 << (KotlinParser.DATA - 92)) | (1 << (KotlinParser.INNER - 92)) | (1 << (KotlinParser.TAILREC - 92)) | (1 << (KotlinParser.OPERATOR - 92)) | (1 << (KotlinParser.INLINE - 92)) | (1 << (KotlinParser.INFIX - 92)) | (1 << (KotlinParser.EXTERNAL - 92)) | (1 << (KotlinParser.SUSPEND - 92)) | (1 << (KotlinParser.OVERRIDE - 92)) | (1 << (KotlinParser.ABSTRACT - 92)) | (1 << (KotlinParser.FINAL - 92)) | (1 << (KotlinParser.OPEN - 92)) | (1 << (KotlinParser.CONST - 92)))) !== 0) || ((((_la - 124)) & ~0x1F) === 0 && ((1 << (_la - 124)) & ((1 << (KotlinParser.LATEINIT - 124)) | (1 << (KotlinParser.VARARG - 124)) | (1 << (KotlinParser.NOINLINE - 124)) | (1 << (KotlinParser.CROSSINLINE - 124)) | (1 << (KotlinParser.REIFIED - 124)) | (1 << (KotlinParser.Identifier - 124)))) !== 0) );
@@ -17215,7 +17215,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public annotationUseSiteTarget(): AnnotationUseSiteTargetContext {
 		let _localctx: AnnotationUseSiteTargetContext = new AnnotationUseSiteTargetContext(this._ctx, this.state);
 		this.enterRule(_localctx, 288, KotlinParser.RULE_annotationUseSiteTarget);
@@ -17251,7 +17251,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public unescapedAnnotation(): UnescapedAnnotationContext {
 		let _localctx: UnescapedAnnotationContext = new UnescapedAnnotationContext(this._ctx, this.state);
 		this.enterRule(_localctx, 290, KotlinParser.RULE_unescapedAnnotation);
@@ -17297,7 +17297,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public identifier(): IdentifierContext {
 		let _localctx: IdentifierContext = new IdentifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 292, KotlinParser.RULE_identifier);
@@ -17334,7 +17334,7 @@ export class KotlinParser extends Parser {
 					this.state = 2645;
 					this.simpleIdentifier();
 					}
-					} 
+					}
 				}
 				this.state = 2650;
 				this._errHandler.sync(this);
@@ -17356,7 +17356,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public simpleIdentifier(): SimpleIdentifierContext {
 		let _localctx: SimpleIdentifierContext = new SimpleIdentifierContext(this._ctx, this.state);
 		this.enterRule(_localctx, 294, KotlinParser.RULE_simpleIdentifier);
@@ -17392,7 +17392,7 @@ export class KotlinParser extends Parser {
 		}
 		return _localctx;
 	}
-	@RuleVersion(0)
+	// @RuleVersion(0)
 	public semi(): SemiContext {
 		let _localctx: SemiContext = new SemiContext(this._ctx, this.state);
 		this.enterRule(_localctx, 296, KotlinParser.RULE_semi);
@@ -17404,7 +17404,7 @@ export class KotlinParser extends Parser {
 			case 1:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 2654; 
+				this.state = 2654;
 				this._errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -17420,7 +17420,7 @@ export class KotlinParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					this.state = 2656; 
+					this.state = 2656;
 					this._errHandler.sync(this);
 					_alt = this.interpreter.adaptivePredict(this._input,402,this._ctx);
 				} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -17440,7 +17440,7 @@ export class KotlinParser extends Parser {
 				{
 				this.state = 2659;
 				this.match(KotlinParser.SEMICOLON);
-				this.state = 2661; 
+				this.state = 2661;
 				this._errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -17456,7 +17456,7 @@ export class KotlinParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					this.state = 2663; 
+					this.state = 2663;
 					this._errHandler.sync(this);
 					_alt = this.interpreter.adaptivePredict(this._input,403,this._ctx);
 				} while ( _alt!==2 && _alt!==ATN.INVALID_ALT_NUMBER );
@@ -18953,4 +18953,3 @@ export class KotlinParser extends Parser {
 	}
 
 }
-

@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Make package scripts cross platform.
 -   Update dependencies.
 -   **BREAKING** Reorganize to have more standard Node.js package layout.
+-   Update TypeScript and its configuration.
+-   Update to @atomist/automation-client@1.0.0-M.2.
 
 ### Removed
 
