@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   **BREAKING** Reorganize to have more standard Node.js package layout.
 -   Update TypeScript and its configuration.
 -   Update to @atomist/automation-client@1.0.0-M.2.
+-   Update to @atomist/tree-path@1.0.0-M.1.
+-   Prepare for 1.0.0 release.
 
 ### Removed
 
