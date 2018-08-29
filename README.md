@@ -1,5 +1,6 @@
 # @atomist/antlr
 
+[![atomist sdm goals](http://badge.atomist.com/T29E48P34/atomist/antlr-ts/93a238be-3c16-456e-be12-76234a0caca5)](https://app.atomist.com/workspace/T29E48P34)
 [![npm version](https://img.shields.io/npm/v/@atomist/antlr.svg)](https://www.npmjs.com/package/@atomist/antlr)
 
 Integration with [ANTLR for TypeScript](https://github.com/tunnelvisionlabs/antlr4ts) for Atomist automation [clients](https://github.com/atomist/automation-client-ts).
