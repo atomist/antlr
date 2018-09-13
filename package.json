@@ -24,7 +24,7 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "@atomist/tree-path": "^1.0.0-M.1",
+    "@atomist/tree-path": "https://r.atomist.com/2838135010",
     "@types/lodash": "^4.14.116",
     "antlr4ts": "^0.4.1-alpha.0",
     "lodash": "^4.17.10"
