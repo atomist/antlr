@@ -24,16 +24,17 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "@atomist/tree-path": "https://r.atomist.com/2838135010",
     "@types/lodash": "^4.14.116",
     "antlr4ts": "^0.4.1-alpha.0",
     "lodash": "^4.17.10"
   },
   "peerDependencies": {
-    "@atomist/automation-client": "*"
+    "@atomist/automation-client": "*",
+    "@atomist/tree-path": "*"
   },
   "devDependencies": {
-    "@atomist/automation-client": "^1.0.0-M.2",
+    "@atomist/automation-client": "https://r.atomist.com/2654627412",
+    "@atomist/tree-path": "https://r.atomist.com/2838135010",
     "@types/mocha": "^5.2.5",
     "@types/power-assert": "^1.5.0",
     "antlr4ts-cli": "^0.4.0-alpha.4",

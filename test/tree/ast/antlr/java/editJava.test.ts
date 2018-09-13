@@ -1,15 +1,11 @@
 import * as assert from "power-assert";
 
-import {
-    logger,
-    LoggingConfig,
-} from "@atomist/automation-client";
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import { findFileMatches } from "@atomist/automation-client/tree/ast/astUtils";
 import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 
-LoggingConfig.format = "cli";
-(logger as any).level = process.env.LOG_LEVEL || "info";
+// LoggingConfig.format = "cli";
+// (logger as any).level = process.env.LOG_LEVEL || "info";
 
 const AllJavaFiles = "**/*.java";
 
