@@ -33,8 +33,8 @@
     "@atomist/tree-path": "*"
   },
   "devDependencies": {
-    "@atomist/automation-client": "https://r.atomist.com/2654627412",
-    "@atomist/tree-path": "https://r.atomist.com/2838135010",
+    "@atomist/automation-client": "1.0.0-master.20180914123233",
+    "@atomist/tree-path": "1.0.0-master.20180913033718",
     "@types/mocha": "^5.2.5",
     "@types/power-assert": "^1.5.0",
     "antlr4ts-cli": "^0.4.0-alpha.4",

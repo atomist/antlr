@@ -1,10 +1,14 @@
-import { InMemoryFile } from "@atomist/automation-client/project/mem/InMemoryFile";
+import {
+    findFileMatches,
+    findMatches,
+    InMemoryFile,
+    InMemoryProject,
+} from "@atomist/automation-client";
+import {
+    TreeVisitor,
+    visit,
+} from "@atomist/tree-path";
 import * as assert from "power-assert";
-
-import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
-import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
-
-import { TreeVisitor, visit } from "@atomist/tree-path";
 import { KotlinFileParser, KotlinFiles } from "../../../../../lib/tree/ast/antlr/kotlin/KotlinFileParser";
 
 describe("kotlin grammar", () => {

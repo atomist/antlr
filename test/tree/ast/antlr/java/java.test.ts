@@ -1,11 +1,12 @@
-import { InMemoryFile } from "@atomist/automation-client/project/mem/InMemoryFile";
-import * as assert from "power-assert";
-
-import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
-import { findFileMatches, findMatches } from "@atomist/automation-client/tree/ast/astUtils";
-import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
-
+import {
+    findFileMatches,
+    findMatches,
+    InMemoryFile,
+    InMemoryProject,
+} from "@atomist/automation-client";
 import { TreeVisitor, visit } from "@atomist/tree-path";
+import * as assert from "power-assert";
+import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 
 const AllJavaFiles = "**/*.java";
 

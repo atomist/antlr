@@ -1,4 +1,4 @@
-import { FileParser } from "@atomist/automation-client/tree/ast/FileParser";
+import { FileParser } from "@atomist/automation-client";
 import { AntlrFileParser } from "../AntlrFileParser";
 import { KotlinLexer } from "./antlr-gen/KotlinLexer";
 import { KotlinParser } from "./antlr-gen/KotlinParser";

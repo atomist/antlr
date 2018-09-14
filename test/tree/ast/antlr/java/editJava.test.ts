@@ -1,7 +1,9 @@
 import * as assert from "power-assert";
 
-import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
-import { findFileMatches } from "@atomist/automation-client/tree/ast/astUtils";
+import {
+    findFileMatches,
+    InMemoryProject,
+} from "@atomist/automation-client";
 import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 
 // LoggingConfig.format = "cli";

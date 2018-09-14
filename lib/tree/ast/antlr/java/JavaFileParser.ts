@@ -1,4 +1,4 @@
-import { FileParser } from "@atomist/automation-client/tree/ast/FileParser";
+import { FileParser } from "@atomist/automation-client";
 import { AntlrFileParser } from "../AntlrFileParser";
 import { JavaLexer } from "./antlr-gen/JavaLexer";
 import { JavaParser } from "./antlr-gen/JavaParser";

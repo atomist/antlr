@@ -1,8 +1,10 @@
 import * as _ from "lodash";
 
-import { logger } from "@atomist/automation-client";
-import { File } from "@atomist/automation-client/project/File";
-import { FileParser } from "@atomist/automation-client/tree/ast/FileParser";
+import {
+    File,
+    FileParser,
+    logger,
+} from "@atomist/automation-client";
 import {
     fillInEmptyNonTerminalValues,
     isNamedNodeTest,
