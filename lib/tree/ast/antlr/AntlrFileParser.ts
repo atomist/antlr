@@ -15,7 +15,13 @@ import {
     stringify,
     TreeNode,
 } from "@atomist/tree-path";
-import { ANTLRInputStream, CommonTokenStream, Lexer, Parser, TokenStream } from "antlr4ts";
+import {
+    ANTLRInputStream,
+    CommonTokenStream,
+    Lexer,
+    Parser,
+    TokenStream,
+} from "antlr4ts";
 import { TreeBuildingListener } from "./TreeBuildingListener";
 
 /**

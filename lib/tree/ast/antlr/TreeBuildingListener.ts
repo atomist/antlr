@@ -3,7 +3,11 @@ import * as _ from "lodash";
 import { logger } from "@atomist/automation-client";
 import { TreeNode } from "@atomist/tree-path";
 import { ParserRuleContext } from "antlr4ts";
-import { ErrorNode, ParseTreeListener, TerminalNode } from "antlr4ts/tree";
+import {
+    ErrorNode,
+    ParseTreeListener,
+    TerminalNode,
+} from "antlr4ts/tree";
 
 /* tslint:disable:max-classes-per-file */
 
