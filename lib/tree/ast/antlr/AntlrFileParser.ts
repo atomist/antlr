@@ -1,4 +1,3 @@
-import * as _ from "lodash";
 import {
     File,
     FileParser,
@@ -21,6 +20,7 @@ import {
     Parser,
     TokenStream,
 } from "antlr4ts";
+import * as _ from "lodash";
 import { TreeBuildingListener } from "./TreeBuildingListener";
 
 /**
