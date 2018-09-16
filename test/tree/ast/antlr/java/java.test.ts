@@ -4,7 +4,10 @@ import {
     InMemoryFile,
     InMemoryProject,
 } from "@atomist/automation-client";
-import { TreeVisitor, visit } from "@atomist/tree-path";
+import {
+    TreeVisitor,
+    visit,
+} from "@atomist/tree-path";
 import * as assert from "power-assert";
 import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 

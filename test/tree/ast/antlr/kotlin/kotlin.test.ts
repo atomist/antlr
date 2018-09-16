@@ -9,7 +9,10 @@ import {
     visit,
 } from "@atomist/tree-path";
 import * as assert from "power-assert";
-import { KotlinFileParser, KotlinFiles } from "../../../../../lib/tree/ast/antlr/kotlin/KotlinFileParser";
+import {
+    KotlinFileParser,
+    KotlinFiles,
+} from "../../../../../lib/tree/ast/antlr/kotlin/KotlinFileParser";
 
 describe("kotlin grammar", () => {
 
