@@ -1,7 +1,7 @@
 import {
-    File,
     FileParser,
     logger,
+    ProjectFile,
 } from "@atomist/automation-client";
 import {
     fillInEmptyNonTerminalValues,
@@ -66,7 +66,7 @@ export class AntlrFileParser implements FileParser {
                 private readonly parserClass: ParserClass) {
     }
 
-    public toAst(f: File): Promise<TreeNode> {
+    public toAst(f: ProjectFile): Promise<TreeNode> {
         return f.getContent()
             .then(content => {
                 logger.debug("Parsing file [%s] using ANTLR grammar, looking for production '%s'",

@@ -1,7 +1,6 @@
 import {
-    findFileMatches,
-    findMatches,
-    InMemoryFile,
+    astUtils,
+    InMemoryProjectFile,
     InMemoryProject,
 } from "@atomist/automation-client";
 import {
@@ -16,14 +15,14 @@ const AllJavaFiles = "**/*.java";
 describe("java grammar", () => {
 
     it("should parse a file", done => {
-        const f = new InMemoryFile("src/main/java/Foo.java", "import foo.bar.Baz;\npublic class Foo { int i = 5;}");
+        const f = new InMemoryProjectFile("src/main/java/Foo.java", "import foo.bar.Baz;\npublic class Foo { int i = 5;}");
         JavaFileParser.toAst(f)
             .then(() => done(), done);
     });
 
     it("should parse a file and keep positions", done => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5;}";
-        const f = new InMemoryFile("src/main/java/Foo.java", content);
+        const f = new InMemoryProjectFile("src/main/java/Foo.java", content);
         let terminalCount = 0;
         JavaFileParser.toAst(f)
             .then(root => {
@@ -47,7 +46,7 @@ describe("java grammar", () => {
     it("should reject invalid path expression", done => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
-        findMatches(p, JavaFileParser, AllJavaFiles, "//thisDoesntExist/Identifier")
+        astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//thisDoesntExist/Identifier")
             .then(() => assert.fail("should have thrown an error"), err => {
                 assert(err.message.includes("thisDoesntExist"));
             }).then(() => done(), done);
@@ -56,7 +55,7 @@ describe("java grammar", () => {
     it("should get into AST", done => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
-        findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
+        astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(matches => {
                 assert(matches.length === 1);
                 assert(matches[0].$value === "i");
@@ -66,7 +65,7 @@ describe("java grammar", () => {
     it("should get into AST and allow scalar navigation via properties", done => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
-        findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId")
+        astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId")
             .then(matches => {
                 assert(matches.length === 1);
                 assert((matches[0] as any).Identifier === "i");
@@ -78,7 +77,7 @@ describe("java grammar", () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5;}";
         const p = InMemoryProject.of(
             { path, content });
-        findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
+        astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -96,7 +95,7 @@ describe("java grammar", () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5; float x = 8.0; }";
         const p = InMemoryProject.of(
             { path, content });
-        findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
+        astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -118,7 +117,7 @@ describe("java grammar", () => {
         const content = `import foo.bar.Baz;\npublic class Foo { ${variableDeclaration}}`;
         const p = InMemoryProject.of(
             { path, content });
-        findFileMatches(p, JavaFileParser, AllJavaFiles, "//fieldDeclaration")
+        astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//fieldDeclaration")
             .then(fm => {
                 assert(fm.length === 1);
                 const varDecl = fm[0].matches[0];

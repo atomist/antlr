@@ -1,7 +1,7 @@
 import * as assert from "power-assert";
 
 import {
-    findFileMatches,
+    astUtils,
     InMemoryProject,
 } from "@atomist/automation-client";
 import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
@@ -19,7 +19,7 @@ describe("java review/edit", () => {
         const p = InMemoryProject.of(
             { path, content });
         // TODO use zapAllMatches
-        findFileMatches(p, JavaFileParser, AllJavaFiles,
+        astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles,
             `//typeDeclaration[/classDeclaration]
                  [//annotation[@value='@SpringBootApplication']]
                  //annotation[@value='@ComponentScan']`)

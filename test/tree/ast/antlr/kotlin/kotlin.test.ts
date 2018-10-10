@@ -1,7 +1,6 @@
 import {
-    findFileMatches,
-    findMatches,
-    InMemoryFile,
+    astUtils,
+    InMemoryProjectFile,
     InMemoryProject,
 } from "@atomist/automation-client";
 import {
@@ -17,7 +16,7 @@ import {
 describe("kotlin grammar", () => {
 
     it("should parse a file", done => {
-        const f = new InMemoryFile("src/main/kotlin/Foo.kt",
+        const f = new InMemoryProjectFile("src/main/kotlin/Foo.kt",
             `package thing
 fun main(args: Array<String>) {
     println("Hello, world!")
@@ -28,7 +27,7 @@ fun main(args: Array<String>) {
 
     it("should parse a file and keep positions", done => {
         const content = "import foo.bar.Baz\npublic class Foo { val i = 5;}";
-        const f = new InMemoryFile("src/main/kotlin/Foo.kt", content);
+        const f = new InMemoryProjectFile("src/main/kotlin/Foo.kt", content);
         let terminalCount = 0;
         KotlinFileParser.toAst(f)
             .then(root => {
@@ -56,7 +55,7 @@ fun main(args: Array<String>) {
                 path: "src/main/kotlin/Foo.kt",
                 content: "import foo.bar.Baz;\npublic class Foo { val i = 5;}",
             });
-        findMatches(p, KotlinFileParser, KotlinFiles,
+        astUtils.findMatches(p, KotlinFileParser, KotlinFiles,
             "//variableDeclaration//Identifier")
             .then(matches => {
                 assert(matches.length === 1);
@@ -70,7 +69,7 @@ fun main(args: Array<String>) {
                 path: "src/main/kotlin/Foo.kt",
                 content: "import foo.bar.Baz;\npublic class Foo { val i = 5;}",
             });
-        findMatches(p, KotlinFileParser, KotlinFiles,
+        astUtils.findMatches(p, KotlinFileParser, KotlinFiles,
             "//variableDeclaration//Identifier")
             .then(matches => {
                 assert(matches.length === 1);
@@ -83,7 +82,7 @@ fun main(args: Array<String>) {
         const content = "import foo.bar.Baz;\npublic class Foo { val i = 5;}";
         const p = InMemoryProject.of(
             { path, content });
-        findFileMatches(p, KotlinFileParser, KotlinFiles,
+        astUtils.findFileMatches(p, KotlinFileParser, KotlinFiles,
             "//variableDeclaration//Identifier")
             .then(fm => {
                 assert(fm.length === 1);
@@ -102,7 +101,7 @@ fun main(args: Array<String>) {
         const content = "import foo.bar.Baz;\npublic class Foo { val i = 5; val x = 8.0; }";
         const p = InMemoryProject.of(
             { path, content });
-        findFileMatches(p, KotlinFileParser, KotlinFiles,
+        astUtils.findFileMatches(p, KotlinFileParser, KotlinFiles,
             "//variableDeclaration//Identifier")
             .then(fm => {
                 assert(fm.length === 1);
@@ -126,7 +125,7 @@ fun main(args: Array<String>) {
         const content = `import foo.bar.Baz;\npublic class Foo { ${propertyDeclaration}}`;
         const p = InMemoryProject.of(
             { path, content });
-        findFileMatches(p, KotlinFileParser, KotlinFiles,
+        astUtils.findFileMatches(p, KotlinFileParser, KotlinFiles,
             "//propertyDeclaration")
             .then(fm => {
                 assert(fm.length === 1);
