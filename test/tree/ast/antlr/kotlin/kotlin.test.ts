@@ -1,7 +1,7 @@
 import {
     astUtils,
-    InMemoryProjectFile,
     InMemoryProject,
+    InMemoryProjectFile,
 } from "@atomist/automation-client";
 import {
     TreeVisitor,
