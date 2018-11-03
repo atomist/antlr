@@ -20,7 +20,6 @@ describe("java grammar", () => {
         assert.strictEqual(ast.$name, "compilationUnit");
     });
 
-
     it("should parse problematic source code", async () => {
         const f = new InMemoryProjectFile("src/main/java/com/av/AardvarkApplication.java",
             ProblemFile1);
@@ -32,7 +31,7 @@ describe("java grammar", () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5;}";
         const f = new InMemoryProjectFile("src/main/java/Foo.java", content);
         let terminalCount = 0;
-        JavaFileParser.toAst(f)
+        await JavaFileParser.toAst(f)
             .then(root => {
                 let minOffset = -1;
                 const v: TreeVisitor = tn => {
@@ -63,29 +62,29 @@ describe("java grammar", () => {
     it("should get into AST", async () => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
-        astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
+        await astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(matches => {
                 assert(matches.length === 1);
                 assert(matches[0].$value === "i");
             });
     });
 
-    it("should get into AST and allow scalar navigation via properties", done => {
+    it("should get into AST and allow scalar navigation via properties", async () => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
-        astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId")
+        await astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId")
             .then(matches => {
                 assert(matches.length === 1);
                 assert((matches[0] as any).Identifier === "i");
-            }).then(() => done(), done);
+            });
     });
 
-    it("should get into AST and update single terminal", done => {
+    it("should get into AST and update single terminal", async () => {
         const path = "src/main/java/Foo.java";
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5;}";
         const p = InMemoryProject.of(
             { path, content });
-        astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
+        await astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -95,15 +94,15 @@ describe("java grammar", () => {
                     assert(f.getContentSync() === content.replace("int i", "int xi"),
                         `Erroneous content: [${f.getContentSync()}]`);
                 });
-            }).then(() => done(), done);
+            });
     });
 
-    it("should get into AST and update two terminals", done => {
+    it("should get into AST and update two terminals", async () => {
         const path = "src/main/java/Foo.java";
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5; float x = 8.0; }";
         const p = InMemoryProject.of(
             { path, content });
-        astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
+        await astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(fm => {
                 assert(fm.length === 1);
                 const target = fm[0];
@@ -116,16 +115,16 @@ describe("java grammar", () => {
                         .replace("float x", "float flibbertygibbit"),
                         `Erroneous content: [${f.getContentSync()}]`);
                 });
-            }).then(() => done(), done);
+            });
     });
 
-    it("should get into AST and update single non-terminal", done => {
+    it("should get into AST and update single non-terminal", async () => {
         const path = "src/main/java/Foo.java";
         const variableDeclaration = "int i = 5;";
         const content = `import foo.bar.Baz;\npublic class Foo { ${variableDeclaration}}`;
         const p = InMemoryProject.of(
             { path, content });
-        astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//fieldDeclaration")
+        await astUtils.findFileMatches(p, JavaFileParser, AllJavaFiles, "//fieldDeclaration")
             .then(fm => {
                 assert(fm.length === 1);
                 const varDecl = fm[0].matches[0];
@@ -138,7 +137,7 @@ describe("java grammar", () => {
                     assert(f.getContentSync() === content.replace(variableDeclaration, newVariableDeclaration),
                         `Erroneous content: [${f.getContentSync()}]`);
                 });
-            }).then(() => done(), done);
+            });
     });
 
 });
