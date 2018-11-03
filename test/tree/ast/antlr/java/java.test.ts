@@ -14,13 +14,12 @@ const AllJavaFiles = "**/*.java";
 
 describe("java grammar", () => {
 
-    it("should parse a file", done => {
+    it("should parse a file", async () => {
         const f = new InMemoryProjectFile("src/main/java/Foo.java", "import foo.bar.Baz;\npublic class Foo { int i = 5;}");
-        JavaFileParser.toAst(f)
-            .then(() => done(), done);
+        await JavaFileParser.toAst(f);
     });
 
-    it("should parse a file and keep positions", done => {
+    it("should parse a file and keep positions", async () => {
         const content = "import foo.bar.Baz;\npublic class Foo { int i = 5;}";
         const f = new InMemoryProjectFile("src/main/java/Foo.java", content);
         let terminalCount = 0;
@@ -40,26 +39,26 @@ describe("java grammar", () => {
                 };
                 visit(root, v);
                 assert(terminalCount > 0);
-            }).then(() => done(), done);
+            });
     });
 
-    it("should reject invalid path expression", done => {
+    it("should reject invalid path expression", async () => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
         astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//thisDoesntExist/Identifier")
             .then(() => assert.fail("should have thrown an error"), err => {
                 assert(err.message.includes("thisDoesntExist"));
-            }).then(() => done(), done);
+            });
     });
 
-    it("should get into AST", done => {
+    it("should get into AST", async () => {
         const p = InMemoryProject.of(
             { path: "src/main/java/Foo.java", content: "import foo.bar.Baz;\npublic class Foo { int i = 5;}" });
         astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId/Identifier")
             .then(matches => {
                 assert(matches.length === 1);
                 assert(matches[0].$value === "i");
-            }).then(() => done(), done);
+            });
     });
 
     it("should get into AST and allow scalar navigation via properties", done => {
