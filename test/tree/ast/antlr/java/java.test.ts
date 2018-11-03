@@ -16,7 +16,16 @@ describe("java grammar", () => {
 
     it("should parse a file", async () => {
         const f = new InMemoryProjectFile("src/main/java/Foo.java", "import foo.bar.Baz;\npublic class Foo { int i = 5;}");
-        await JavaFileParser.toAst(f);
+        const ast = await JavaFileParser.toAst(f);
+        assert.strictEqual(ast.$name, "compilationUnit");
+    });
+
+
+    it("should parse problematic source code", async () => {
+        const f = new InMemoryProjectFile("src/main/java/com/av/AardvarkApplication.java",
+            ProblemFile1);
+        const ast = await JavaFileParser.toAst(f);
+        assert.strictEqual(ast.$name, "compilationUnit");
     });
 
     it("should parse a file and keep positions", async () => {
@@ -133,3 +142,18 @@ describe("java grammar", () => {
     });
 
 });
+
+const ProblemFile1 = `
+package com.av;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AardvarkApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run
+	}
+}
+`;
