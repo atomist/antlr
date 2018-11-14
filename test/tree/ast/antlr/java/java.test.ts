@@ -12,10 +12,25 @@ import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileP
 
 const AllJavaFiles = "**/*.java";
 
+const JavaWithLambda = `
+import foo.bar.Baz;
+
+public class Foo { 
+    int i = 5;
+    Greeting morningGreeting = (String str) -> "Good Morning " + str + "!";
+}
+`;
+
 describe("java grammar", () => {
 
     it("should parse a file", async () => {
         const f = new InMemoryProjectFile("src/main/java/Foo.java", "import foo.bar.Baz;\npublic class Foo { int i = 5;}");
+        const ast = await JavaFileParser.toAst(f);
+        assert.strictEqual(ast.$name, "compilationUnit");
+    });
+
+    it("should parse a file with a lambda", async () => {
+        const f = new InMemoryProjectFile("src/main/java/Foo.java", JavaWithLambda);
         const ast = await JavaFileParser.toAst(f);
         assert.strictEqual(ast.$name, "compilationUnit");
     });

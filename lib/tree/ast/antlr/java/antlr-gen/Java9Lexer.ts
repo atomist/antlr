@@ -140,70 +140,70 @@ export class Java9Lexer extends Lexer {
 	];
 
 	public static readonly ruleNames: string[] = [
-		"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8", 
-		"T__9", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH", 
-		"CHAR", "CLASS", "CONST", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", 
-		"ENUM", "EXTENDS", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "GOTO", "IMPLEMENTS", 
-		"IMPORT", "INSTANCEOF", "INT", "INTERFACE", "LONG", "NATIVE", "NEW", "PACKAGE", 
-		"PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", 
-		"SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", 
-		"TRY", "VOID", "VOLATILE", "WHILE", "UNDER_SCORE", "IntegerLiteral", "DecimalIntegerLiteral", 
-		"HexIntegerLiteral", "OctalIntegerLiteral", "BinaryIntegerLiteral", "IntegerTypeSuffix", 
-		"DecimalNumeral", "Digits", "Digit", "NonZeroDigit", "DigitsAndUnderscores", 
-		"DigitOrUnderscore", "Underscores", "HexNumeral", "HexDigits", "HexDigit", 
-		"HexDigitsAndUnderscores", "HexDigitOrUnderscore", "OctalNumeral", "OctalDigits", 
-		"OctalDigit", "OctalDigitsAndUnderscores", "OctalDigitOrUnderscore", "BinaryNumeral", 
-		"BinaryDigits", "BinaryDigit", "BinaryDigitsAndUnderscores", "BinaryDigitOrUnderscore", 
-		"FloatingPointLiteral", "DecimalFloatingPointLiteral", "ExponentPart", 
-		"ExponentIndicator", "SignedInteger", "Sign", "FloatTypeSuffix", "HexadecimalFloatingPointLiteral", 
-		"HexSignificand", "BinaryExponent", "BinaryExponentIndicator", "BooleanLiteral", 
-		"CharacterLiteral", "SingleCharacter", "StringLiteral", "StringCharacters", 
-		"StringCharacter", "EscapeSequence", "OctalEscape", "ZeroToThree", "UnicodeEscape", 
-		"NullLiteral", "LPAREN", "RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", 
-		"SEMI", "COMMA", "DOT", "ELLIPSIS", "AT", "COLONCOLON", "ASSIGN", "GT", 
-		"LT", "BANG", "TILDE", "QUESTION", "COLON", "ARROW", "EQUAL", "LE", "GE", 
-		"NOTEQUAL", "AND", "OR", "INC", "DEC", "ADD", "SUB", "MUL", "DIV", "BITAND", 
-		"BITOR", "CARET", "MOD", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN", 
-		"AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", "LSHIFT_ASSIGN", 
-		"RSHIFT_ASSIGN", "URSHIFT_ASSIGN", "Identifier", "JavaLetter", "JavaLetterOrDigit", 
+		"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8",
+		"T__9", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH",
+		"CHAR", "CLASS", "CONST", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE",
+		"ENUM", "EXTENDS", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "GOTO", "IMPLEMENTS",
+		"IMPORT", "INSTANCEOF", "INT", "INTERFACE", "LONG", "NATIVE", "NEW", "PACKAGE",
+		"PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP",
+		"SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT",
+		"TRY", "VOID", "VOLATILE", "WHILE", "UNDER_SCORE", "IntegerLiteral", "DecimalIntegerLiteral",
+		"HexIntegerLiteral", "OctalIntegerLiteral", "BinaryIntegerLiteral", "IntegerTypeSuffix",
+		"DecimalNumeral", "Digits", "Digit", "NonZeroDigit", "DigitsAndUnderscores",
+		"DigitOrUnderscore", "Underscores", "HexNumeral", "HexDigits", "HexDigit",
+		"HexDigitsAndUnderscores", "HexDigitOrUnderscore", "OctalNumeral", "OctalDigits",
+		"OctalDigit", "OctalDigitsAndUnderscores", "OctalDigitOrUnderscore", "BinaryNumeral",
+		"BinaryDigits", "BinaryDigit", "BinaryDigitsAndUnderscores", "BinaryDigitOrUnderscore",
+		"FloatingPointLiteral", "DecimalFloatingPointLiteral", "ExponentPart",
+		"ExponentIndicator", "SignedInteger", "Sign", "FloatTypeSuffix", "HexadecimalFloatingPointLiteral",
+		"HexSignificand", "BinaryExponent", "BinaryExponentIndicator", "BooleanLiteral",
+		"CharacterLiteral", "SingleCharacter", "StringLiteral", "StringCharacters",
+		"StringCharacter", "EscapeSequence", "OctalEscape", "ZeroToThree", "UnicodeEscape",
+		"NullLiteral", "LPAREN", "RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK",
+		"SEMI", "COMMA", "DOT", "ELLIPSIS", "AT", "COLONCOLON", "ASSIGN", "GT",
+		"LT", "BANG", "TILDE", "QUESTION", "COLON", "ARROW", "EQUAL", "LE", "GE",
+		"NOTEQUAL", "AND", "OR", "INC", "DEC", "ADD", "SUB", "MUL", "DIV", "BITAND",
+		"BITOR", "CARET", "MOD", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN",
+		"AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", "LSHIFT_ASSIGN",
+		"RSHIFT_ASSIGN", "URSHIFT_ASSIGN", "Identifier", "JavaLetter", "JavaLetterOrDigit",
 		"WS", "COMMENT", "LINE_COMMENT",
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, "'open'", "'module'", "'requires'", "'exports'", "'to'", "'opens'", 
-		"'uses'", "'provides'", "'with'", "'transitive'", "'abstract'", "'assert'", 
-		"'boolean'", "'break'", "'byte'", "'case'", "'catch'", "'char'", "'class'", 
-		"'const'", "'continue'", "'default'", "'do'", "'double'", "'else'", "'enum'", 
-		"'extends'", "'final'", "'finally'", "'float'", "'for'", "'if'", "'goto'", 
-		"'implements'", "'import'", "'instanceof'", "'int'", "'interface'", "'long'", 
-		"'native'", "'new'", "'package'", "'private'", "'protected'", "'public'", 
-		"'return'", "'short'", "'static'", "'strictfp'", "'super'", "'switch'", 
-		"'synchronized'", "'this'", "'throw'", "'throws'", "'transient'", "'try'", 
-		"'void'", "'volatile'", "'while'", "'_'", undefined, undefined, undefined, 
-		undefined, undefined, "'null'", "'('", "')'", "'{'", "'}'", "'['", "']'", 
-		"';'", "','", "'.'", "'...'", "'@'", "'::'", "'='", "'>'", "'<'", "'!'", 
-		"'~'", "'?'", "':'", "'->'", "'=='", "'<='", "'>='", "'!='", "'&&'", "'||'", 
-		"'++'", "'--'", "'+'", "'-'", "'*'", "'/'", "'&'", "'|'", "'^'", "'%'", 
-		"'+='", "'-='", "'*='", "'/='", "'&='", "'|='", "'^='", "'%='", "'<<='", 
+		undefined, "'open'", "'module'", "'requires'", "'exports'", "'to'", "'opens'",
+		"'uses'", "'provides'", "'with'", "'transitive'", "'abstract'", "'assert'",
+		"'boolean'", "'break'", "'byte'", "'case'", "'catch'", "'char'", "'class'",
+		"'const'", "'continue'", "'default'", "'do'", "'double'", "'else'", "'enum'",
+		"'extends'", "'final'", "'finally'", "'float'", "'for'", "'if'", "'goto'",
+		"'implements'", "'import'", "'instanceof'", "'int'", "'interface'", "'long'",
+		"'native'", "'new'", "'package'", "'private'", "'protected'", "'public'",
+		"'return'", "'short'", "'static'", "'strictfp'", "'super'", "'switch'",
+		"'synchronized'", "'this'", "'throw'", "'throws'", "'transient'", "'try'",
+		"'void'", "'volatile'", "'while'", "'_'", undefined, undefined, undefined,
+		undefined, undefined, "'null'", "'('", "')'", "'{'", "'}'", "'['", "']'",
+		"';'", "','", "'.'", "'...'", "'@'", "'::'", "'='", "'>'", "'<'", "'!'",
+		"'~'", "'?'", "':'", "'->'", "'=='", "'<='", "'>='", "'!='", "'&&'", "'||'",
+		"'++'", "'--'", "'+'", "'-'", "'*'", "'/'", "'&'", "'|'", "'^'", "'%'",
+		"'+='", "'-='", "'*='", "'/='", "'&='", "'|='", "'^='", "'%='", "'<<='",
 		"'>>='", "'>>>='",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
-		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		undefined, undefined, undefined, undefined, "ABSTRACT", "ASSERT", "BOOLEAN", 
-		"BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONST", "CONTINUE", 
-		"DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FINAL", "FINALLY", 
-		"FLOAT", "FOR", "IF", "GOTO", "IMPLEMENTS", "IMPORT", "INSTANCEOF", "INT", 
-		"INTERFACE", "LONG", "NATIVE", "NEW", "PACKAGE", "PRIVATE", "PROTECTED", 
-		"PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", 
-		"SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRY", "VOID", 
-		"VOLATILE", "WHILE", "UNDER_SCORE", "IntegerLiteral", "FloatingPointLiteral", 
-		"BooleanLiteral", "CharacterLiteral", "StringLiteral", "NullLiteral", 
-		"LPAREN", "RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", "SEMI", "COMMA", 
-		"DOT", "ELLIPSIS", "AT", "COLONCOLON", "ASSIGN", "GT", "LT", "BANG", "TILDE", 
-		"QUESTION", "COLON", "ARROW", "EQUAL", "LE", "GE", "NOTEQUAL", "AND", 
-		"OR", "INC", "DEC", "ADD", "SUB", "MUL", "DIV", "BITAND", "BITOR", "CARET", 
-		"MOD", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN", "AND_ASSIGN", 
-		"OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", "LSHIFT_ASSIGN", "RSHIFT_ASSIGN", 
+		undefined, undefined, undefined, undefined, undefined, undefined, undefined,
+		undefined, undefined, undefined, undefined, "ABSTRACT", "ASSERT", "BOOLEAN",
+		"BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONST", "CONTINUE",
+		"DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FINAL", "FINALLY",
+		"FLOAT", "FOR", "IF", "GOTO", "IMPLEMENTS", "IMPORT", "INSTANCEOF", "INT",
+		"INTERFACE", "LONG", "NATIVE", "NEW", "PACKAGE", "PRIVATE", "PROTECTED",
+		"PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH",
+		"SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRY", "VOID",
+		"VOLATILE", "WHILE", "UNDER_SCORE", "IntegerLiteral", "FloatingPointLiteral",
+		"BooleanLiteral", "CharacterLiteral", "StringLiteral", "NullLiteral",
+		"LPAREN", "RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", "SEMI", "COMMA",
+		"DOT", "ELLIPSIS", "AT", "COLONCOLON", "ASSIGN", "GT", "LT", "BANG", "TILDE",
+		"QUESTION", "COLON", "ARROW", "EQUAL", "LE", "GE", "NOTEQUAL", "AND",
+		"OR", "INC", "DEC", "ADD", "SUB", "MUL", "DIV", "BITAND", "BITOR", "CARET",
+		"MOD", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN", "AND_ASSIGN",
+		"OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", "LSHIFT_ASSIGN", "RSHIFT_ASSIGN",
 		"URSHIFT_ASSIGN", "Identifier", "WS", "COMMENT", "LINE_COMMENT",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(Java9Lexer._LITERAL_NAMES, Java9Lexer._SYMBOLIC_NAMES, []);
@@ -236,29 +236,29 @@ export class Java9Lexer extends Lexer {
 	@Override
 	public sempred(_localctx: RuleContext, ruleIndex: number, predIndex: number): boolean {
 		switch (ruleIndex) {
-		case 159:
-			return this.JavaLetter_sempred(_localctx, predIndex);
-		case 160:
-			return this.JavaLetterOrDigit_sempred(_localctx, predIndex);
+			case 159:
+				return this.JavaLetter_sempred(_localctx, predIndex);
+			case 160:
+				return this.JavaLetterOrDigit_sempred(_localctx, predIndex);
 		}
 		return true;
 	}
 	private JavaLetter_sempred(_localctx: RuleContext, predIndex: number): boolean {
-		switch (predIndex) {
-		case 0:
-			return Character.isJavaIdentifierStart(_input.LA(-1));
-		case 1:
-			return Character.isJavaIdentifierStart(Character.toCodePoint((char)_input.LA(-2), (char)_input.LA(-1)));
-		}
+		// switch (predIndex) {
+		// 	case 0:
+		// 		return Character.isJavaIdentifierStart(this._input.LA(-1));
+		// 	case 1:
+		// 		return Character.isJavaIdentifierStart(Character.toCodePoint(this._input.LA(-2), this._input.LA(-1)));
+		// }
 		return true;
 	}
 	private JavaLetterOrDigit_sempred(_localctx: RuleContext, predIndex: number): boolean {
-		switch (predIndex) {
-		case 2:
-			return Character.isJavaIdentifierPart(_input.LA(-1));
-		case 3:
-			return Character.isJavaIdentifierPart(Character.toCodePoint((char)_input.LA(-2), (char)_input.LA(-1)));
-		}
+		// switch (predIndex) {
+		// 	case 2:
+		// 		return Character.isJavaIdentifierPart(this._input.LA(-1));
+		// 	case 3:
+		// 		return Character.isJavaIdentifierPart(Character.toCodePoint(this._input.LA(-2), this._input.LA(-1)));
+		// }
 		return true;
 	}
 
