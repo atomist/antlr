@@ -47,7 +47,7 @@
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typedoc": "^0.13.0",
-    "typescript": "^3.1.6"
+    "typescript": "2.7.2"
   },
   "directories": {
     "test": "test"
@@ -67,6 +67,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "mocha --require espower-typescript/guess \"test/**/*.test.ts\"",
     "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.test.ts}\"",
-    "typedoc": "npm run doc"
+    "typedoc": "npm run doc",
+    "gen:java9": "antlr4ts -lib lib/tree/ast/antlr/java -visitor lib/tree/ast/antlr/java/Java9.g4"
   }
 }
