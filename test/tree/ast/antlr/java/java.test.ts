@@ -6,18 +6,43 @@ import {
 import {
     TreeVisitor,
     visit,
+    TreeNode,
 } from "@atomist/tree-path";
 import * as assert from "power-assert";
-import { JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
+import { JavaFileParser, Java9FileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
+
+type TreeNodeOutline = {
+    name: string,
+    children: TreeNodeOutline[],
+    value?: string
+}
+
+function stn(tn: TreeNode): TreeNodeOutline {
+    const children = (tn.$children || []).map(stn);
+    return {
+        name: tn.$name,
+        children,
+        value: children.length > 0 ? undefined : tn.$value
+    }
+}
 
 const AllJavaFiles = "**/*.java";
 
 const JavaWithLambda = `
-import foo.bar.Baz;
+import java.util.function.Function;
 
-public class Foo { 
+public class Foo {
     int i = 5;
-    Greeting morningGreeting = (String str) -> "Good Morning " + str + "!";
+    Function<String, String> morningGreeting = (String str) -> "Good Morning " + str + "!";
+
+    Function<String, String> reverseStr = (str) -> {
+		String result = "";
+		
+		for(int i = str.length()-1; i >= 0; i--)
+			result += str.charAt(i);
+		
+		return result;
+    };
 }
 `;
 
@@ -29,9 +54,10 @@ describe("java grammar", () => {
         assert.strictEqual(ast.$name, "compilationUnit");
     });
 
-    it("should parse a file with a lambda", async () => {
+    it("should parse a file with a lambda with Java9Parser", async () => {
         const f = new InMemoryProjectFile("src/main/java/Foo.java", JavaWithLambda);
-        const ast = await JavaFileParser.toAst(f);
+        const ast = await Java9FileParser.toAst(f);
+        // console.log(JSON.stringify(stn(ast)));
         assert.strictEqual(ast.$name, "compilationUnit");
     });
 

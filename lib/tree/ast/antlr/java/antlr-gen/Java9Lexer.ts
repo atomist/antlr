@@ -244,21 +244,25 @@ export class Java9Lexer extends Lexer {
 		return true;
 	}
 	private JavaLetter_sempred(_localctx: RuleContext, predIndex: number): boolean {
-		// switch (predIndex) {
-		// 	case 0:
-		// 		return Character.isJavaIdentifierStart(this._input.LA(-1));
-		// 	case 1:
-		// 		return Character.isJavaIdentifierStart(Character.toCodePoint(this._input.LA(-2), this._input.LA(-1)));
-		// }
+		switch (predIndex) {
+			case 0:
+				return false;
+			//		return Character.isJavaIdentifierStart(this._input.LA(-1));
+			case 1:
+				return false;
+			//		return Character.isJavaIdentifierStart(Character.toCodePoint(this._input.LA(-2), this._input.LA(-1)));
+		}
 		return true;
 	}
 	private JavaLetterOrDigit_sempred(_localctx: RuleContext, predIndex: number): boolean {
-		// switch (predIndex) {
-		// 	case 2:
-		// 		return Character.isJavaIdentifierPart(this._input.LA(-1));
-		// 	case 3:
-		// 		return Character.isJavaIdentifierPart(Character.toCodePoint(this._input.LA(-2), this._input.LA(-1)));
-		// }
+		switch (predIndex) {
+			case 2:
+				return false;
+			//	return Character.isJavaIdentifierPart(this._input.LA(-1));
+			case 3:
+				return false;
+			//	return Character.isJavaIdentifierPart(Character.toCodePoint(this._input.LA(-2), this._input.LA(-1)));
+		}
 		return true;
 	}
 
