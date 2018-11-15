@@ -23,8 +23,8 @@ import { VocabularyImpl } from "antlr4ts/VocabularyImpl";
 
 import * as Utils from "antlr4ts/misc/Utils";
 
-import { Java9Listener } from "../Java9Listener";
-import { Java9Visitor } from "../Java9Visitor";
+import { Java9Listener } from "./Java9Listener";
+import { Java9Visitor } from "./Java9Visitor";
 
 
 export class Java9Parser extends Parser {
