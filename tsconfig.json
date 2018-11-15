@@ -15,6 +15,15 @@
             "ScriptHost",
             "esnext.asynciterable"
         ],
+        "paths": {
+            "antlr4ts/*": [
+                "node_modules/@jessitron/antlr4ts/*"
+            ],
+            "antlr4ts": [
+                "node_modules/@jessitron/antlr4ts"
+            ]
+        },
+        "baseUrl": ".",
         "strict": true,
         "strictNullChecks": false,
         "forceConsistentCasingInFileNames": true,

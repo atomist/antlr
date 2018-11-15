@@ -25,7 +25,7 @@
   "types": "./index.d.ts",
   "dependencies": {
     "@types/lodash": "^4.14.118",
-    "antlr4ts": "^0.4.1-alpha.0",
+    "@jessitron/antlr4ts": "0.4.0-dev",
     "lodash": "^4.17.10"
   },
   "peerDependencies": {
