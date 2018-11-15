@@ -4,9 +4,9 @@ import {
     InMemoryProjectFile,
 } from "@atomist/automation-client";
 import {
+    TreeNode,
     TreeVisitor,
     visit,
-    TreeNode,
 } from "@atomist/tree-path";
 import * as assert from "power-assert";
 import { JavaFileParser, Java9FileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
