@@ -15,5 +15,5 @@
  */
 
 export { AntlrFileParser } from "./lib/tree/ast/antlr/AntlrFileParser";
-export { JavaFileParser } from "./lib/tree/ast/antlr/java/JavaFileParser";
+export { JavaFileParser, Java9FileParser } from "./lib/tree/ast/antlr/java/JavaFileParser";
 export { KotlinFileParser } from "./lib/tree/ast/antlr/kotlin/KotlinFileParser";
