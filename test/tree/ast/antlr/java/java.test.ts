@@ -184,8 +184,9 @@ describe("java grammar", () => {
     it("should work on package", async () => {
         const path = "src/main/java/foo/Thing.java";
         const p = InMemoryProject.of(
-            new InMemoryProjectFile(path, "/** And this is a comment **/\n\n\npackage foo.bar;\npublic class Thing {}"),
+            new InMemoryProjectFile(path, "/** And this is a comment **/\n\n\npackage foo.bar.baz;\npublic class Thing {}"),
         );
+        // const ast = await Java9FileParser.toAst(p.findFileSync(path));
         const matches = await astUtils.findMatches(p, Java9FileParser, path, "//packageDeclaration");
         assert.equal(matches.length, 1);
         assert.equal(matches[0].$children.length, 2);

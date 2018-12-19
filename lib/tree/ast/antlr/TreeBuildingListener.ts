@@ -52,6 +52,7 @@ export class TreeBuildingListener implements ParseTreeListener {
 
     public enterEveryRule(ctx: ParserRuleContext) {
         const name = this.lookupRule(ctx.ruleContext.ruleIndex);
+        console.log("Enter rule with name " +  name + " at " + ctx.start.startIndex + " stack depth=" + this.nodeStack.length);
 
         const thisRule = new MutableTreeNode(name, ctx.start.startIndex);
         if (!!this.currentNode) {
@@ -61,6 +62,10 @@ export class TreeBuildingListener implements ParseTreeListener {
     }
 
     public exitEveryRule(ctx: ParserRuleContext) {
+        const name = this.lookupRule(ctx.ruleContext.ruleIndex);
+
+        console.log("Exit rule with name " +  name + " at " + ctx.start.startIndex + " stack depth=" + this.nodeStack.length + " end index=" +ctx.stop.stopIndex );
+
         // Pop the stack unless we're already at the root,
         // so we can add any further siblings
         if (this.nodeStack.length > 1) {
