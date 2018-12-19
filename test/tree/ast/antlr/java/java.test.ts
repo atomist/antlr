@@ -59,7 +59,7 @@ describe("java grammar", () => {
         const ast = await Java9FileParser.toAst(f);
         // console.log(JSON.stringify(stn(ast)));
         assert.strictEqual(ast.$name, "compilationUnit");
-    });
+    }).timeout(4000);
 
     it("should parse problematic source code", async () => {
         const f = new InMemoryProjectFile("src/main/java/com/av/AardvarkApplication.java",
@@ -179,6 +179,18 @@ describe("java grammar", () => {
                         `Erroneous content: [${f.getContentSync()}]`);
                 });
             });
+    });
+
+    it("should work on package", async () => {
+        const path = "src/main/java/foo/Thing.java";
+        const p = InMemoryProject.of(
+            new InMemoryProjectFile(path, "/** And this is a comment **/\n\n\npackage foo.bar;\npublic class Thing {}"),
+        );
+        const matches = await astUtils.findMatches(p, Java9FileParser, path, "//packageDeclaration");
+        assert.equal(matches.length, 1);
+        assert.equal(matches[0].$children.length, 2);
+        // assert.strictEqual(pi.fqn, "foo.bar");
+        // assert.strictEqual(pi.insertAfter, pi.offset + "package foo.bar;".length);
     });
 
 });
