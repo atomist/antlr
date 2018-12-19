@@ -9,12 +9,12 @@ import {
     visit,
 } from "@atomist/tree-path";
 import * as assert from "power-assert";
-import { JavaFileParser, Java9FileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
+import { Java9FileParser, JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 
-type TreeNodeOutline = {
-    name: string,
-    children: TreeNodeOutline[],
-    value?: string
+interface TreeNodeOutline {
+    name: string;
+    children: TreeNodeOutline[];
+    value?: string;
 }
 
 function stn(tn: TreeNode): TreeNodeOutline {
@@ -22,8 +22,8 @@ function stn(tn: TreeNode): TreeNodeOutline {
     return {
         name: tn.$name,
         children,
-        value: children.length > 0 ? undefined : tn.$value
-    }
+        value: children.length > 0 ? undefined : tn.$value,
+    };
 }
 
 const AllJavaFiles = "**/*.java";
@@ -37,10 +37,10 @@ public class Foo {
 
     Function<String, String> reverseStr = (str) -> {
 		String result = "";
-		
+
 		for(int i = str.length()-1; i >= 0; i--)
 			result += str.charAt(i);
-		
+
 		return result;
     };
 }
