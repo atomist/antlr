@@ -8,10 +8,9 @@ import {
     TreeVisitor,
     visit,
 } from "@atomist/tree-path";
-import * as _ from "lodash";
 import * as assert from "power-assert";
 import { Java9FileParser, JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
-import { stringifyTree } from "test/tree/printTree";
+import { stringifyTree } from "stringify-tree";
 
 interface TreeNodeOutline {
     name: string;
@@ -43,6 +42,7 @@ function stn(tn1) {
     const children = (tn.$children || []).map(stn);
     return {
         $name: `${tn.$offset} ${tn.$name}`,
+        $offset: tn.$offset,
         $children: children,
         $value: children.length > 0 ? undefined : tn.$value,
     };
@@ -152,7 +152,7 @@ describe("java grammar", () => {
                 assert(fm.length === 1);
                 const target = fm[0];
                 target.matches[0].$value = "xi";
-                return p.flush().then(_p => {
+                return p.flush().then(() => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace("int i", "int xi"),
                         `Erroneous content: [${f.getContentSync()}]`);
@@ -171,7 +171,7 @@ describe("java grammar", () => {
                 const target = fm[0];
                 target.matches[1].$value = "flibbertygibbit";
                 target.matches[0].$value = "xi";
-                return p.flush().then(_p => {
+                return p.flush().then(() => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content
                         .replace("int i", "int xi")
@@ -195,7 +195,7 @@ describe("java grammar", () => {
                 assert(varDecl.$value === variableDeclaration);
                 const newVariableDeclaration = 'String thing = "that"';
                 varDecl.$value = newVariableDeclaration;
-                return p.flush().then(_p => {
+                return p.flush().then(() => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace(variableDeclaration, newVariableDeclaration),
                         `Erroneous content: [${f.getContentSync()}]`);
