@@ -12,6 +12,7 @@ import * as _ from "lodash";
 import * as assert from "power-assert";
 import { Java9FileParser, JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
 import asciitree from "ascii-tree";
+import { stringifyTree } from "test/tree/printTree.test";
 
 interface TreeNodeOutline {
     name: string;
@@ -209,7 +210,9 @@ describe("java grammar", () => {
             new InMemoryProjectFile(path, "package foo.bar.baz;\npublic class Thing {}"),
         );
         const ast = await Java9FileParser.toAst(p.findFileSync(path));
-        console.log(stringifyTree(stn(ast)));
+        console.log("PRINT THE TREE:")
+        console.log(stringifyTree<TreeNode>
+            (stn(ast), treeNodeName, treeNodeChildren));
         const matches = await astUtils.findMatches(p, Java9FileParser, path, "//packageDeclaration");
         assert.equal(matches.length, 1);
         assert.equal(matches[0].$children.length, 2);
@@ -218,20 +221,12 @@ describe("java grammar", () => {
     });
 });
 
-function stringifyTree(tn: TreeNode): string {
-    function nodeToStrings(tn: TreeNode): string[] {
-        const endOffset = tn.$value ? ", " + (tn.$offset + tn.$value.length) : "";
-        const description = `[${tn.$offset}${endOffset}] ${tn.$name}`;
-        const childStrings = _.flatten((tn.$children || []).map(nodeToStrings)).map(prefix);
-        return [description, ...childStrings];
-    }
-
-    return asciitree.generate(nodeToStrings(tn).join("\n"));
-
+function treeNodeName(tn: TreeNode) {
+    const endOffset = tn.$value ? ", " + (tn.$offset + tn.$value.length) : "";
+    return `[${tn.$offset}${endOffset}] ${tn.$name}`;
 }
-
-function prefix(str: string): string {
-    return "#" + str;
+function treeNodeChildren(tn: TreeNode): TreeNode[] {
+    return tn.$children || [];
 }
 
 const ProblemFile1 = `
