@@ -18,6 +18,7 @@
         "baseUrl": ".",
         "strict": true,
         "strictNullChecks": false,
+        "noImplicitAny": false,
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "experimentalDecorators": true,

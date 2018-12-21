@@ -8,8 +8,10 @@ import {
     TreeVisitor,
     visit,
 } from "@atomist/tree-path";
+import * as _ from "lodash";
 import * as assert from "power-assert";
 import { Java9FileParser, JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
+import asciitree from "ascii-tree";
 
 interface TreeNodeOutline {
     name: string;
@@ -17,13 +19,33 @@ interface TreeNodeOutline {
     value?: string;
 }
 
-function stn(tn: TreeNode): TreeNodeOutline {
+function condenseSingleChild(tn: TreeNode) {
+    if (tn.$children && tn.$children.length === 1 && tn.$children[0].$offset === tn.$offset) {
+        const condenseChild = condenseSingleChild(tn.$children[0]);
+        return {
+            $children: condenseChild.$children,
+            $value: tn.$value,
+            $name: `${tn.$name}/${condenseChild.$name}`,
+            $offset: tn.$offset
+        }
+    }
+
+    return {
+        $children: tn.$children,
+        $name: tn.$name,
+        $offset: tn.$offset,
+        $value: tn.$value,
+    }
+}
+
+function stn(tn1) {
+    const tn = condenseSingleChild(tn1);
     const children = (tn.$children || []).map(stn);
     return {
-        name: tn.$name,
-        children,
-        value: children.length > 0 ? undefined : tn.$value,
-    };
+        $name: `${tn.$offset} ${tn.$name}`,
+        $children: children,
+        $value: children.length > 0 ? undefined : tn.$value
+    }
 }
 
 const AllJavaFiles = "**/*.java";
@@ -184,17 +206,33 @@ describe("java grammar", () => {
     it("should work on package", async () => {
         const path = "src/main/java/foo/Thing.java";
         const p = InMemoryProject.of(
-            new InMemoryProjectFile(path, "/** And this is a comment **/\n\n\npackage foo.bar.baz;\npublic class Thing {}"),
+            new InMemoryProjectFile(path, "package foo.bar.baz;\npublic class Thing {}"),
         );
-        // const ast = await Java9FileParser.toAst(p.findFileSync(path));
+        const ast = await Java9FileParser.toAst(p.findFileSync(path));
+        console.log(stringifyTree(stn(ast)));
         const matches = await astUtils.findMatches(p, Java9FileParser, path, "//packageDeclaration");
         assert.equal(matches.length, 1);
         assert.equal(matches[0].$children.length, 2);
         // assert.strictEqual(pi.fqn, "foo.bar");
         // assert.strictEqual(pi.insertAfter, pi.offset + "package foo.bar;".length);
     });
-
 });
+
+function stringifyTree(tn: TreeNode): string {
+    function nodeToStrings(tn: TreeNode): string[] {
+        const endOffset = tn.$value ? ", " + (tn.$offset + tn.$value.length) : "";
+        const description = `[${tn.$offset}${endOffset}] ${tn.$name}`;
+        const childStrings = _.flatten((tn.$children || []).map(nodeToStrings)).map(prefix);
+        return [description, ...childStrings];
+    }
+
+    return asciitree.generate(nodeToStrings(tn).join("\n"));
+
+}
+
+function prefix(str: string): string {
+    return "#" + str;
+}
 
 const ProblemFile1 = `
 package com.av;
