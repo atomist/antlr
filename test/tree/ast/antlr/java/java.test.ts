@@ -11,8 +11,7 @@ import {
 import * as _ from "lodash";
 import * as assert from "power-assert";
 import { Java9FileParser, JavaFileParser } from "../../../../../lib/tree/ast/antlr/java/JavaFileParser";
-import asciitree from "ascii-tree";
-import { stringifyTree } from "test/tree/printTree.test";
+import { stringifyTree } from "test/tree/printTree";
 
 interface TreeNodeOutline {
     name: string;
@@ -27,8 +26,8 @@ function condenseSingleChild(tn: TreeNode) {
             $children: condenseChild.$children,
             $value: tn.$value,
             $name: `${tn.$name}/${condenseChild.$name}`,
-            $offset: tn.$offset
-        }
+            $offset: tn.$offset,
+        };
     }
 
     return {
@@ -36,7 +35,7 @@ function condenseSingleChild(tn: TreeNode) {
         $name: tn.$name,
         $offset: tn.$offset,
         $value: tn.$value,
-    }
+    };
 }
 
 function stn(tn1) {
@@ -45,8 +44,8 @@ function stn(tn1) {
     return {
         $name: `${tn.$offset} ${tn.$name}`,
         $children: children,
-        $value: children.length > 0 ? undefined : tn.$value
-    }
+        $value: children.length > 0 ? undefined : tn.$value,
+    };
 }
 
 const AllJavaFiles = "**/*.java";
@@ -153,7 +152,7 @@ describe("java grammar", () => {
                 assert(fm.length === 1);
                 const target = fm[0];
                 target.matches[0].$value = "xi";
-                return p.flush().then(_ => {
+                return p.flush().then(_p => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace("int i", "int xi"),
                         `Erroneous content: [${f.getContentSync()}]`);
@@ -172,7 +171,7 @@ describe("java grammar", () => {
                 const target = fm[0];
                 target.matches[1].$value = "flibbertygibbit";
                 target.matches[0].$value = "xi";
-                return p.flush().then(_ => {
+                return p.flush().then(_p => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content
                         .replace("int i", "int xi")
@@ -196,7 +195,7 @@ describe("java grammar", () => {
                 assert(varDecl.$value === variableDeclaration);
                 const newVariableDeclaration = 'String thing = "that"';
                 varDecl.$value = newVariableDeclaration;
-                return p.flush().then(_ => {
+                return p.flush().then(_p => {
                     const f = p.findFileSync(path);
                     assert(f.getContentSync() === content.replace(variableDeclaration, newVariableDeclaration),
                         `Erroneous content: [${f.getContentSync()}]`);
@@ -210,7 +209,7 @@ describe("java grammar", () => {
             new InMemoryProjectFile(path, "package foo.bar.baz;\npublic class Thing {}"),
         );
         const ast = await Java9FileParser.toAst(p.findFileSync(path));
-        console.log("PRINT THE TREE:")
+        console.log("PRINT THE TREE:");
         console.log(stringifyTree<TreeNode>
             (stn(ast), treeNodeName, treeNodeChildren));
         const matches = await astUtils.findMatches(p, Java9FileParser, path, "//packageDeclaration");
