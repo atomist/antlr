@@ -1,6 +1,6 @@
 {
   "name": "@atomist/antlr",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Atomist client integration with ANTLR for TypeScript",
   "author": {
     "name": "Atomist",
