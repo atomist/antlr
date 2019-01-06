@@ -24,8 +24,9 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
+    "@jessitron/antlr4ts": "0.4.0-dev",
     "@types/lodash": "^4.14.118",
-    "antlr4ts": "^0.4.1-alpha.0",
+    "antlr4ts": "^0.5.0-alpha.1",
     "lodash": "^4.17.10"
   },
   "peerDependencies": {
@@ -40,7 +41,7 @@
     "antlr4ts-cli": "^0.4.0-alpha.4",
     "espower-typescript": "^9.0.0",
     "mocha": "^5.2.0",
-    "npm-run-all": "^4.1.3",
+    "npm-run-all": "^4.1.5",
     "power-assert": "^1.6.0",
     "rimraf": "^2.6.2",
     "supervisor": "^0.12.0",

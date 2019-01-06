@@ -66,7 +66,7 @@ $ ./node_modules/.bin/antlr4ts -visitor lib/tree/ast/antlr/kotlin/KotlinLexer.g4
 
 Then generate the TypeScript for the parser.
 
-```
+``` 
 $ ./node_modules/.bin/antlr4ts -lib lib/tree/ast/antlr/kotlin -visitor lib/tree/ast/antlr/kotlin/KotlinParser.g4
 ```
 
