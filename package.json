@@ -30,11 +30,11 @@
     "lodash": "^4.17.10"
   },
   "peerDependencies": {
-    "@atomist/automation-client": ">=1.0.1",
+    "@atomist/automation-client": "0.18.0-20180705162739",
     "@atomist/tree-path": ">=1.0.1"
   },
   "devDependencies": {
-    "@atomist/automation-client": "^1.3.0",
+    "@atomist/automation-client": "0.18.0-20180705162739",
     "@atomist/tree-path": "^1.0.1",
     "@types/mocha": "^5.2.5",
     "@types/power-assert": "^1.5.0",
