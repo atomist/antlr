@@ -73,7 +73,7 @@ fun main(args: Array<String>) {
             "//variableDeclaration//Identifier")
             .then(matches => {
                 assert(matches.length === 1);
-                assert((matches[0] as any).$value === "i");
+                assert((matches[0]).$value === "i");
             }).then(() => done(), done);
     });
 

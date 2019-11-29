@@ -116,7 +116,7 @@ describe("java grammar", () => {
         await astUtils.findMatches(p, JavaFileParser, AllJavaFiles, "//variableDeclaratorId")
             .then(matches => {
                 assert(matches.length === 1);
-                assert((matches[0] as any).Identifier === "i");
+                assert((matches[0]).Identifier === "i");
             });
     });
 
