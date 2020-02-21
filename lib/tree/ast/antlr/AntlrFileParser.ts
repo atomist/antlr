@@ -16,7 +16,10 @@ import {
     TokenStream,
 } from "antlr4ts";
 import * as _ from "lodash";
-import { FileParser, ProjectFile } from "../../../FileParser";
+import {
+    FileParser,
+    ProjectFile,
+} from "../../../FileParser";
 import { TreeBuildingListener } from "./TreeBuildingListener";
 
 /**
