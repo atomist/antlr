@@ -1,27 +1,20 @@
 {
     "compilerOptions": {
         "newLine": "LF",
-        "target": "ES6",
+        "target": "ES2018",
         "module": "CommonJS",
         "moduleResolution": "Node",
-        "jsx": "React",
         "declaration": true,
         "sourceMap": true,
         "rootDir": ".",
-        "lib": [
-            "DOM",
-            "ES2017",
-            "DOM.Iterable",
-            "ScriptHost",
-            "esnext.asynciterable"
-        ],
         "baseUrl": ".",
         "strict": true,
         "strictNullChecks": false,
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true
     },
     "exclude": [
         "assets",

@@ -24,19 +24,18 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "@jessitron/antlr4ts": "0.4.0-dev",
     "@types/lodash": "^4.14.118",
-    "antlr4ts": "^0.5.0-alpha.1",
+    "antlr4ts": "0.5.0-alpha.1",
     "lodash": "^4.17.10"
   },
   "peerDependencies": {
-    "@atomist/automation-client": ">=1.0.1",
     "@atomist/tree-path": ">=1.0.1"
   },
   "devDependencies": {
     "@atomist/automation-client": "^1.3.0",
     "@atomist/tree-path": "^1.0.1",
     "@types/mocha": "^5.2.5",
+    "@types/node": "^10.17.16",
     "@types/power-assert": "^1.5.0",
     "antlr4ts-cli": "^0.4.0-alpha.4",
     "espower-typescript": "^9.0.0",

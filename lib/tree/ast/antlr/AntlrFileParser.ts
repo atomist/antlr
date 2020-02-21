@@ -1,9 +1,4 @@
 import {
-    FileParser,
-    logger,
-    ProjectFile,
-} from "@atomist/automation-client";
-import {
     fillInEmptyNonTerminalValues,
     isNamedNodeTest,
     isUnionPathExpression,
@@ -13,6 +8,7 @@ import {
     stringify,
     TreeNode,
 } from "@atomist/tree-path";
+import { FileParser, ProjectFile } from "../../../FileParser";
 import {
     ANTLRInputStream,
     CommonTokenStream,
@@ -62,15 +58,13 @@ export class AntlrFileParser implements FileParser {
      * @param parserClass parser class
      */
     constructor(public rootName: string,
-                private readonly lexerClass: LexerClass,
-                private readonly parserClass: ParserClass) {
+        private readonly lexerClass: LexerClass,
+        private readonly parserClass: ParserClass) {
     }
 
     public toAst(f: ProjectFile): Promise<TreeNode> {
         return f.getContent()
             .then(content => {
-                logger.debug("Parsing file [%s] using ANTLR grammar, looking for production '%s'",
-                    f.path, this.rootName);
                 const inputStream = new ANTLRInputStream(content);
                 const lexer = new this.lexerClass(inputStream);
                 const tokenStream = new CommonTokenStream(lexer);

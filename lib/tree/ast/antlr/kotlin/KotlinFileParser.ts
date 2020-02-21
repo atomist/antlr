@@ -1,5 +1,5 @@
-import { FileParser } from "@atomist/automation-client";
 import { AntlrFileParser } from "../AntlrFileParser";
+import { FileParser } from "../../../../FileParser";
 import { KotlinLexer } from "./antlr-gen/KotlinLexer";
 import { KotlinParser } from "./antlr-gen/KotlinParser";
 

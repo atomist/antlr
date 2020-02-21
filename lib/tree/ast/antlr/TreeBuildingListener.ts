@@ -1,6 +1,5 @@
 import * as _ from "lodash";
 
-import { logger } from "@atomist/automation-client";
 import { TreeNode } from "@atomist/tree-path";
 import { ParserRuleContext } from "antlr4ts";
 import {
@@ -12,7 +11,7 @@ import {
 /* tslint:disable:max-classes-per-file */
 
 /**
- * Build Atomist automation-client-ts TreeNode from an ANTLR parse
+ * Build Atomist TreeNode from an ANTLR parse
  */
 export class TreeBuildingListener implements ParseTreeListener {
 
@@ -47,7 +46,7 @@ export class TreeBuildingListener implements ParseTreeListener {
     }
 
     public visitErrorNode(node: ErrorNode) {
-        logger.warn("visitErrorNode: %s:[%s]", node.symbol, node.text);
+        console.log("visitErrorNode: %s:[%s]", node.symbol, node.text);
     }
 
     public enterEveryRule(ctx: ParserRuleContext) {
