@@ -8,7 +8,6 @@ import {
     stringify,
     TreeNode,
 } from "@atomist/tree-path";
-import { FileParser, ProjectFile } from "../../../FileParser";
 import {
     ANTLRInputStream,
     CommonTokenStream,
@@ -17,6 +16,7 @@ import {
     TokenStream,
 } from "antlr4ts";
 import * as _ from "lodash";
+import { FileParser, ProjectFile } from "../../../FileParser";
 import { TreeBuildingListener } from "./TreeBuildingListener";
 
 /**
@@ -58,8 +58,8 @@ export class AntlrFileParser implements FileParser {
      * @param parserClass parser class
      */
     constructor(public rootName: string,
-        private readonly lexerClass: LexerClass,
-        private readonly parserClass: ParserClass) {
+                private readonly lexerClass: LexerClass,
+                private readonly parserClass: ParserClass) {
     }
 
     public toAst(f: ProjectFile): Promise<TreeNode> {

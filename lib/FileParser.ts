@@ -17,6 +17,6 @@ export interface FileParser {
 
 export interface ProjectFile {
 
-    getContent(): Promise<string>
+    getContent(): Promise<string>;
 
 }
