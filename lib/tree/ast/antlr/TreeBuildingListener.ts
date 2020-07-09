@@ -1,13 +1,24 @@
-import * as _ from "lodash";
+/*
+ * Copyright © 2020 Atomist, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import { logger } from "@atomist/automation-client";
+import { logger } from "@atomist/automation-client/lib/util/logger";
 import { TreeNode } from "@atomist/tree-path";
 import { ParserRuleContext } from "antlr4ts";
-import {
-    ErrorNode,
-    ParseTreeListener,
-    TerminalNode,
-} from "antlr4ts/tree";
+import { ErrorNode, ParseTreeListener, TerminalNode } from "antlr4ts/tree";
+import * as _ from "lodash";
 
 /* tslint:disable:max-classes-per-file */
 
@@ -15,7 +26,6 @@ import {
  * Build Atomist automation-client-ts TreeNode from an ANTLR parse
  */
 export class TreeBuildingListener implements ParseTreeListener {
-
     private readonly nodeStack: MutableTreeNode[] = [];
 
     /**
@@ -23,7 +33,10 @@ export class TreeBuildingListener implements ParseTreeListener {
      * @param {(i: number) => string} lookupRule lookup rule. grammar-specific
      * @param {(i: number) => string} lookupToken lookup token. lexer[specific
      */
-    constructor(private readonly lookupRule: (i: number) => string, private readonly lookupToken: (i: number) => string) { }
+    constructor(
+        private readonly lookupRule: (i: number) => string,
+        private readonly lookupToken: (i: number) => string,
+    ) {}
 
     /**
      * Make the root node (from top level production) available after parsing
@@ -71,15 +84,12 @@ export class TreeBuildingListener implements ParseTreeListener {
     private get currentNode() {
         return _.last(this.nodeStack);
     }
-
 }
 
 class MutableTreeNode implements TreeNode {
-
     public $children: TreeNode[];
 
-    constructor(public $name: string, public $offset: number) {
-    }
+    constructor(public $name: string, public $offset: number) {}
 
     public addChild(child: TreeNode) {
         if (!this.$children) {

@@ -26,6 +26,7 @@
   "dependencies": {
     "@jessitron/antlr4ts": "0.4.0-dev",
     "@types/lodash": "^4.14.118",
+    "@types/node": "^14.0.20",
     "antlr4ts": "^0.5.0-alpha.1",
     "lodash": "^4.17.10"
   },
@@ -34,28 +35,28 @@
     "@atomist/tree-path": ">=1.0.1"
   },
   "devDependencies": {
-    "@atomist/automation-client": "^1.3.0",
+    "@atomist/automation-client": "2.0.0-master.20200701135449",
     "@atomist/tree-path": "^1.0.1",
     "@types/mocha": "^5.2.5",
     "@types/power-assert": "^1.5.0",
     "antlr4ts-cli": "^0.4.0-alpha.4",
-    "espower-typescript": "^9.0.0",
+    "espower-typescript": "^9.0.2",
     "mocha": "^5.2.0",
     "npm-run-all": "^4.1.5",
     "power-assert": "^1.6.0",
     "rimraf": "^2.6.2",
     "supervisor": "^0.12.0",
-    "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
-    "typedoc": "^0.13.0",
-    "typescript": "^3.1.6"
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typedoc": "^0.17.8",
+    "typescript": "^3.9.6"
   },
   "directories": {
     "test": "test"
   },
   "scripts": {
     "autotest": "supervisor --watch index.ts,lib,test --extensions ts --no-restart-on exit --quiet --exec npm -- test",
-    "build": "run-s compile test lint doc",
+    "build": "run-s clean compile test lint doc",
     "clean": "run-p clean:compile clean:doc clean:run",
     "clean:compile": "rimraf git-info.json \"index.{d.ts,js{,.map}}\" \"{lib,test}/**/*.{d.ts,js{,.map}}\" lib/typings/types.ts",
     "clean:dist": "run-s clean clean:npm",
