@@ -28,7 +28,7 @@
     "@types/lodash": "^4.14.118",
     "@types/node": "^14.0.20",
     "antlr4ts": "^0.5.0-alpha.1",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.19"
   },
   "peerDependencies": {
     "@atomist/automation-client": ">=1.0.1",
@@ -41,7 +41,7 @@
     "@types/power-assert": "^1.5.0",
     "antlr4ts-cli": "^0.4.0-alpha.4",
     "espower-typescript": "^9.0.2",
-    "mocha": "^5.2.0",
+    "mocha": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "power-assert": "^1.6.0",
     "rimraf": "^2.6.2",
